@@ -1,0 +1,263 @@
+/* SEÇÃO CAROUSEL INFO-BIKE */
+@media (min-width: 1280px) {
+
+    .carousel-info-bike {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .carousel-info-bike img {
+        width: 100%;
+    }
+
+    .artigo-info-bike {
+        position: absolute;
+        top: 10px;
+    }
+
+    .fundo-info-bike {
+        background-color: var(--grafite-diluido);
+        color: var(--off-white);
+        width: 450px;
+        height: 410px;
+        padding: 30px;
+        margin: 80px;
+        border-radius: 20px;
+        box-shadow: 0px 4px 8px var(--shadow);
+    }
+
+    .fundo-info-bike a {
+        position: absolute;
+        top: 410px;
+    }
+
+    .artigo-info-bike h2 {
+        padding-bottom: 20px;
+        text-transform: uppercase;
+    }
+
+    .artigo-info-bike p {
+        text-align: justify;
+
+    }
+
+    .artigo-info-bike .btn {
+        display: block;
+        text-align: center;
+        margin: 10px 0 250px 205px;
+
+    }
+
+    /* SECAO CARDS */
+    .titulo-cards {
+        color: var(--laranja);
+        text-transform: uppercase;
+        text-align: center;
+        margin-top: 40px;
+    }
+
+    /* SEÇÃO CAROUSEL BIKES */
+    .carousel-bikes {
+        margin: 20px 0;
+    }
+
+    .div-img-bike {
+        min-width: 400px;
+        height: 500px;
+        background-color: var(--branco);
+        border-radius: 20px;
+        box-shadow: 0px 4px 8px var(--shadow);
+        padding: 20px;
+        margin: 20px;
+        color: var(--preto);
+    }
+
+    .img-bike {
+        width: 350px;
+        margin: 10px auto;
+    }
+
+    .secao-valor img,
+    .secao-valor p {
+        display: inline-block;
+        vertical-align: middle;
+        padding: 5px;
+    }
+
+    .icone-cor {
+        width: 24px;
+    }
+
+    /* SEÇÃO CAROUSEL ROUPAS */
+    .carousel-roupas {
+        margin: 20px 0;
+        color: #1052a8;
+    }
+
+    .div-img-roupas {
+        min-width: 300px;
+        height: 330px;
+        background-color: var(--branco);
+        border-radius: 20px;
+        box-shadow: 0px 4px 8px var(--shadow);
+        padding: 20px;
+        margin: 20px;
+        color: var(--preto);
+    }
+
+    .img-roupas {
+        width: 200px;
+        margin: 10px auto;
+    }
+
+
+    /* CSS SECAO CARDS COM ESTILO DE BIKES */
+    .estilo-bikes {
+        background-color: var(--grafite);
+        border-radius: 20px;
+        margin: 5px 0;
+        padding: 5px;
+        text-align: center;
+        box-shadow: 0px 4px 8px var(--shadow);
+    }
+
+    .estilo-bikes h2 {
+        text-transform: uppercase;
+        color: var(--laranja);
+        margin-bottom: 10px;
+    }
+
+    .container-estilo-bikes {
+        position: relative;
+        display: inline-block;
+    }
+
+    .bike-esquerda,
+    .bike-direita {
+        display: inline-block;
+    }
+
+    .estilo-bikes img {
+        width: 600px;
+        margin: 15px;
+        border-radius: 20px;
+        display: block;
+        height: auto;
+        box-shadow: 0px 4px 8px var(--shadow);
+    }
+
+    .estilo-bikes .faixa-estrada,
+    .estilo-bikes .faixa-urbana,
+    .estilo-bikes .faixa-mtb,
+    .estilo-bikes .faixa-eletrica {
+        font-family: var(--fonte-principal);
+        position: absolute;
+        width: 600px;
+        background-color: var(--laranja);
+        border-radius: 0 0 20px 20px;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    .estilo-bikes .faixa-estrada {
+        top: 416px;
+        left: 15px;
+    }
+
+    .estilo-bikes .faixa-urbana {
+        top: 830px;
+        left: 15px;
+    }
+
+    .estilo-bikes .faixa-mtb {
+        top: 416px;
+        left: 649px;
+    }
+
+    .estilo-bikes .faixa-eletrica {
+        top: 830px;
+        left: 650px;
+    }
+
+
+    /* CSS SECAO VIDEO */
+
+    .secao-video h2 {
+        color: var(--laranja);
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .video-container {
+        text-align: center;
+    }
+
+    /* CSS SECAO CONTATOS */
+    .secao-contato {
+        background-color: var(--laranja);
+        border-radius:50px 50px 0 0;
+        text-align: center;
+        padding: 35px;
+        margin-top: 35px;
+    }
+
+    .dados-contatos {
+        text-align: start;
+        vertical-align: top;
+        
+    }
+
+    .horario-atendimento {
+        margin-bottom: 25px;
+    }
+
+    .secao-contato h2 {
+        text-transform: uppercase;
+    }
+
+    .secao-contato p {
+        font-weight: 600;
+    }
+
+    .img-contato,
+    .dados-contatos {
+        display: inline-block;
+        width: 45%;
+        margin: 15px;
+    }
+
+    .img-loja {
+        width: 100%;
+        height: 80%;
+        border-radius: 20px;
+        box-shadow: 0px 4px 8px var(--shadow);
+    }
+
+
+    .dados-contatos p,
+    .dados-contatos img {
+        display: inline-block;
+        vertical-align: middle;
+        padding: 5px;
+    }
+
+    .icone-secao-contato {
+        width: 24px;
+    }
+
+    span {
+        display: block;
+    }
+
+    .dados-contatos ion-icon {
+        vertical-align: middle;
+    }
+
+    iframe {
+        border-radius: 20px;
+        box-shadow: 0px 4px 8px var(--shadow);
+    }
+
+}

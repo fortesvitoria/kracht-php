@@ -1,0 +1,62 @@
+main {
+    background-image: url('../img/img-cadastro.jpg');
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat;
+    text-align: center;
+}
+
+form {
+    width: 60%;
+    margin: 100px;
+    padding: 50px 0; 
+}
+
+.dados-pessoais,
+.div-endereco{
+    display: inline-block;
+    width: 45%;
+    margin: 30px 10px;
+    text-align: center;
+}
+
+.dados-pessoais input,
+.div-endereco input,
+.div-endereco select,
+.dados-pessoais label,
+.div-endereco label {
+    display: inline-block;
+    width: 70%;
+    margin: 5px 10px;
+}
+
+.div-btn {
+    display: inline-block;
+    width: 80%;
+}
+
+
+
+.alinha-esquerda {
+    display: inline-block;
+    text-align: start;
+    width: 49%;
+}
+
+.alinha-direita {
+    display: inline-block;
+    text-align: end;
+    width: 49%;
+}
+
+form a {
+    display: block;
+    text-align: start;
+}
+
+
+.div-btn label,
+.div-btn p,
+.div-btn a {
+    margin: 5px auto;
+}

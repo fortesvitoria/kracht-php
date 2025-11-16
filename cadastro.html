@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kracht - Cadastrar</title>
+    <!-- css geral - header, footer, estilos e cores base -->
+    <link rel="stylesheet" href="src/CSS/style.css">
+    <!-- css especifico da página login.html -->
+    <link rel="stylesheet" href="src/CSS/cadastro.css">
+    <!-- icone da aba -->
+    <link rel="shortcut icon" href="src/img/kracht-icone.png" type="image/x-icon">
+</head>
+
+<body>
+    <div class="div-principal">
+        <!-- INICIO CABECALHO -->
+        <header>
+            <!-- INICIO NAV -->
+            <nav class="menu">
+                <!-- LOGO -->
+                <div class="logo-div">
+                    <a href="index.html"><img src="src/img/kracht-icone.png"
+                            alt="icone de um homem pedalando com o fundo laranja" class="icone-logo">
+                        <h1>Kracht</h1>
+                    </a>
+                </div>
+                <!-- LINKS -->
+                <ul class="lista-links">
+                    <li class="link-li"><a href="#">Bicicletas</a></li>
+                    <li class="link-li"><a href="#">Roupas</a></li>
+                    <li class="link-li"><a href="#">Acessórios</a></li>
+                    <li class="link-li"><a href="#">Sobre Nós</a></li>
+                    <li class="link-li"><a href="#">Contato</a></li>
+                </ul>
+                <!-- ICONES -->
+                <div class="icones-nav">
+                    <a href="login.html"><ion-icon name="search" class="icone-link"></ion-icon></a>
+                    <a href="login.html"><ion-icon name="person-circle-outline" class="icone-link"></ion-icon></a>
+                </div>
+            </nav>
+            <!-- FIM NAV -->
+        </header>
+        <!-- FIM CABECALHO -->
+
+        <!-- INICIO SECAO PRINCIPAL -->
+        <main>
+            <!-- INICIO FORMULARIO -->
+            <form action="envia-form-cadastro.php" method="POST">
+                <h2>Criar uma conta</h2>
+                <h3>Novos Visitantes</h3>
+
+                <!-- SEÇÃO DADOS PESSOAIS -->
+                <div class="dados-pessoais">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" class="input-entrada" required autofocus>
+
+                    <label for="sobrenome">Sobrenome:</label>
+                    <input type="text" id="sobrenome" name="sobrenome" class="input-entrada" required>
+
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" class="input-entrada" placeholder="seuemail@email.com"
+                        required>
+
+                    <label for="telefone">Telefone:</label>
+                    <input type="number" id="telefone" name="telefone" class="input-entrada"
+                        placeholder="(51) 3333-3333">
+
+                    <label for="celular">Celular:</label>
+                    <input type="number" id="celular" name="celular" class="input-entrada" placeholder="(51) 99999-9999"
+                        required>
+
+                    <label for="senha">Senha:</label>
+                    <input type="password" id="senha" name="senha" class="input-entrada" required>
+
+                    <label for="confirma-senha">Confirmar Senha:</label>
+                    <input type="password" id="confirma-senha" name="confirma-senha" class="input-entrada" required>
+                </div>
+                <!-- SEÇÃO ENDEREÇO -->
+                <div class="div-endereco">
+                    <label for="cep">CEP:</label>
+                    <input type="number" id="cep" name="cep" class="input-entrada" required>
+
+                    <label for="logradouro">Logradouro:</label>
+                    <input type="text" id="logradouro" name="logradouro" class="input-entrada" required>
+
+                    <label for="numero">Número:</label>
+                    <input type="number" id="numero" name="numero" class="input-entrada" required>
+
+                    <label for="complemento">Complemento:</label>
+                    <input type="text" id="complemento" name="complemento" class="input-entrada" required>
+
+                    <label for="bairro">Bairro:</label>
+                    <input type="text" id="bairro" name="bairro" class="input-entrada" required>
+
+                    <label for="cidade">Cidade:</label>
+                    <input type="text" id="cidade" name="cidade" class="input-entrada" required>
+
+                    <label for="estados">Escolha um estado:</label>
+
+                    <select name="estados" id="estados">
+                        <option value="AC">Selecione seu estado</option>
+                        <option value="AC">Acre (AC)</option>
+                        <option value="AL">Alagoas (AL)</option>
+                        <option value="AP">Amapá (AP)</option>
+                        <option value="AM">Amazonas (AM)</option>
+                        <option value="BA">Bahia (BA)</option>
+                        <option value="CE">Ceará (CE)</option>
+                        <option value="DF">Distrito Federal (DF)</option>
+                        <option value="ES">Espírito Santo (ES)</option>
+                        <option value="GO">Goiás (GO)</option>
+                        <option value="MA">Maranhão (MA)</option>
+                        <option value="MT">Mato Grosso (MT)</option>
+                        <option value="MS">Mato Grosso do Sul (MS)</option>
+                        <option value="MG">Minas Gerais (MG)</option>
+                        <option value="PA">Pará (PA)</option>
+                        <option value="PB">Paraíba (PB)</option>
+                        <option value="PR">Paraná (PR)</option>
+                        <option value="PE">Pernambuco (PE)</option>
+                        <option value="PI">Piauí (PI)</option>
+                        <option value="RJ">Rio de Janeiro (RJ)</option>
+                        <option value="RN">Rio Grande do Norte (RN)</option>
+                        <option value="RS">Rio Grande do Sul (RS)</option>
+                        <option value="RO">Rondônia (RO)</option>
+                        <option value="RR">Roraima (RR)</option>
+                        <option value="SC">Santa Catarina (SC)</option>
+                        <option value="SP">São Paulo (SP)</option>
+                        <option value="SE">Sergipe (SE)</option>
+                        <option value="TO">Tocantins (TO)</option>
+                    </select>
+                </div>
+
+                <!-- SEÇÃO BOTOES -->
+                <div class="div-btn">
+                    <label>
+                        <input type="checkbox" name="novidades" value="novidades">
+                        Quero receber novidades no meu e-mail
+                    </label>
+                    <a href="#">Por favor, revise nosso Política de privacidade</a>
+
+                    <label>
+                        <input type="checkbox" name="aceito-termos" value="aceito-termos">
+                        Li e aceito a política de privacidade
+                    </label>
+
+                    <p>Já possui cadastro?</p>
+                    <div class="alinha-esquerda">
+                        <a href="login.html" class="btn-secundario btn">Login</a>
+                    </div>
+                    <div class="alinha-direita">
+                        <button type="submit" class="btn-ativo btn">Cadastrar</button>
+                    </div>
+                </div>
+            </form>
+            <!-- FIM FORMULARIO -->
+        </main>
+        <!-- FIM SECAO PRINCIPAL -->
+
+        <!-- INICIO RODAPÉ -->
+        <footer>
+            <!-- SEÇÃO SUPERIOR DO FOOTER -->
+            <section class="secao-superior-footer">
+                <!-- INICIO SEÇÃO LOGO E REDES -->
+                <div class="div-logo-rodape">
+                    <!-- LOGO -->
+                    <div class="logo-div">
+                        <a href="#"><img src="src/img/kracht-icone.png"
+                                alt="icone de um homem pedalando com o fundo laranja" class="icone-logo">
+                            <h2>Kracht</h2>
+                        </a>
+                    </div>
+                    <!-- ICONES -->
+                    <div class="icones-redes">
+                        <ul class="icone-links-ul">
+                            <li class="icone-links-li">
+                                <a href="https://github.com/fortesvitoria/kracht">
+                                    <ion-icon class="icone-link" name="logo-github"></ion-icon>
+                                </a>
+                            </li>
+                            <li class="icone-links-li">
+                                <a href="https://facebook.com">
+                                    <ion-icon class="icone-link" name="logo-facebook"></ion-icon>
+                                </a>
+                            </li>
+                            <li class="icone-links-li">
+                                <a href="https://instagram.com">
+                                    <ion-icon class="icone-link" name="logo-instagram"></ion-icon>
+                                </a>
+                            </li>
+                            <li class="icone-links-li">
+                                <a href="https://youtube.com">
+                                    <ion-icon class="icone-link" name="logo-youtube"></ion-icon>
+                                </a>
+                            </li>
+                            <li class="icone-links-li">
+                                <a href="https://tiktok.com">
+                                    <ion-icon class="icone-link" name="logo-tiktok"></ion-icon>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- FIM SEÇÃO LOGO E REDES -->
+                <!-- INICIO SEÇÃO LINKS-->
+                <div class="links-footer">
+                    <!-- COLUNA 1 -->
+                    <ul class="coluna-links">
+                        <li>
+                            <p class="titulo-links">Loja</p>
+                        </li>
+                        <li class="link-li"><a class="link-footer">Bicicletas de estrada</a></li>
+                        <li class="link-li"><a class="link-footer">Bicicletas de montanha</a></li>
+                        <li class="link-li"><a class="link-footer">Bicicletas híbridas</a></li>
+                        <li class="link-li"><a class="link-footer">Bicicletas masculinas</a></li>
+                        <li class="link-li"><a class="link-footer">Bicicletas femininas</a></li>
+                        <li class="link-li"><a class="link-footer">Equipamentos</a></li>
+                        <li class="link-li"><a class="link-footer">Roupas</a></li>
+                        <li class="link-li"><a class="link-footer">Acessórios</a></li>
+                        <li class="link-li"><a class="link-footer">Encontre uma loja </a></li>
+                    </ul>
+                    <!-- COLUNA 2 -->
+                    <ul class="coluna-links">
+                        <li>
+                            <p class="titulo-links">Suporte</p>
+                        </li>
+                        <li class="link-li"><a class="link-footer">Atendimento ao cliente</a></li>
+                        <li class="link-li"><a class="link-footer">Entre em contato conosco</a></li>
+                        <li class="link-li"><a class="link-footer">Inscrição para a newsletter</a></li>
+                        <li class="link-li"><a class="link-footer">Garantia</a></li>
+                        <li class="link-li"><a class="link-footer">Como comprar com segurança</a></li>
+                        <li class="link-li"><a class="link-footer">Manuais e guias do usuário</a></li>
+                        <li class="link-li"><a class="link-footer">Suporte ao produto</a></li>
+                        <li class="link-li"><a class="link-footer">Guias de tamanhos e ajustes de roupas </a></li>
+                    </ul>
+                    <!-- COLUNA 3 -->
+                    <ul class="coluna-links">
+                        <li>
+                            <p class="titulo-links">Privacidade e termos</p>
+                        </li>
+                        <li class="link-li"><a class="link-footer">Declaração de Privacidade</a></li>
+                        <li class="link-li"><a class="link-footer">Termos e Condições</a></li>
+                        <li class="link-li"><a class="link-footer">Notificação de Segurança</a></li>
+                        <li class="link-li"><a class="link-footer">Política de Cookies</a></li>
+                        <li class="link-li"><a class="link-footer"> Relatório de Transparência Salarial</a></li>
+                    </ul>
+                </div>
+                <!-- FIM SEÇÃO LINKS-->
+            </section>
+            <hr>
+            <!-- SEÇÃO INFERIOR DO FOOTER -->
+            <div class="secao-inferior-footer">
+                <div class="direitos-autorais">
+                    <p>© Vitória Fortes 2024</p>
+                </div>
+                <div class="idioma">
+                    <a href="#">
+                        <p>Português/BR</p>
+                        <img src="src/img/icone-brasil.png" alt="icone da bandeira do Brasil" class="icone-idioma">
+                    </a>
+                </div>
+            </div>
+        </footer>
+        <!-- FIM RODAPÉ -->
+    </div>
+        <!-- SCRIPT IONICONS -->
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

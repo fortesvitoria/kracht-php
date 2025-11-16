@@ -1,0 +1,433 @@
+/* importa fonte principal GOLDMAN */
+@import url('https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&display=swap');
+
+/* importa fonte secundaria OPEN SANS*/
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+
+/* cria variáveis */
+:root {
+    --fonte-principal: "Goldman", sans-serif;
+    --fonte-secundaria: "Open Sans", sans-serif;
+
+    --preto: #000;
+    --grafite-escuro: #1a1818;
+    --grafite: #2C2727;
+    --grafite-diluido: #2c2727d3;
+    --branco: #FFF;
+    --off-white: #F1F1F1;
+    --laranja-escuro: #ff5100;
+    --laranja: #FF6000;
+    --laranja-diluido: #ff620058;
+    --shadow: rgba(0, 0, 0, 0.226);
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fonte-secundaria);
+    background-color: var(--off-white);
+    color: var(--preto);
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--fonte-principal);
+}
+
+h3 {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+a {
+    color: var(--branco);
+    font-size: 16px;
+    text-decoration: none;
+}
+
+
+
+/* CABEÇALHO */
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--grafite);
+    position: fixed;
+    width: 100vw;
+    padding: 15px 0;
+    z-index: 10;
+}
+
+
+header li {
+    padding: 0 10px;
+}
+
+
+/* CABEÇALHO E RODAPÉ*/
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icone-logo {
+    width: 56px;
+}
+
+h1,
+footer h2 {
+    color: var(--branco);
+    font-size: 36px;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 0 15px;
+
+}
+
+.logo-link a:hover {
+    color: var(--laranja);
+}
+
+
+.link-li a {
+    border-bottom: solid 2px transparent;
+}
+
+.link-li a:hover {
+    border-bottom: solid 2px var(--laranja);
+}
+
+
+.icone {
+    width: 32px;
+}
+
+
+/* ----------------- NAV DROP DOWN ----------------- */
+
+.links-nav-mobile {
+    display: flex;
+    flex-direction: column;
+}
+
+.conteudo-dropdown {
+    position: absolute;
+    background-color: var(--grafite);
+    min-width: 200px;
+    height: 100vh;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-20px);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, visibility 0.3s;
+    z-index: 1;
+    border-radius: 0 20px 20px 0;
+}
+
+.botao-dropdown {
+    background-color: var(--dark-grey);
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    margin: 15px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline;
+}
+
+.conteudo-dropdown a {
+    padding: 10px 0;
+    display: block;
+}
+
+.conteudo-dropdown .logo {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 5px;
+    padding: 10px;
+
+}
+
+.conteudo-dropdown .icone-logo {
+    width: 32px;
+}
+
+.mostrar {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+
+.links-nav-desktop {
+    display: none;
+}
+
+ /* FORMULÁRIOS */
+
+    form {
+        color: var(--branco);
+        width: 90%;
+        background-color: var(--grafite-diluido);
+        border-radius: 15px;
+        box-shadow: 0px 4px 6px var(--shadow);
+        text-align: center;
+        padding: 25px 0;
+    }
+
+    form h2 {
+        font-size: 28px;
+        text-transform: uppercase;
+    }
+
+    label,
+    .input-entrada,
+    form p,
+    select {
+        display: block;
+        text-align: start;
+        margin: 15px 15px;
+    }
+
+
+ /* INPUTS */
+    .input-entrada,
+    select {
+        font-family: var(--fonte-secundaria);
+        padding: 8px 8px;
+        border-radius: 10px;
+    }
+
+    input,
+    select {
+        width: 80%;
+        border: 2px solid var(--laranja);
+        box-shadow: 0px 4px 8px var(--shadow);
+    }
+
+    select {
+        text-align: start;
+        /* width: 400px; */
+    }
+
+    input:focus {
+        outline: 2px solid var(--off-white);
+        outline-offset: 2px;
+    }
+
+    /* BOTOES */
+    .btn {
+        cursor: pointer;
+        font-family: var(--fonte-secundaria);
+        font-size: 16px;
+        font-weight: 500;
+        padding: 6px 0;
+        width: 45%;
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px var(--shadow);
+    }
+
+    .btn-ativo {
+        background-color: var(--laranja);
+        color: var(--branco);
+        border: 2px solid var(--laranja-escuro);
+    }
+
+    .btn-ativo:hover {
+        background-color: var(--laranja-escuro);
+    }
+
+    .btn-secundario {
+        display: inline-block;
+        background-color: var(--grafite-diluido);
+        color: var(--laranja);
+        border: 2px solid var(--laranja);
+        text-align: center;
+    }
+
+    .btn-secundario {
+        background-color: var(--grafite);
+        color: var(--laranja);
+        border: 2px solid var(--laranja);
+    }
+
+    .btn-secundario:hover {
+        background-color: var(--grafite-escuro);
+    }
+
+
+/* RODAPÉ */
+.hr {
+    border-bottom: 2px solid var(--laranja-diluido);
+}
+
+footer {
+    background-color: var(--grafite);
+    width: 100%;
+    padding: 30px 0 0;
+    text-align: center;
+    position: relative;
+    z-index: 5;
+}
+
+.titulo-links {
+    color: var(--branco);
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 10px 0;
+}
+
+.icone-links-ul {
+    display: flex;
+    justify-content: center;
+}
+
+.icone-link {
+    fill: var(--laranja);
+    font-size: 32px;
+}
+
+.icone-link:hover {
+    fill: var(--laranja-escuro);
+}
+
+.icone-links-li {
+    margin: 10px 0;
+    padding: 0 8px;
+}
+
+footer .logo-div {
+    width: 100%;
+}
+
+footer ul {
+    list-style: none;
+}
+
+footer li {
+    text-align: start;
+    padding: 0 10px;
+}
+
+.secao-superior-footer {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.coluna-links {
+    margin: 25px 20px;
+    text-align: start;
+}
+
+li .link-footer {
+    line-height: 25px;
+}
+
+.secao-inferior-footer {
+    width: 100%;
+    vertical-align: middle;
+    padding: 15px;
+    font-weight: 600;
+}
+
+.secao-inferior-footer p,
+.direitos-autorais,
+.idioma,
+.icone-idioma {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.coluna-links a {
+    cursor: pointer;
+}
+
+.coluna-links a,
+.secao-inferior-footer p {
+    color: var(--branco);
+    font-size: 14px;
+}
+
+.secao-inferior-footer img {
+    width: 32px;
+    padding-left: 15px;
+}
+
+.direitos-autorais {
+    width: 46%;
+    text-align: start;
+}
+
+.idioma,
+.icone-idioma {
+    text-transform: uppercase;
+    width: 46%;
+    text-align: end;
+}
+
+
+
+/* ----------------- MEDIA QUERY PARA TELAS MAIORES (Ex: > 768px) ----------------- */
+
+@media screen and (min-width: 860px) {
+    /* CABECALHO */
+
+    .dropdown {
+        display: none;
+    }
+
+
+    .links-nav-desktop {
+
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin-right: 20px;
+    }
+
+    .links-nav-desktop .link-li {
+        margin: 0 5px;
+        list-style: none;
+    }
+
+
+    .nav {
+        padding: 15px 20px;
+    }
+
+
+
+
+    /* FOOTER */
+    .secao-superior-footer {
+        display: flex;
+        flex-direction: row;
+
+        justify-content: space-around;
+
+    }
+
+    .links-footer {
+        display: flex;
+        flex-direction: row;
+    }
+}
