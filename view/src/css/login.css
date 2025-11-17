@@ -22,14 +22,13 @@ main {
     text-align: left;
 }
 
-.links-login  a {
+.links-login a {
     width: 90%;
     text-align: left;
     display: block;
 }
 
-.links-login 
-.check-box {
+.links-login .check-box {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -38,15 +37,13 @@ main {
     margin-left: 15px;
 }
 
-.links-login 
-.check-box input{
+.links-login .check-box input {
     width: auto;
     margin-right: 5px;
 }
 
 .btn {
-
-    width: 40%;
+    width: 90%;
     margin: 15px 15px;
 }
 
@@ -61,5 +58,9 @@ main {
 
     form {
         width: 500px;
+    }
+
+    .btn {
+        width: 40%;
     }
 }

@@ -1,0 +1,51 @@
+main {
+    background: var(--grafite-diluido);
+    min-height: 90vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 96px;
+
+}
+
+form {
+    margin: 0 25px;
+}
+
+.links-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.links-login label {
+    width: 90%;
+    text-align: left;
+}
+
+.links-login  a {
+    width: 90%;
+    text-align: left;
+    display: block;
+}
+
+input {
+    background-color: var(--branco);
+}
+
+.btn {
+    width: 90%;
+    margin: 15px 15px;
+}
+
+/* ----------------- MEDIA QUERY PARA TELAS MAIORES (Ex: > 768px) ----------------- */
+
+@media screen and (min-width: 860px) {
+.btn {
+    width: 40%;
+}
+
+form {
+        width: 500px;
+    }
+}

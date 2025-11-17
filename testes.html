@@ -1,29 +1,11 @@
+            <!-- enctype para realizar Uploads -->
+            <form method="post" enctype="multipart/form-data" action="app.php">
+<label for="arquivo">Faça o upload de seus arquivos:</label>
+                <div class="itens-upload">
+                    
+                <input type="file" name="arquivo[]" id="arquivo" required multiple>
 
+                <button name="enviar">Enviar Arquivo</button>
+            </div>
 
-        <!-- INICIO SECAO PRINCIPAL -->
-        <main class="login">
-            <!-- INICIO FORMULARIO -->
-            <form action="envia-form-login.php" method="POST">
-                <div>
-                    <h2>Fazer Login</h2>
-                    <h3>Visitantes Frequentes</h3>
-                </div>
-                <div class="links-login">
-                    <label for="email">E-mail:</label>
-                    <input type="email" id="email" name="email" class="input-entrada" placeholder="seuemail@email.com"
-                        required autofocus>
-                    <label for="senha">Senha:</label>
-                    <input type="password" id="senha" name="senha" class="input-entrada" required>
-                    <label>
-                        <input type="checkbox" name="lembrar-senha" value="lembrar-senha">
-                        Lembrar-me
-                    </label>
-                    <a href="#">Esqueceu sua senha?</a>
-                </div>
-                <div class="btn-login">
-                    <a href="cadastro.html" class="btn-secundario btn">Cadastrar</a>
-                    <button type="submit" class="btn-ativo btn">Enviar</button>
-                </div>
             </form>
-            <!-- FIM FORMULARIO -->
-        </main>
