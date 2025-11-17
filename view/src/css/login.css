@@ -18,7 +18,30 @@ main {
 }
 
 .links-login label {
-    align-items: start;
+    width: 90%;
+    text-align: left;
+}
+
+.links-login  a {
+    width: 90%;
+    text-align: left;
+    display: block;
+}
+
+.links-login 
+.check-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 90%;
+    margin-left: 15px;
+}
+
+.links-login 
+.check-box input{
+    width: auto;
+    margin-right: 5px;
 }
 
 .btn {
@@ -33,7 +56,7 @@ main {
     main {
         background-position: center;
         justify-content: flex-end;
-        padding-right: 50px;
+        padding-right: 10%;
     }
 
     form {

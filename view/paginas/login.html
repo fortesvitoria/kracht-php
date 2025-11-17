@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kracht - Login</title>
     <!-- css geral - header, footer, estilos e cores base -->
-    <link rel="stylesheet" href="src/CSS/style.css">
+    <link rel="stylesheet" href="../src/css/style.css">
     <!-- css especifico da página login.html -->
-    <link rel="stylesheet" href="src/CSS/login.css">
+    <link rel="stylesheet" href="../src/CSS/login.css">
     <!-- icone da aba -->
-    <link rel="shortcut icon" href="src/img/kracht-icone.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../src/img/kracht-icone.png" type="image/x-icon">
 </head>
 
 <body>
@@ -21,7 +21,7 @@
             <nav class="nav">
                 <!-- MENU DROPDOWN TELAS MENORES -->
                 <div class="dropdown">
-                    <button id="meuBotao" class="botao-dropdown"><img class="icone" src="src/img/icone-menu.svg"
+                    <button id="meuBotao" class="botao-dropdown"><img class="icone" src="../src/img/icone-menu.svg"
                             alt="icone com tres bbarras laranja representando um menu"></button>
                     <div id="meuDropdown" class="conteudo-dropdown">
                         <!-- LINKS -->
@@ -47,6 +47,7 @@
                                 <ion-icon class="icone-link" name="log-in-outline"></ion-icon>Entrar
                             </a>
                 </div>
+                
                 <ul class="links-nav-desktop">
                     <li class="link-li"><a href="#">Bicicletas</a></li>
                     <li class="link-li"><a href="#">Roupas</a></li>
@@ -56,7 +57,7 @@
                 </ul>
                 <!-- LOGO -->
                 <div class="">
-                    <a href="index.html" class="logo"><img src="src/img/kracht-icone.png"
+                    <a href="index.html" class="logo"><img src="../src/img/kracht-icone.png"
                             alt="icone de um homem pedalando com o fundo laranja" class="icone-logo">
                         <h1>Kracht</h1>
                     </a>
@@ -69,25 +70,27 @@
                 <!-- INICIO SECAO PRINCIPAL -->
         <main class="login">
             <!-- INICIO FORMULARIO -->
-            <form action="envia-form-login.php" method="POST">
+            <form action="../../controller/login.php" method="POST">
                 <div>
                     <h2>Fazer Login</h2>
                 </div>
+
                 <div class="links-login">
                     <label for="email">E-mail:</label>
                     <input type="email" id="email" name="email" class="input-entrada" placeholder="seuemail@email.com"
                         required autofocus>
                     <label for="senha">Senha:</label>
                     <input type="password" id="senha" name="senha" class="input-entrada" required>
-                    <label>
+                    <label class="check-box">
                         <input type="checkbox" name="lembrar-senha" value="lembrar-senha">
                         Lembrar-me
                     </label>
                     <a href="#">Esqueceu sua senha?</a>
                 </div>
+                
                 <div class="btn-login">
                     <a href="cadastro.html" class="btn-secundario btn">Cadastrar</a>
-                    <button type="submit" class="btn-ativo btn">Enviar</button>
+                    <button type="submit" name="enviar" class="btn-ativo btn">Enviar</button>
                 </div>
             </form>
             <!-- FIM FORMULARIO -->
@@ -100,7 +103,7 @@
                 <div class="div-logo-rodape">
                     <!-- LOGO -->
                     <div class="">
-                        <a href="index.html" class="logo"><img src="src/img/kracht-icone.png"
+                        <a href="index.html" class="logo"><img src="../src/img/kracht-icone.png"
                                 alt="icone de um homem pedalando com o fundo laranja" class="icone-logo">
                             <h1>Kracht</h1>
                         </a>
@@ -192,7 +195,7 @@
                 <div class="idioma">
                     <a href="#">
                         <p>Português/BR</p>
-                        <img src="src/img/icone-brasil.png" alt="icone da bandeira do Brasil" class="icone-idioma">
+                        <img src="../src/img/icone-brasil.png" alt="icone da bandeira do Brasil" class="icone-idioma">
                     </a>
                 </div>
             </div>
@@ -202,7 +205,7 @@
     <!-- SCRIPT IONICONS -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script src="src/JS/dropDown.js"></script>
+    <script src="../src/JS/dropDown.js"></script>
 </body>
 
 </html>

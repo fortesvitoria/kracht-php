@@ -53,7 +53,6 @@ a {
 }
 
 
-
 /* CABEÇALHO */
 
 .nav {
@@ -414,8 +413,6 @@ li .link-footer {
     }
 
 
-
-
     /* FOOTER */
     .secao-superior-footer {
         display: flex;
@@ -428,5 +425,9 @@ li .link-footer {
     .links-footer {
         display: flex;
         flex-direction: row;
+    }
+
+    .coluna-links {
+        margin-top: 0;
     }
 }
