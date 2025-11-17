@@ -10,9 +10,9 @@
     <link rel="stylesheet" href="src/CSS/slick-theme.css">
 
     <!-- css geral - header, footer, estilos e cores base -->
-    <link rel="stylesheet" href="src/css/index.css">
+    <link rel="stylesheet" href="src/css/style.css">
     <!-- css especifico da página index.html -->
-    <link rel="stylesheet" href="src/css/login.css">
+    <link rel="stylesheet" href="src/css/index.css">
     <!-- icone da aba -->
     <link rel="shortcut icon" href="src/img/kracht-icone.png" type="image/x-icon">
 </head>
@@ -22,26 +22,49 @@
         <!-- INICIO CABECALHO -->
         <header>
             <!-- INICIO NAV -->
-            <nav class="menu">
-                <!-- LOGO -->
-                <div class="logo-div">
-                    <a href="paginas/login.html"><img src="src/img/kracht-icone.png"
-                            alt="icone de um homem pedalando com o fundo laranja" class="icone-logo">
-                        <h1>Kracht</h1>
+            <nav class="nav">
+                <!-- MENU DROPDOWN TELAS MENORES -->
+                <div class="dropdown">
+                    <button id="meuBotao" class="botao-dropdown"><img class="icone" src="src/img/icone-menu.svg"
+                            alt="icone com tres barras laranja representando um menu"></button>
+                    <div id="meuDropdown" class="conteudo-dropdown">
+                        <!-- LINKS -->
+                        <ul class="links-nav-mobile">
+                            <li class="link-li"><a href="#">Bicicletas</a></li>
+                            <li class="link-li"><a href="#">Roupas</a></li>
+                            <li class="link-li"><a href="#">Acessórios</a></li>
+                            <li class="link-li"><a href="#">Sobre Nós</a></li>
+                            <li class="link-li"><a href="#">Contato</a></li>
+                        </ul>
+
+                        <div class="logo-link">
+                            <a class="logo" href="#">
+                                <ion-icon class="icone-link" name="log-in-outline"></ion-icon>Entrar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MENU TELAS GRANDES -->
+                <div class="links-nav-desktop logo-link">
+                    <a class="logo" href="#">
+                        <ion-icon class="icone-link" name="log-in-outline"></ion-icon>Entrar
                     </a>
                 </div>
-                <!-- LINKS -->
-                <ul class="lista-links">
+
+                <ul class="links-nav-desktop">
                     <li class="link-li"><a href="#">Bicicletas</a></li>
                     <li class="link-li"><a href="#">Roupas</a></li>
                     <li class="link-li"><a href="#">Acessórios</a></li>
                     <li class="link-li"><a href="#">Sobre Nós</a></li>
-                    <li class="link-li"><a href="#secao-contato">Contato</a></li>
+                    <li class="link-li"><a href="#">Contato</a></li>
                 </ul>
-                <!-- ICONES -->
-                <div class="icones-nav">
-                    <a href="login.html"><ion-icon name="search" class="icone-link"></ion-icon></a>
-                    <a href="login.html"><ion-icon name="person-circle-outline" class="icone-link"></ion-icon></a>
+                <!-- LOGO -->
+                <div class="">
+                    <a href="index.html" class="logo"><img src="src/img/kracht-icone.png"
+                            alt="icone de um homem pedalando com o fundo laranja" class="icone-logo">
+                        <h1>Kracht</h1>
+                    </a>
                 </div>
             </nav>
             <!-- FIM NAV -->
@@ -115,272 +138,8 @@
                     </div>
                 </article>
             </section>
-            <!-- CAROUSEL DE CARDS COM BICICLETAS -->
-            <h2 class="titulo-cards">Bicicletas</h2>
-            <section class="carousel-bikes">
-                
-                <!-- CARD 0 -->
-                <a href="http://">
-                    <figure class="div-img-bike">
-                        <img src="src/img/img-bike-0.jpeg" alt="imagem bicicleta mtb verde" class="img-bike">
-                        <h3>Bicicleta SCOTT Spark 900 Ultimate TR</h3>
-                        <span class="secao-valor">
-                            <img src="src/img/icone-cor-verde-musgo-preto.svg"
-                                alt="icone circular metade verde, metade preto" class="icone-cor">
-                            <img src="src/img/icone-cor-laranja-preto.svg"
-                                alt="icone circular metade laranja, metade preto" class="icone-cor">
-                            <span>R$ 59.000</span>
-                        </span>
-                    </figure>
-                </a>
-                <!-- CARD 1 -->
-                <a href="http://">
-                    <figure class="div-img-bike">
-                        <img src="src/img/img-bike-1.jpeg" alt="imagem bicicleta mtb amarela" class="img-bike">
-                        <h3>Bicicleta SCOTT Roxter YZ 0.1</h3>
-                        <span class="secao-valor">
-                            <img src="src/img/icone-cor-amarelo-preto.svg"
-                                alt="icone circular metade amarela, metade preto" class="icone-cor">
-                            <img src="src/img/icone-cor-azul-claro-preto.svg"
-                                alt="icone circular metade azul, metade preto" class="icone-cor">
-                            <span>R$ 6.300</span>
-                        </span>
-                    </figure>
-                </a>
-                <!-- CARD 2 -->
-                <a href="http://">
-                    <figure class="div-img-bike">
-                        <img src="src/img/img-bike-2.jpeg" alt="imagem bicicleta estrada preta e azul" class="img-bike">
-                        <h3>Bicicleta SCOTT Plasma RC Ultimate</h3>
-                        <span class="secao-valor">
-                            <img src="src/img/icone-cor-azul-preto.svg" alt="icone circular metade azul, metade preto"
-                                class="icone-cor">
-                            <img src="src/img/icone-cor-roxo-preto.svg" alt="icone circular metade roxo, metade preto"
-                                class="icone-cor">
-                            <span>R$ 15.999</span>
-                        </span>
-                    </figure>
-                </a>
-                <!-- CARD 3 -->
-                <a href="http://">
-                    <figure class="div-img-bike">
-                        <img src="src/img/img-bike-3.jpeg" alt="imagem bicicleta gravel preta" class="img-bike">
-                        <h3>Bicicleta SCOTT Speedster 10</h3>
-                        <span class="secao-valor">
-                            <img src="src/img/icone-cor-marrom-preto.svg"
-                                alt="icone circular metade marrom, metade preto" class="icone-cor">
-                            <img src="src/img/icone-cor-vermelho-preto.svg"
-                                alt="icone circular metade vermelha, metade preto" class="icone-cor">
-                            <span>R$ 13.000</span>
-                        </span>
-                    </figure>
-                </a>
-                <!-- CARD 4 -->
-                <a href="http://">
-                    <figure class="div-img-bike">
-                        <img src="src/img/img-bike-4.jpeg" alt="imagem bicicleta urbana azul petroleo" class="img-bike">
-                        <h3>Bicicleta SCOTT Sub Cross 40 Lady</h3>
-                        <span class="secao-valor">
-                            <img src="src/img/icone-cor-azul-pretoleo-preto.svg"
-                                alt="icone circular metade azul, metade preto" class="icone-cor">
-                            <span>R$ 4.500</span>
-                        </span>
-                    </figure>
-                </a>
-                <!-- CARD 5 -->
-                <a href="http://">
-                    <figure class="div-img-bike">
-                        <img src="src/img/img-bike-5.jpeg" alt="imagem bicicleta gravel vermelha" class="img-bike">
-                        <h3>Bicicleta SCOTT Contessa Speedster Gravel 15</h3>
-                        <span class="secao-valor">
-                            <img src="src/img/icone-cor-vermelho-preto.svg"
-                                alt="icone circular metade vermelha, metade preto" class="icone-cor">
-                            <span>R$ 3.699</span>
-                        </span>
-                    </figure>
-                </a>
-            </section>
-            <!-- CAROUSEL DE CARDS COM ROUPAS E ACESSÓRIOS -->
-            <h2 class="titulo-cards">Roupas e acessórios</h2>
-            <section class="carousel-roupas">
-                <!-- CARD 0 -->
-                <a href="http://">
-                    <figure class="div-img-roupas">
-                        <img src="src/img/img-produto-0.jpg" alt="imagem camiseta feminina ciclismo azul"
-                            class="img-roupas">
-                        <h3>Merida CX Women</h3>
-                        <span class="secao-valor">
-                            <img src="src/img/icone-cor-azul-preto.svg" alt="icone circular metade azul, metade preto"
-                                class="icone-cor">
-                            <img src="src/img/icone-cor-laranja-preto.svg"
-                                alt="icone circular metade laranja, metade preto" class="icone-cor">
-                            <span>R$ 350</span>
-                        </span>
-                    </figure>
-                </a>
-                <!-- CARD 1 -->
-                <a href="http://">
-                    <figure class="div-img-roupas">
-                        <img src="src/img/img-produto-1.jpg" alt="imagem camiseta masculina ciclismo vermelha"
-                            class="img-roupas">
-                        <h3>Merida STRIPE Racecut</h3>
-                        <span class="secao-valor">
-                            <img src="src/img/icone-cor-vermelho-preto.svg"
-                                alt="icone circular metade vermelho, metade preto" class="icone-cor">
-                            <span>R$ 450</span>
-                        </span>
-                    </figure>
-                </a>
-                <!-- CARD 2 -->
-                <a href="http://">
-                    <figure class="div-img-roupas">
-                        <img src="src/img/img-produto-2.jpg" alt="imagem capacete ciclismo preta e azul"
-                            class="img-roupas">
-                        <h3>Merida CHARGER Helmet</h3>
-                        <span class="secao-valor">
-                            <img src="src/img/icone-cor-azul-claro-preto.svg"
-                                alt="icone circular metade azul, metade preto" class="icone-cor">
-                            <img src="src/img/icone-cor-amarelo-preto.svg"
-                                alt="icone circular metade roxo, metade preto" class="icone-cor">
-                            <span>R$ 259</span>
-                        </span>
-                    </figure>
-                </a>
-                <!-- CARD 3 -->
-                <a href="http://">
-                    <figure class="div-img-roupas">
-                        <img src="src/img/img-produto-3.jpg" alt="imagem oculos ciclismo laranja e preto"
-                            class="img-roupas">
-                        <h3>Merida PRO RACE Sunglasses</h3>
-                        <span class="secao-valor">
-                            <img src="src/img/icone-cor-laranja-preto.svg"
-                                alt="icone circular metade marrom, metade preto" class="icone-cor">
-                            <img src="src/img/icone-cor-azul-preto.svg"
-                                alt="icone circular metade vermelha, metade preto" class="icone-cor">
-                            <span>R$ 1250</span>
-                        </span>
-                    </figure>
-                </a>
-                <!-- CARD 4 -->
-                <a href="http://">
-                    <figure class="div-img-roupas">
-                        <img src="src/img/img-produto-4.jpeg" alt="imagem tenis de cilcismo preto" class="img-roupas">
-                        <h3>Merida COMP Shoe MTB</h3>
-                        <span class="secao-valor">
-                            <img src="src/img/icone-cor-preto.svg" alt="icone circular preto" class="icone-cor">
-                            <span>R$ 500</span>
-                        </span>
-                    </figure>
-                </a>
-                <!-- CARD 5 -->
-                <a href="http://">
-                    <figure class="div-img-roupas">
-                        <img src="src/img/img-produto-5.jpeg" alt="imagem mochila ciclismo preta" class="img-roupas">
-                        <h3>Merida TRAVEL Forkbag </h3>
-                        <span class="secao-valor">
-                            <img src="src/img/icone-cor-preto.svg" alt="icone circular preto" class="icone-cor">
-                            <span>R$ 850</span>
-                        </span>
-                    </figure>
-                </a>
-                <!-- CARD 6 -->
-                <a href="http://">
-                    <figure class="div-img-roupas">
-                        <img src="src/img/img-produto-6.jpg" alt="imagem bretelle preto e amarelo" class="img-roupas">
-                        <h3>Merida CAMOU Gravel Bretelle</h3>
-                        <span class="secao-valor">
-                            <img src="src/img/icone-cor-amarelo-preto.svg"
-                                alt="icone circular metade amarelaa, metade preto" class="icone-cor">
-                            <img src="src/img/icone-cor-vermelho-preto.svg"
-                                alt="icone circular metade vermelha, metade preto" class="icone-cor">
-                            <span>R$ 1.699</span>
-                        </span>
-                    </figure>
-                </a>
-                <!-- CARD 7 -->
-                <a href="http://">
-                    <figure class="div-img-roupas">
-                        <img src="src/img/img-produto-7.jpg" alt="imagem jaqueta corta-vento amarela"
-                            class="img-roupas">
-                        <h3>Merida CAMOU Gravel Jacket</h3>
-                        <span class="secao-valor">
-                            <img src="src/img/icone-cor-amarelo-preto.svg"
-                                alt="icone circular metade amarelaa, metade preto" class="icone-cor">
-                            <img src="src/img/icone-cor-vermelho-preto.svg"
-                                alt="icone circular metade vermelha, metade preto" class="icone-cor">
-                            <span>R$ 3.499</span>
-                        </span>
-                    </figure>
-                </a>
-            </section>
-            <!-- CARDS COM ESTILO DE BIKES -->
-            <section class="estilo-bikes">
-                <div class="container-estilo-bikes">
-                    <h2>Escolha seu estilo</h2>
-                    <div class="bike-esquerda">
-                        <a href="#"><img src="src/img/img-bike-estrada.jpg" alt="foto pessoa pedalando na estrada"
-                                class="estilo-bike">
-                            <div class="faixa-estrada">Biciletas de estrada</div>
-                        </a>
 
-                        <a href="#"><img src="src/img/img-bike-urbana.jpg" alt="foto pessoa pedalando na cidade"
-                                class="estilo-bike">
-                            <div class="faixa-urbana">Biciletas urbanas</div>
-                        </a>
 
-                    </div>
-                    <div class="bike-direita">
-                        <a href="#"><img src="src/img/img-bike-mtb.jpg" alt="foto de pessoa pedalando na montanha"
-                                class="estilo-bike">
-                            <div class="faixa-mtb"><a href="#">Biciletas de montanha</div>
-                        </a>
-
-                        <a href="#"><img src="src/img/img-bike-eletrica.jpg"
-                                alt="foto de pessoa em uma bike eletrina na montanha" class="estilo-bike">
-                            <div class="faixa-eletrica"><a href="#">Biciletas elétricas</div>
-                        </a>
-                    </div>
-                </div>
-            </section>
-            <!-- VIDEO -->
-            <section class="secao-video">
-                <h2>Escolha bicilceta certa para você</h2>
-                <div class="video-container">
-                    <iframe width="80%" height="500px"
-                        src="https://www.youtube.com/embed/FDpvq_DJvKs?si=GLAkwuptBEqLMbXB&amp;start=12"
-                        title="Escolha bicilceta certa para você!" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
-            </section>
-            <!-- SEÇÃO CONTATO DA LOJA -->
-            <section class="secao-contato" id="secao-contato">
-                <div class="img-contato">
-                    <img src="src/img/img-loja.jpg" alt="foto de uma loja de bicicletas" class="img-loja">
-                </div>
-                <div class="dados-contatos">
-                    <h2>Contato</h2>
-                    <span>
-                        <ion-icon name="location"></ion-icon>
-                        <p>R. Mata Bacelar, 772 - Loja 102 - Auxiliadora, Porto Alegre</p>
-                    </span>
-                    <span>
-                        <ion-icon name="call"></ion-icon>
-                        <p>51 3777.3037</p>
-                    </span>
-                    <span class="horario-atendimento">
-                        <ion-icon name="time"></ion-icon>
-                        <p>Segunda à sexta 10h às 18h</p>
-                        <p>Sabádos e domingos 10h às 20h</p>
-                    </span>
-                    <span class="mapa">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3454.5625909874893!2d-51.196609723551425!3d-30.020713730178077!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x951979cf48fa903d%3A0x9a3fe3352008273c!2sR.%20Mata%20Bacelar%20-%20Auxiliadora%2C%20Porto%20Alegre%20-%20RS%2C%2090540-150!5e0!3m2!1spt-BR!2sbr!4v1730898126506!5m2!1spt-BR!2sbr"
-                            width="100%" height="200px" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </span>
-                </div>
-            </section>
         </main>
         <!-- FIM SECAO PRINCIPAL -->
         <!-- INICIO RODAPÉ -->
@@ -390,10 +149,10 @@
                 <!-- INICIO SEÇÃO LOGO E REDES -->
                 <div class="div-logo-rodape">
                     <!-- LOGO -->
-                    <div class="logo-div">
-                        <a href="#"><img src="src/img/kracht-icone.png"
+                    <div class="">
+                        <a href="index.html" class="logo"><img src="src/img/kracht-icone.png"
                                 alt="icone de um homem pedalando com o fundo laranja" class="icone-logo">
-                            <h2>Kracht</h2>
+                            <h1>Kracht</h1>
                         </a>
                     </div>
                     <!-- ICONES -->
@@ -429,6 +188,7 @@
                 </div>
                 <!-- FIM SEÇÃO LOGO E REDES -->
                 <!-- INICIO SEÇÃO LINKS-->
+                <div class="hr"></div>
                 <div class="links-footer">
                     <!-- COLUNA 1 -->
                     <ul class="coluna-links">
@@ -473,11 +233,11 @@
                 </div>
                 <!-- FIM SEÇÃO LINKS-->
             </section>
-            <hr>
+            <div class="hr"></div>
             <!-- SEÇÃO INFERIOR DO FOOTER -->
             <div class="secao-inferior-footer">
                 <div class="direitos-autorais">
-                    <p>© Vitória Fortes 2024</p>
+                    <p>© Vitória Fortes 2025</p>
                 </div>
                 <div class="idioma">
                     <a href="#">
@@ -497,7 +257,8 @@
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <!-- scirpts internos -->
-    <script type="text/javascript" src="src/JS/script.js"></script>
+    <script src="src/js/carousel.js"></script>
+    <script src="src/js/dropDown.js"></script>
 
 
 </body>
