@@ -52,7 +52,7 @@ main {
     color: var(--preto);
 }
 
-.div-img-bike:hover{
+.div-img-bike:hover {
     box-shadow: 8px 8px 8px var(--shadow);
 }
 
@@ -92,7 +92,7 @@ main {
     color: var(--preto);
 }
 
-.div-img-roupas:hover{
+.div-img-roupas:hover {
     box-shadow: 8px 8px 8px var(--shadow);
 }
 
@@ -160,6 +160,13 @@ main {
     font-size: 14px;
 }
 
+.estilo-bikes .faixa-estrada:hover,
+.estilo-bikes .faixa-urbana:hover,
+.estilo-bikes .faixa-mtb:hover,
+.estilo-bikes .faixa-eletrica:hover {
+    background: var(--laranja-escuro);
+}
+
 .estilo-bikes .faixa-estrada {
     top: 100px;
     left: 5px;
@@ -187,6 +194,7 @@ main {
     main {
         padding-top: 85px;
     }
+
     .carousel-info-bike {
         margin: 0 auto;
     }
@@ -236,26 +244,6 @@ main {
     }
 
     /* CSS SECAO CARDS COM ESTILO DE BIKES */
-    .estilo-bikes {
-        background-color: var(--grafite);
-        border-radius: 20px;
-        margin: 5px 0;
-        padding: 5px;
-        text-align: center;
-        box-shadow: 0px 4px 8px var(--shadow);
-    }
-
-    .estilo-bikes h2 {
-        text-transform: uppercase;
-        color: var(--laranja);
-        margin-bottom: 10px;
-    }
-
-    .container-estilo-bikes {
-        position: relative;
-        display: inline-block;
-    }
-
     .bike-esquerda,
     .bike-direita {
         display: inline-block;
@@ -264,32 +252,16 @@ main {
     .estilo-bikes img {
         width: 600px;
         margin: 15px;
-        border-radius: 20px;
-        display: block;
-        height: auto;
-        box-shadow: 0px 4px 8px var(--shadow);
     }
 
     .estilo-bikes .faixa-estrada,
     .estilo-bikes .faixa-urbana,
     .estilo-bikes .faixa-mtb,
     .estilo-bikes .faixa-eletrica {
-        font-family: var(--fonte-principal);
-        position: absolute;
         width: 600px;
-        background-color: var(--laranja);
-        border-radius: 0 0 20px 20px;
-        color: white;
         padding: 10px;
-        text-align: center;
-        text-transform: uppercase;
     }
-      .estilo-bikes .faixa-estrada:hover,
-    .estilo-bikes .faixa-urbana:hover,
-    .estilo-bikes .faixa-mtb:hover,
-    .estilo-bikes .faixa-eletrica:hover {
-background: var(--laranja-escuro);
-    }
+
 
     .estilo-bikes .faixa-estrada {
         top: 416px;
