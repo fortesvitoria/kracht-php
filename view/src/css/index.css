@@ -1,7 +1,7 @@
 /* SEÇÃO CAROUSEL INFO-BIKE */
 .carousel-info-bike {
     width: 100%;
-    height: 80vh;
+    height: 100%;
     margin: 0 auto;
 }
 
@@ -36,6 +36,42 @@ main {
 
 }
 
+/* SEÇÃO CAROUSEL BIKES */
+.carousel-bikes {
+    margin: 20px 0;
+}
+
+.div-img-bike {
+    min-width: 260px;
+    min-height: 270px;
+    background-color: var(--branco);
+    border-radius: 20px;
+    box-shadow: 0px 4px 8px var(--shadow);
+    padding: 20px;
+    margin: 20px;
+    color: var(--preto);
+}
+
+.img-bike {
+    width: 60%;
+    margin: 10px auto;
+}
+
+.secao-valor img,
+.secao-valor p {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 5px;
+}
+
+    /* SECAO CARDS */
+    .titulo-cards {
+        color: var(--laranja);
+        text-transform: uppercase;
+        text-align: center;
+        margin-top: 40px;
+    }
+
 @media (min-width: 860px) {
 
     main {
@@ -44,6 +80,11 @@ main {
 
     .carousel-info-bike {
         margin: 0 auto;
+    }
+
+    .carousel-info-bike img {
+        height: 80vh;
+        width: 100%;
     }
 
 
@@ -83,46 +124,6 @@ main {
         margin: 10px 0 250px 0;
         width: 64%;
 
-    }
-
-    /* SECAO CARDS */
-    .titulo-cards {
-        color: var(--laranja);
-        text-transform: uppercase;
-        text-align: center;
-        margin-top: 40px;
-    }
-
-    /* SEÇÃO CAROUSEL BIKES */
-    .carousel-bikes {
-        margin: 20px 0;
-    }
-
-    .div-img-bike {
-        min-width: 400px;
-        height: 500px;
-        background-color: var(--branco);
-        border-radius: 20px;
-        box-shadow: 0px 4px 8px var(--shadow);
-        padding: 20px;
-        margin: 20px;
-        color: var(--preto);
-    }
-
-    .img-bike {
-        width: 350px;
-        margin: 10px auto;
-    }
-
-    .secao-valor img,
-    .secao-valor p {
-        display: inline-block;
-        vertical-align: middle;
-        padding: 5px;
-    }
-
-    .icone-cor {
-        width: 24px;
     }
 
     /* SEÇÃO CAROUSEL ROUPAS */
