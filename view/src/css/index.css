@@ -1,3 +1,7 @@
+.titulo-cards {
+    margin-top: 20px;
+}
+
 /* SEÇÃO CAROUSEL INFO-BIKE */
 .carousel-info-bike {
     width: 100%;
@@ -73,7 +77,6 @@ main {
     color: var(--laranja);
     text-transform: uppercase;
     text-align: center;
-    margin-top: 40px;
 }
 
 /* SEÇÃO CAROUSEL ROUPAS */
@@ -168,25 +171,45 @@ main {
 }
 
 .estilo-bikes .faixa-estrada {
-    top: 100px;
+    top: 120px;
     left: 5px;
 }
 
 .estilo-bikes .faixa-urbana {
-    top: 100px;
+    top: 120px;
     left: 165px;
 }
 
 .estilo-bikes .faixa-mtb {
-    top: 210px;
+    top: 230px;
     left: 5px;
 }
 
 .estilo-bikes .faixa-eletrica {
-    top: 210px;
+    top: 230px;
     left: 165px;
 }
 
+
+/* CSS SECAO VIDEO */
+
+.secao-video h2 {
+    color: var(--laranja);
+    text-transform: uppercase;
+    text-align: center;
+    margin:15px 0;
+}
+
+.video-container {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.frame{
+    width: 80%;
+    height: 250px;
+    border-radius: 20px;
+}
 
 
 @media (min-width: 860px) {
@@ -264,37 +287,32 @@ main {
 
 
     .estilo-bikes .faixa-estrada {
-        top: 416px;
+        top: 436px;
         left: 15px;
     }
 
     .estilo-bikes .faixa-urbana {
-        top: 835px;
+        top: 855px;
         left: 15px;
     }
 
     .estilo-bikes .faixa-mtb {
-        top: 418px;
+        top: 438px;
         left: 649px;
     }
 
     .estilo-bikes .faixa-eletrica {
-        top: 840px;
+        top: 855px;
         left: 650px;
     }
 
-
     /* CSS SECAO VIDEO */
 
-    .secao-video h2 {
-        color: var(--laranja);
-        text-transform: uppercase;
-        text-align: center;
-    }
+.frame{
+    height: 600px;
+}
 
-    .video-container {
-        text-align: center;
-    }
+
 
     /* CSS SECAO CONTATOS */
     .secao-contato {
