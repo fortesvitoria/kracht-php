@@ -37,7 +37,7 @@
 
                         <div class="logo-link">
                             <a class="logo" href="#">
-                                <ion-icon class="icone-link" name="log-in-outline"></ion-icon>Entrar
+                                <ion-icon class="icone-link" name="log-out-outline"></ion-icon>Sair
                             </a>
                         </div>
                     </div>
@@ -46,7 +46,7 @@
                 <!-- MENU TELAS GRANDES -->
                 <div class="links-nav-desktop logo-link">
                     <a class="logo" href="#">
-                        <ion-icon class="icone-link" name="log-in-outline"></ion-icon>Entrar
+                        <ion-icon class="icone-link" name="log-out-outline"></ion-icon>Sair
                     </a>
                 </div>
 

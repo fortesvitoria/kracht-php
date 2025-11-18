@@ -94,6 +94,10 @@ footer h2 {
 
 }
 
+.logo-link {
+    padding-right: 15px;
+}
+
 .logo-link a:hover {
     color: var(--laranja);
 }
