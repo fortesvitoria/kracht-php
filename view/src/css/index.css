@@ -64,13 +64,36 @@ main {
     padding: 5px;
 }
 
-    /* SECAO CARDS */
-    .titulo-cards {
-        color: var(--laranja);
-        text-transform: uppercase;
-        text-align: center;
-        margin-top: 40px;
-    }
+/* SECAO CARDS */
+.titulo-cards {
+    color: var(--laranja);
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* SEÇÃO CAROUSEL ROUPAS */
+.carousel-roupas {
+    margin: 20px 0;
+}
+
+.div-img-roupas {
+    min-width: 260px;
+    min-height: 270px;
+    background-color: var(--branco);
+    border-radius: 20px;
+    box-shadow: 0px 4px 8px var(--shadow);
+    padding: 20px;
+    margin: 20px;
+    color: var(--preto);
+}
+
+.img-roupas {
+    width: 200px;
+    margin: 10px auto;
+}
+
+
 
 @media (min-width: 860px) {
 
@@ -125,29 +148,6 @@ main {
         width: 64%;
 
     }
-
-    /* SEÇÃO CAROUSEL ROUPAS */
-    .carousel-roupas {
-        margin: 20px 0;
-        color: #1052a8;
-    }
-
-    .div-img-roupas {
-        min-width: 300px;
-        height: 330px;
-        background-color: var(--branco);
-        border-radius: 20px;
-        box-shadow: 0px 4px 8px var(--shadow);
-        padding: 20px;
-        margin: 20px;
-        color: var(--preto);
-    }
-
-    .img-roupas {
-        width: 200px;
-        margin: 10px auto;
-    }
-
 
     /* CSS SECAO CARDS COM ESTILO DE BIKES */
     .estilo-bikes {
