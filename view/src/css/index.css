@@ -52,6 +52,10 @@ main {
     color: var(--preto);
 }
 
+.div-img-bike:hover{
+    box-shadow: 8px 8px 8px var(--shadow);
+}
+
 .img-bike {
     width: 60%;
     margin: 10px auto;
@@ -86,6 +90,10 @@ main {
     padding: 20px;
     margin: 20px;
     color: var(--preto);
+}
+
+.div-img-roupas:hover{
+    box-shadow: 8px 8px 8px var(--shadow);
 }
 
 .img-roupas {
@@ -179,7 +187,6 @@ main {
     main {
         padding-top: 85px;
     }
-
     .carousel-info-bike {
         margin: 0 auto;
     }
