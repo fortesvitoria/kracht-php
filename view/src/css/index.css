@@ -93,6 +93,85 @@ main {
     margin: 10px auto;
 }
 
+/* CSS SECAO CARDS COM ESTILO DE BIKES */
+.estilo-bikes {
+    background-color: var(--grafite);
+    border-radius: 20px;
+    margin: 5px 0;
+    padding: 5px;
+    text-align: center;
+    box-shadow: 0px 4px 8px var(--shadow);
+}
+
+.estilo-bikes h2 {
+    text-transform: uppercase;
+    color: var(--laranja);
+    margin-bottom: 10px;
+}
+
+.container-estilo-bikes {
+    position: relative;
+    display: inline-block;
+}
+
+.bike-esquerda,
+.bike-direita {
+    display: flex;
+}
+
+.estilo-bikes img {
+    width: 150px;
+    margin: 5px;
+    border-radius: 20px;
+    display: block;
+    height: auto;
+    box-shadow: 0px 4px 8px var(--shadow);
+}
+
+.estilo-bikes .faixa-estrada,
+.estilo-bikes .faixa-urbana,
+.estilo-bikes .faixa-mtb,
+.estilo-bikes .faixa-eletrica {
+    font-family: var(--fonte-principal);
+    position: absolute;
+    width: 150px;
+    background-color: var(--laranja);
+    border-radius: 0 0 20px 20px;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.estilo-bikes .faixa-estrada a,
+.estilo-bikes .faixa-urbana a,
+.estilo-bikes .faixa-mtb a,
+.estilo-bikes .faixa-eletrica a {
+    font-size: 14px;
+}
+
+.estilo-bikes .faixa-estrada {
+    top: 100px;
+    left: 5px;
+}
+
+.estilo-bikes .faixa-urbana {
+    top: 100px;
+    left: 165px;
+}
+
+.estilo-bikes .faixa-mtb {
+    top: 210px;
+    left: 5px;
+}
+
+.estilo-bikes .faixa-eletrica {
+    top: 210px;
+    left: 165px;
+}
+
 
 
 @media (min-width: 860px) {
@@ -198,6 +277,12 @@ main {
         text-align: center;
         text-transform: uppercase;
     }
+      .estilo-bikes .faixa-estrada:hover,
+    .estilo-bikes .faixa-urbana:hover,
+    .estilo-bikes .faixa-mtb:hover,
+    .estilo-bikes .faixa-eletrica:hover {
+background: var(--laranja-escuro);
+    }
 
     .estilo-bikes .faixa-estrada {
         top: 416px;
@@ -205,17 +290,17 @@ main {
     }
 
     .estilo-bikes .faixa-urbana {
-        top: 830px;
+        top: 835px;
         left: 15px;
     }
 
     .estilo-bikes .faixa-mtb {
-        top: 416px;
+        top: 418px;
         left: 649px;
     }
 
     .estilo-bikes .faixa-eletrica {
-        top: 830px;
+        top: 840px;
         left: 650px;
     }
 

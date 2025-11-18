@@ -212,16 +212,15 @@
     .slick-next {
 
         top: 50% !important;
+    }
 
+    .carousel-bikes .slick-prev,
+    .carousel-bikes .slick-next,
+    .carousel-roupas .slick-prev,
+    .carousel-roupas .slick-next {
 
-        .carousel-bikes .slick-prev,
-        .carousel-bikes .slick-next,
-        .carousel-roupas .slick-prev,
-        .carousel-roupas .slick-next {
+        top: 50% !important;
 
-            top: 50% !important;
-
-        }
     }
 
 }
