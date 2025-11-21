@@ -183,9 +183,10 @@ footer h2 {
     display: none;
 }
 
- /* FORMULÁRIOS */
+ /* FORMULÁRIOS e BLOCO */
 
-    form {
+    form, 
+    .bloco {
         color: var(--branco);
         width: 90%;
         background-color: var(--grafite-diluido);

@@ -9,10 +9,6 @@ $nameDb = "db_kracht";
 # Conexão do banco
 $connect = mysqli_connect($server, $userDb, $passDb, $nameDb);
 
-
-// //configura a conexão
-//     $banco = mysqli_connect("localhost","root","","db_kracht");
-
 //testa se conexão funcionou
     if(!$connect) {
         echo "<br>NÃO CONECTOU NO BANCO DE DADOS :(<br>".mysqli_connect_error();

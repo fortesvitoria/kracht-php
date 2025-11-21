@@ -7,8 +7,9 @@ class Usuario {
     private $senha;
     private $dt_nascimento;
     private $is_admin;
+    private $imagem;
 
-    public function __construct($id = null, $nome = null, $sobrenome = null, $email = null, $senha = null, $dt_nascimento = null, $is_admin = null) {
+    public function __construct($id = null, $nome = null, $sobrenome = null, $email = null, $senha = null, $dt_nascimento = null, $is_admin = null, $imagem = null) {
         $this->id = $id;
         $this->nome = $nome;
         $this->sobrenome = $sobrenome;
@@ -16,6 +17,7 @@ class Usuario {
         $this->senha = $senha;
         $this->dt_nascimento = $dt_nascimento;
         $this->is_admin = $is_admin;
+        $this->imagem = $imagem;
     }
 
     //GETTERS
@@ -39,12 +41,16 @@ class Usuario {
         return $this->senha;
     }
 
-    public function getDtNascimeno() {
+    public function getDtNascimento() {
         return $this->dt_nascimento;
     }
 
     public function getIsAdmin() {
         return $this->is_admin;
+    }
+
+    public function getImagem() {
+        return $this->imagem;
     }
 
     //SETTERS
@@ -68,12 +74,17 @@ class Usuario {
         $this->senha = $senha;
     }
 
-    public function setFoto($dt_nascimento) {
+    public function setDtNascimento($dt_nascimento) {
         $this->dt_nascimento = $dt_nascimento;
     }
-
+    
     public function setIsAdmin($is_admin) {
         $this->is_admin = $is_admin;
+    }
+    
+
+    public function setImagem($imagem) {
+        $this->imagem = $imagem;
     }
     
     //METODOS
@@ -87,13 +98,14 @@ class Usuario {
             if ($registro['senha'] === sha1($senha)) {
                 // Se o login for bem-sucedido, armazena os dados do usuário na sessão
                 $_SESSION['usuario'] = array(
-                    'id' => $registro['id_usuario'],
+                    'id' => $registro['id'],
                     'nome' => $registro['nome'],
                     'sobrenome' => $registro['sobrenome'],
                     'email' => $registro['email'],
                     'senha' => $registro['senha'],
                     'dt_nascimento' => $registro['dt_nascimento'],
-                    'is_admin' => $registro['is_admin']
+                    'is_admin' => $registro['is_admin'],
+                    'imagem' => $registro['imagem']
                 );
                 
                 return true; // Login bem-sucedido

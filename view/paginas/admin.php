@@ -1,4 +1,4 @@
-<?php ?>
+<?php session_start() ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -70,41 +70,50 @@
 
         <!-- INICIO SECAO PRINCIPAL -->
         <!-- INICIO SECAO PRINCIPAL -->
-        <main class="login">
-            <!-- INICIO FORMULARIO -->
-            <form action="../../controller/login.php" method="POST" enctype="multipart/form-data">
-                <div>
-                    <h3>Cadastrar produto</h3>
+        <main class="usuario">
+            <?php if (isset($_SESSION['ativa'])) { ?>
+
+                <div class="bloco links-login">
+                    <div>
+                        <h3>Bem vindo(a), <?php echo $_SESSION['usuario']['nome']; ?></h3>
+                    </div>
                 </div>
 
-                <div class="links-login">
-                    <label for="nome-produto">Nome do produto:</label>
-                    <input type="text" id="nome-produto" name="nome-produto" class="input-entrada" required autofocus>
+                <!-- INICIO FORMULARIO -->
+                <form action="../../controller/login.php" method="POST" enctype="multipart/form-data">
+                    <div>
+                        <h3>Cadastrar produto</h3>
+                    </div>
 
-                    <label for="marca-produto">Marca do produto:</label>
-                    <input type="text" id="marca-produto" name="marca-produto" class="input-entrada" required>
+                    <div class="links-login">
+                        <label for="nome-produto">Nome do produto:</label>
+                        <input type="text" id="nome-produto" name="nome-produto" class="input-entrada" required autofocus>
+
+                        <label for="marca-produto">Marca do produto:</label>
+                        <input type="text" id="marca-produto" name="marca-produto" class="input-entrada" required>
 
 
-                    <label for="tipo-produto">Tipo de produto:</label>
-                    <select name="tipo-produto" id="tipo-produto" required>
-                        <option value="bicicleta">Bicicleta</option>
-                        <option value="roupas">Roupas</option>
-                        <option value="calcados">Calçados</option>
-                        <option value="acessorios">Acessorios</option>
-                    </select>
+                        <label for="tipo-produto">Tipo de produto:</label>
+                        <select name="tipo-produto" id="tipo-produto" required>
+                            <option value="bicicleta">Bicicleta</option>
+                            <option value="roupas">Roupas</option>
+                            <option value="calcados">Calçados</option>
+                            <option value="acessorios">Acessorios</option>
+                        </select>
 
-                    <label for="valor">Valor do produto:</label>
-                    <input type="number" id="valor" name="valor" class="input-entrada" required>
+                        <label for="valor">Valor do produto:</label>
+                        <input type="number" id="valor" name="valor" class="input-entrada" required>
 
-                    <label for="valor">Imagem do produto:</label>
-                    <input type="file" name="arquivo" id="arquivo" class="input-entrada" required>
-                </div>
+                        <label for="valor">Imagem do produto:</label>
+                        <input type="file" name="arquivo" id="arquivo" class="input-entrada" required>
+                    </div>
 
-                <div class="btn-login">
-                    <button type="submit" name="enviar" class="btn-ativo btn">Cadastrar</button>
-                </div>
-            </form>
-            <!-- FIM FORMULARIO -->
+                    <div class="btn-login">
+                        <button type="submit" name="enviar" class="btn-ativo btn">Cadastrar</button>
+                    </div>
+                </form>
+                <!-- FIM FORMULARIO -->
+            <?php } ?>
         </main>
         <!-- INICIO RODAPÉ -->
         <footer>
@@ -220,4 +229,3 @@
 </body>
 
 </html>
-

@@ -2,13 +2,14 @@ main {
     background: var(--grafite-diluido);
     min-height: 90vh;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
     padding-top: 96px;
 
 }
 
-form {
+form, .bloco {
     margin: 25px;
 }
 
@@ -45,7 +46,7 @@ input {
     width: 40%;
 }
 
-form {
+form, .bloco {
         width: 500px;
     }
 }
