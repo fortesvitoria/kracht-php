@@ -1,4 +1,4 @@
-<?php ?>
+<?php require_once "../../controller/upload.php"; ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -98,6 +98,7 @@
                     <button type="submit" name="cadastrar-usuario" class="btn-ativo btn">Cadastrar Usuário</button>
                 </div>
             </form>
+            <?php uploadImagens(); ?>
             <!-- FIM FORMULARIO -->
         </main>
         <!-- INICIO RODAPÉ -->
