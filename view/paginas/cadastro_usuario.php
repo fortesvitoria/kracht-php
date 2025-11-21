@@ -1,14 +1,16 @@
+<?php ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kracht - Login</title>
+    <title>Kracht - Cadastrar</title>
     <!-- css geral - header, footer, estilos e cores base -->
     <link rel="stylesheet" href="../src/css/style.css">
-    <!-- css especifico da página login.html -->
-    <link rel="stylesheet" href="../src/CSS/login.css">
+    <!-- css especifico da página admin.html -->
+    <link rel="stylesheet" href="../src/CSS/admin.css">
     <!-- icone da aba -->
     <link rel="shortcut icon" href="../src/img/kracht-icone.png" type="image/x-icon">
 </head>
@@ -18,7 +20,6 @@
 
         <!-- INICIO CABECALHO -->
         <header>
-            <!-- INICIO NAV -->
             <nav class="nav">
                 <!-- MENU DROPDOWN TELAS MENORES -->
                 <div class="dropdown">
@@ -33,10 +34,22 @@
                             <li class="link-li"><a href="#">Sobre Nós</a></li>
                             <li class="link-li"><a href="#">Contato</a></li>
                         </ul>
+
+                        <div class="logo-link">
+                            <a class="logo" href="#">
+                                <ion-icon class="icone-link" name="log-out-outline"></ion-icon>Sair
+                            </a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- MENU TELAS GRANDES -->
+                <div class="links-nav-desktop logo-link">
+                    <a class="logo" href="#">
+                        <ion-icon class="icone-link" name="log-out-outline"></ion-icon>Sair
+                    </a>
+                </div>
+
                 <ul class="links-nav-desktop">
                     <li class="link-li"><a href="#">Bicicletas</a></li>
                     <li class="link-li"><a href="#">Roupas</a></li>
@@ -52,7 +65,6 @@
                     </a>
                 </div>
             </nav>
-            <!-- FIM NAV -->
         </header>
         <!-- FIM CABECALHO -->
 
@@ -60,27 +72,30 @@
         <!-- INICIO SECAO PRINCIPAL -->
         <main class="login">
             <!-- INICIO FORMULARIO -->
-            <form action="../../controller/login.php" method="POST">
+            <form action="../../controller/login.php" method="POST" enctype="multipart/form-data">
                 <div>
-                    <h2>Fazer Login</h2>
+                    <h3>Cadastre-se</h3>
                 </div>
 
                 <div class="links-login">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" class="input-entrada" placeholder="Digite seu nome" required autofocus>
+
+                    <label for="sobrenome">Sobrenome:</label>
+                    <input type="text" id="sobrenome" name="sobrenome" class="input-entrada" placeholder="Digite seu sobrenome" required>
+
                     <label for="email">E-mail:</label>
-                    <input type="email" id="email" name="email" class="input-entrada" placeholder="seuemail@email.com"
-                        required autofocus>
-                    <label for="senha">Senha:</label>
-                    <input type="password" id="senha" name="senha" class="input-entrada" required>
-                    <label class="check-box">
-                        <input type="checkbox" name="lembrar-senha" value="lembrar-senha">
-                        Lembrar-me
-                    </label>
-                    <a href="#">Esqueceu sua senha?</a>
+                    <input type="email" id="email" name="email" class="input-entrada" placeholder="Digite seu email" required>
+
+                    <label for="dt-nascimento">Data de nascimento:</label>
+                    <input type="date" id="dt-nascimento" name="dt-nascimento" class="input-entrada" required>
+
+                    <label for="imagem-perfil">Imagem de perfil:</label>
+                    <input type="file" name="imagem-perfil" id="imagem-perfil" class="input-entrada" required>
                 </div>
 
                 <div class="btn-login">
-                    <a href="cadastro.html" class="btn-secundario btn">Cadastrar</a>
-                    <button type="submit" name="enviar" class="btn-ativo btn">Enviar</button>
+                    <button type="submit" name="cadastrar-usuario" class="btn-ativo btn">Cadastrar Usuário</button>
                 </div>
             </form>
             <!-- FIM FORMULARIO -->
@@ -199,3 +214,4 @@
 </body>
 
 </html>
+

@@ -38,7 +38,7 @@
                         </ul>
 
                         <div class="logo-link">
-                            <a class="logo" href="paginas/login.html">
+                            <a class="logo" href="paginas/login.php">
                                 <ion-icon class="icone-link" name="log-in-outline"></ion-icon>Entrar
                             </a>
                         </div>
@@ -47,7 +47,7 @@
 
                 <!-- MENU TELAS GRANDES -->
                 <div class="links-nav-desktop logo-link">
-                    <a class="logo" href="paginas/login.html">
+                    <a class="logo" href="paginas/login.php">
                         <ion-icon class="icone-link" name="log-in-outline"></ion-icon>Entrar
                     </a>
                 </div>

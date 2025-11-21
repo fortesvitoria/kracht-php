@@ -4,40 +4,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kracht - Cadastrar</title>
+    <title>Kracht - Login</title>
     <!-- css geral - header, footer, estilos e cores base -->
-    <link rel="stylesheet" href="src/CSS/style.css">
+    <link rel="stylesheet" href="../src/css/style.css">
     <!-- css especifico da página login.html -->
-    <link rel="stylesheet" href="src/CSS/cadastro.css">
+    <link rel="stylesheet" href="../src/CSS/login.css">
     <!-- icone da aba -->
-    <link rel="shortcut icon" href="src/img/kracht-icone.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../src/img/kracht-icone.png" type="image/x-icon">
 </head>
 
 <body>
     <div class="div-principal">
+
         <!-- INICIO CABECALHO -->
         <header>
             <!-- INICIO NAV -->
-            <nav class="menu">
-                <!-- LOGO -->
-                <div class="logo-div">
-                    <a href="index.html"><img src="src/img/kracht-icone.png"
-                            alt="icone de um homem pedalando com o fundo laranja" class="icone-logo">
-                        <h1>Kracht</h1>
-                    </a>
+            <nav class="nav">
+                <!-- MENU DROPDOWN TELAS MENORES -->
+                <div class="dropdown">
+                    <button id="meuBotao" class="botao-dropdown"><img class="icone" src="../src/img/icone-menu.svg"
+                            alt="icone com tres bbarras laranja representando um menu"></button>
+                    <div id="meuDropdown" class="conteudo-dropdown">
+                        <!-- LINKS -->
+                        <ul class="links-nav-mobile">
+                            <li class="link-li"><a href="#">Bicicletas</a></li>
+                            <li class="link-li"><a href="#">Roupas</a></li>
+                            <li class="link-li"><a href="#">Acessórios</a></li>
+                            <li class="link-li"><a href="#">Sobre Nós</a></li>
+                            <li class="link-li"><a href="#">Contato</a></li>
+                        </ul>
+                    </div>
                 </div>
-                <!-- LINKS -->
-                <ul class="lista-links">
+
+                <!-- MENU TELAS GRANDES -->
+                <ul class="links-nav-desktop">
                     <li class="link-li"><a href="#">Bicicletas</a></li>
                     <li class="link-li"><a href="#">Roupas</a></li>
                     <li class="link-li"><a href="#">Acessórios</a></li>
                     <li class="link-li"><a href="#">Sobre Nós</a></li>
                     <li class="link-li"><a href="#">Contato</a></li>
                 </ul>
-                <!-- ICONES -->
-                <div class="icones-nav">
-                    <a href="login.html"><ion-icon name="search" class="icone-link"></ion-icon></a>
-                    <a href="login.html"><ion-icon name="person-circle-outline" class="icone-link"></ion-icon></a>
+                <!-- LOGO -->
+                <div class="">
+                    <a href="index.html" class="logo"><img src="../src/img/kracht-icone.png"
+                            alt="icone de um homem pedalando com o fundo laranja" class="icone-logo">
+                        <h1>Kracht</h1>
+                    </a>
                 </div>
             </nav>
             <!-- FIM NAV -->
@@ -45,118 +57,34 @@
         <!-- FIM CABECALHO -->
 
         <!-- INICIO SECAO PRINCIPAL -->
-        <main>
+        <!-- INICIO SECAO PRINCIPAL -->
+        <main class="login">
             <!-- INICIO FORMULARIO -->
-            <form action="envia-form-cadastro.php" method="POST">
-                <h2>Criar uma conta</h2>
-                <h3>Novos Visitantes</h3>
+            <form action="../../controller/login.php" method="POST">
+                <div>
+                    <h2>Fazer Login</h2>
+                </div>
 
-                <!-- SEÇÃO DADOS PESSOAIS -->
-                <div class="dados-pessoais">
-                    <label for="nome">Nome:</label>
-                    <input type="text" id="nome" name="nome" class="input-entrada" required autofocus>
-
-                    <label for="sobrenome">Sobrenome:</label>
-                    <input type="text" id="sobrenome" name="sobrenome" class="input-entrada" required>
-
+                <div class="links-login">
                     <label for="email">E-mail:</label>
                     <input type="email" id="email" name="email" class="input-entrada" placeholder="seuemail@email.com"
-                        required>
-
-                    <label for="telefone">Telefone:</label>
-                    <input type="number" id="telefone" name="telefone" class="input-entrada"
-                        placeholder="(51) 3333-3333">
-
-                    <label for="celular">Celular:</label>
-                    <input type="number" id="celular" name="celular" class="input-entrada" placeholder="(51) 99999-9999"
-                        required>
-
+                        required autofocus>
                     <label for="senha">Senha:</label>
                     <input type="password" id="senha" name="senha" class="input-entrada" required>
-
-                    <label for="confirma-senha">Confirmar Senha:</label>
-                    <input type="password" id="confirma-senha" name="confirma-senha" class="input-entrada" required>
-                </div>
-                <!-- SEÇÃO ENDEREÇO -->
-                <div class="div-endereco">
-                    <label for="cep">CEP:</label>
-                    <input type="number" id="cep" name="cep" class="input-entrada" required>
-
-                    <label for="logradouro">Logradouro:</label>
-                    <input type="text" id="logradouro" name="logradouro" class="input-entrada" required>
-
-                    <label for="numero">Número:</label>
-                    <input type="number" id="numero" name="numero" class="input-entrada" required>
-
-                    <label for="complemento">Complemento:</label>
-                    <input type="text" id="complemento" name="complemento" class="input-entrada" required>
-
-                    <label for="bairro">Bairro:</label>
-                    <input type="text" id="bairro" name="bairro" class="input-entrada" required>
-
-                    <label for="cidade">Cidade:</label>
-                    <input type="text" id="cidade" name="cidade" class="input-entrada" required>
-
-                    <label for="estados">Escolha um estado:</label>
-
-                    <select name="estados" id="estados">
-                        <option value="AC">Selecione seu estado</option>
-                        <option value="AC">Acre (AC)</option>
-                        <option value="AL">Alagoas (AL)</option>
-                        <option value="AP">Amapá (AP)</option>
-                        <option value="AM">Amazonas (AM)</option>
-                        <option value="BA">Bahia (BA)</option>
-                        <option value="CE">Ceará (CE)</option>
-                        <option value="DF">Distrito Federal (DF)</option>
-                        <option value="ES">Espírito Santo (ES)</option>
-                        <option value="GO">Goiás (GO)</option>
-                        <option value="MA">Maranhão (MA)</option>
-                        <option value="MT">Mato Grosso (MT)</option>
-                        <option value="MS">Mato Grosso do Sul (MS)</option>
-                        <option value="MG">Minas Gerais (MG)</option>
-                        <option value="PA">Pará (PA)</option>
-                        <option value="PB">Paraíba (PB)</option>
-                        <option value="PR">Paraná (PR)</option>
-                        <option value="PE">Pernambuco (PE)</option>
-                        <option value="PI">Piauí (PI)</option>
-                        <option value="RJ">Rio de Janeiro (RJ)</option>
-                        <option value="RN">Rio Grande do Norte (RN)</option>
-                        <option value="RS">Rio Grande do Sul (RS)</option>
-                        <option value="RO">Rondônia (RO)</option>
-                        <option value="RR">Roraima (RR)</option>
-                        <option value="SC">Santa Catarina (SC)</option>
-                        <option value="SP">São Paulo (SP)</option>
-                        <option value="SE">Sergipe (SE)</option>
-                        <option value="TO">Tocantins (TO)</option>
-                    </select>
+                    <label class="check-box">
+                        <input type="checkbox" name="lembrar-senha" value="lembrar-senha">
+                        Lembrar-me
+                    </label>
+                    <a href="#">Esqueceu sua senha?</a>
                 </div>
 
-                <!-- SEÇÃO BOTOES -->
-                <div class="div-btn">
-                    <label>
-                        <input type="checkbox" name="novidades" value="novidades">
-                        Quero receber novidades no meu e-mail
-                    </label>
-                    <a href="#">Por favor, revise nosso Política de privacidade</a>
-
-                    <label>
-                        <input type="checkbox" name="aceito-termos" value="aceito-termos">
-                        Li e aceito a política de privacidade
-                    </label>
-
-                    <p>Já possui cadastro?</p>
-                    <div class="alinha-esquerda">
-                        <a href="login.html" class="btn-secundario btn">Login</a>
-                    </div>
-                    <div class="alinha-direita">
-                        <button type="submit" class="btn-ativo btn">Cadastrar</button>
-                    </div>
+                <div class="btn-login">
+                    <a href="cadastro_usuario.php" class="btn-secundario btn">Cadastrar</a>
+                    <button type="submit" name="enviar" class="btn-ativo btn">Enviar</button>
                 </div>
             </form>
             <!-- FIM FORMULARIO -->
         </main>
-        <!-- FIM SECAO PRINCIPAL -->
-
         <!-- INICIO RODAPÉ -->
         <footer>
             <!-- SEÇÃO SUPERIOR DO FOOTER -->
@@ -164,10 +92,10 @@
                 <!-- INICIO SEÇÃO LOGO E REDES -->
                 <div class="div-logo-rodape">
                     <!-- LOGO -->
-                    <div class="logo-div">
-                        <a href="#"><img src="src/img/kracht-icone.png"
+                    <div class="">
+                        <a href="index.html" class="logo"><img src="../src/img/kracht-icone.png"
                                 alt="icone de um homem pedalando com o fundo laranja" class="icone-logo">
-                            <h2>Kracht</h2>
+                            <h1>Kracht</h1>
                         </a>
                     </div>
                     <!-- ICONES -->
@@ -203,6 +131,7 @@
                 </div>
                 <!-- FIM SEÇÃO LOGO E REDES -->
                 <!-- INICIO SEÇÃO LINKS-->
+                <div class="hr"></div>
                 <div class="links-footer">
                     <!-- COLUNA 1 -->
                     <ul class="coluna-links">
@@ -247,25 +176,26 @@
                 </div>
                 <!-- FIM SEÇÃO LINKS-->
             </section>
-            <hr>
+            <div class="hr"></div>
             <!-- SEÇÃO INFERIOR DO FOOTER -->
             <div class="secao-inferior-footer">
                 <div class="direitos-autorais">
-                    <p>© Vitória Fortes 2024</p>
+                    <p>© Vitória Fortes 2025</p>
                 </div>
                 <div class="idioma">
                     <a href="#">
                         <p>Português/BR</p>
-                        <img src="src/img/icone-brasil.png" alt="icone da bandeira do Brasil" class="icone-idioma">
+                        <img src="../src/img/icone-brasil.png" alt="icone da bandeira do Brasil" class="icone-idioma">
                     </a>
                 </div>
             </div>
         </footer>
         <!-- FIM RODAPÉ -->
     </div>
-        <!-- SCRIPT IONICONS -->
-        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <!-- SCRIPT IONICONS -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="../src/JS/dropDown.js"></script>
 </body>
 
 </html>

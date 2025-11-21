@@ -5,7 +5,8 @@ CREATE TABLE `usuarios` (
   `email` varchar(100) NOT NULL,
   `senha` varchar(255) NOT NULL,
   `dt_nascimento` date NOT NULL,
-  `is_admin` tinyint(1) NOT NULL COMMENT '0 - false: usuario, 1 - true : admin'
+  `is_admin` tinyint(1) NOT NULL COMMENT '0 - false: usuario, 1 - true : admin',
+  `imagem` varchar(50) NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- ADMIN 
