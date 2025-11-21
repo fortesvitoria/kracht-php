@@ -1,4 +1,8 @@
-<?php ?>
+<?php 
+include("../../controller/conexao.php");
+include("../../controller/inserir_usuarios.php");
+inserirUsuarios($connect);
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -72,7 +76,7 @@
         <!-- INICIO SECAO PRINCIPAL -->
         <main class="login">
             <!-- INICIO FORMULARIO -->
-            <form action="../../controller/login.php" method="POST" enctype="multipart/form-data">
+            <form method="POST" enctype="multipart/form-data">
                 <div>
                     <h3>Cadastre-se</h3>
                 </div>
@@ -87,11 +91,17 @@
                     <label for="email">E-mail:</label>
                     <input type="email" id="email" name="email" class="input-entrada" placeholder="Digite seu email" required>
 
+                    <label for="senha">Senha:</label>
+                    <input type="password" id="senha" name="senha" class="input-entrada" placeholder="Digite sua senha" required>
+
+                    <label for="repita-senha">Repita sua senha:</label>
+                    <input type="password" id="repita-senha" name="repita-senha" class="input-entrada" placeholder="Digite novamente sua senha" required>
+
                     <label for="dt-nascimento">Data de nascimento:</label>
                     <input type="date" id="dt-nascimento" name="dt-nascimento" class="input-entrada" required>
 
                     <label for="imagem-perfil">Imagem de perfil:</label>
-                    <input type="file" name="imagem-perfil" id="imagem-perfil" class="input-entrada" required>
+                    <input type="file" name="imagem-perfil" id="imagem-perfil" class="input-entrada">
                 </div>
 
                 <div class="btn-login">
@@ -214,4 +224,3 @@
 </body>
 
 </html>
-
