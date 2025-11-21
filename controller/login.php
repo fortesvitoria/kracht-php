@@ -34,4 +34,11 @@ function login($connect)
     }
 }
 
+function logout() {
+    session_start();
+    session_unset();
+    session_destroy();
+    header("location: ../view/paginas/login_usuario.php");
+}
+
 login($connect);
