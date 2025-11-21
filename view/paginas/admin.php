@@ -73,10 +73,12 @@
         <main class="usuario">
             <?php if (isset($_SESSION['ativa'])) { ?>
 
-                <div class="bloco links-login">
+                <div class="bloco">
                     <div>
-                        <h3>Bem vindo(a), <?php echo $_SESSION['usuario']['nome']; ?></h3>
+                        <img class="img-perfil" src="../src/img/ftperfil.jpg" alt="">
+                        <h3>Bem vindo(a) à página administrativa, <?php echo $_SESSION['usuario']['nome']; ?>!</h3>
                     </div>
+
                 </div>
 
                 <!-- INICIO FORMULARIO -->
