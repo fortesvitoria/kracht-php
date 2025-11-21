@@ -1,5 +1,5 @@
 CREATE TABLE `usuarios` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(100) NOT NULL,
   `sobrenome` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
@@ -11,17 +11,8 @@ CREATE TABLE `usuarios` (
 
 -- ADMIN 
 INSERT INTO `usuarios` (`id`, `nome`, `sobrenome`, `email`, `senha`, `dt_nascimento`, `is_admin`) VALUES
-(1, 'Vitoria', 'Fortes', 'vitoria@gmail.com', 'f865b53623b121fd34ee5426c792e5c33af8c227', '1991-07-07', 1);
+(1, 'Vitoria', 'Fortes', 'vitoria@gmail.com', 'f865b53623b121fd34ee5426c792e5c33af8c227', '1991-07-07', 1, NULL);
 
 -- USUARIO COMUM
-INSERT INTO `usuarios` (`id`, `nome`, `sobrenome`, `email`, `senha`, `dt_nascimento`, `is_admin`) VALUES (NULL, 'Eduardo', 'Riguera', 'eduardo@gmail.com', '1234', '1984/08/25', '0');
+INSERT INTO `usuarios` (`id`, `nome`, `sobrenome`, `email`, `senha`, `dt_nascimento`, `is_admin`) VALUES (NULL, 'Eduardo', 'Riguera', 'eduardo@gmail.com', '1234', '1984/08/25', '0', NULL);
 
-
-
-ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id`);
-
---
-ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-COMMIT;
