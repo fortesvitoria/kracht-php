@@ -71,50 +71,60 @@
         <!-- INICIO SECAO PRINCIPAL -->
         <main class="usuario">
             <?php if (isset($_SESSION['ativa'])) { ?>
-
+<div>
                 <div class="bloco">
                     <div>
-                        <img class="img-perfil" src="../../db/uploads/<?php echo $_SESSION['usuario']['imagem'];?>" alt="">
+                        <img class="img-perfil" src="../../db/uploads/<?php echo $_SESSION['usuario']['imagem']; ?>" alt="">
                         <h3>Bem vindo(a) à página administrativa, <?php echo $_SESSION['usuario']['nome']; ?>!</h3>
                     </div>
-
+                </div>
+                <div class="bloco dados">
+                    <h3>Seus dados:</h3>
+                    <p>Nome: <?php echo $_SESSION['usuario']['nome']; ?></p>
+                    <p>Sobrenome: <?php echo $_SESSION['usuario']['sobrenome']; ?></p>
+                    <p>E-mail: <?php echo $_SESSION['usuario']['email']; ?></p>
+                    <p>Data de nascimento: <?php echo $_SESSION['usuario']['dt_nascimento']; ?></p>
+                    <div class="btn-login">
+                        <button type="submit" name="enviar" class="btn-ativo btn">Alterar dados</button>
+                    </div>
+                </div>
                 </div>
 
-                <!-- INICIO FORMULARIO -->
-                <form action="../../controller/login.php" method="POST" enctype="multipart/form-data">
-                    <div>
-                        <h3>Cadastrar produto</h3>
-                    </div>
+                    <!-- INICIO FORMULARIO -->
+                    <form action="../../controller/login.php" method="POST" enctype="multipart/form-data">
+                        <div>
+                            <h3>Cadastrar produto</h3>
+                        </div>
 
-                    <div class="links-login">
-                        <label for="nome-produto">Nome do produto:</label>
-                        <input type="text" id="nome-produto" name="nome-produto" class="input-entrada" required autofocus>
+                        <div class="links-login">
+                            <label for="nome-produto">Nome do produto:</label>
+                            <input type="text" id="nome-produto" name="nome-produto" class="input-entrada" required autofocus>
 
-                        <label for="marca-produto">Marca do produto:</label>
-                        <input type="text" id="marca-produto" name="marca-produto" class="input-entrada" required>
+                            <label for="marca-produto">Marca do produto:</label>
+                            <input type="text" id="marca-produto" name="marca-produto" class="input-entrada" required>
 
 
-                        <label for="tipo-produto">Tipo de produto:</label>
-                        <select name="tipo-produto" id="tipo-produto" required>
-                            <option value="bicicleta">Bicicleta</option>
-                            <option value="roupas">Roupas</option>
-                            <option value="calcados">Calçados</option>
-                            <option value="acessorios">Acessorios</option>
-                        </select>
+                            <label for="tipo-produto">Tipo de produto:</label>
+                            <select name="tipo-produto" id="tipo-produto" required>
+                                <option value="bicicleta">Bicicleta</option>
+                                <option value="roupas">Roupas</option>
+                                <option value="calcados">Calçados</option>
+                                <option value="acessorios">Acessorios</option>
+                            </select>
 
-                        <label for="valor">Valor do produto:</label>
-                        <input type="number" id="valor" name="valor" class="input-entrada" required>
+                            <label for="valor">Valor do produto:</label>
+                            <input type="number" id="valor" name="valor" class="input-entrada" required>
 
-                        <label for="valor">Imagem do produto:</label>
-                        <input type="file" name="arquivo" id="arquivo" class="input-entrada upload" required>
-                    </div>
+                            <label for="valor">Imagem do produto:</label>
+                            <input type="file" name="arquivo" id="arquivo" class="input-entrada upload" required>
+                        </div>
 
-                    <div class="btn-login">
-                        <button type="submit" name="enviar" class="btn-ativo btn">Cadastrar produto</button>
-                    </div>
-                </form>
-                <!-- FIM FORMULARIO -->
-            <?php } ?>
+                        <div class="btn-login">
+                            <button type="submit" name="enviar" class="btn-ativo btn">Cadastrar produto</button>
+                        </div>
+                    </form>
+                    <!-- FIM FORMULARIO -->
+                <?php } ?>
         </main>
         <!-- INICIO RODAPÉ -->
         <footer>

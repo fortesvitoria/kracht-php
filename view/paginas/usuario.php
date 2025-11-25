@@ -1,4 +1,4 @@
-<?php require_once "../../controller/upload.php"; ?>
+<?php session_start() ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -70,35 +70,27 @@
 
         <!-- INICIO SECAO PRINCIPAL -->
         <main class="login">
-            <!-- INICIO FORMULARIO -->
-            <form action="../../controller/login.php" method="POST" enctype="multipart/form-data">
-                <div>
-                    <h3>Bem vindo(a) usuário</h3>
+            <?php if (isset($_SESSION['ativa'])) { ?>
+
+                <div class="bloco">
+                    <div>
+                        <img class="img-perfil" src="../../db/uploads/<?php echo $_SESSION['usuario']['imagem']; ?>" alt="">
+                        <h3>Bem vindo(a) à página do usuário, <?php echo $_SESSION['usuario']['nome']; ?>!</h3>
+                    </div>
+                </div>
+                <div class="bloco dados">
+                    <h3>Seus dados:</h3>
+                    <p>Nome: <?php echo $_SESSION['usuario']['nome']; ?></p> 
+                    <p>Sobrenome: <?php echo $_SESSION['usuario']['sobrenome']; ?></p> 
+                    <p>E-mail: <?php echo $_SESSION['usuario']['email']; ?></p> 
+                    <p>Data de nascimento: <?php echo $_SESSION['usuario']['dt_nascimento']; ?></p> 
+                                   <div class="btn-login">
+                    <button type="submit" name="enviar" class="btn-ativo btn">Alterar dados</button>
+                    <button type="submit" name="enviar" class="btn-secundario btn">Excluir conta</button>
+                </div>
                 </div>
 
-                <div class="links-login">
-                    <label for="nome">Nome:</label>
-                    <input type="text" id="nome" name="nome" class="input-entrada" placeholder="Digite seu nome" required autofocus>
-
-                    <label for="sobrenome">Sobrenome:</label>
-                    <input type="text" id="sobrenome" name="sobrenome" class="input-entrada" placeholder="Digite seu sobrenome" required>
-
-                    <label for="email">E-mail:</label>
-                    <input type="email" id="email" name="email" class="input-entrada" placeholder="Digite seu email" required>
-
-                    <label for="dt-nascimento">Data de nascimento:</label>
-                    <input type="date" id="dt-nascimento" name="dt-nascimento" class="input-entrada" required>
-
-                    <label for="imagem-perfil">Imagem de perfil:</label>
-                    <input type="file" name="imagem-perfil" id="imagem-perfil" class="input-entrada" required>
-                </div>
-
-                <div class="btn-login">
-                    <button type="submit" name="cadastrar-usuario" class="btn-ativo btn">Cadastrar Usuário</button>
-                </div>
-            </form>
-            <?php uploadImagens(); ?>
-            <!-- FIM FORMULARIO -->
+            <?php } ?>
         </main>
         <!-- INICIO RODAPÉ -->
         <footer>
@@ -214,4 +206,3 @@
 </body>
 
 </html>
-
