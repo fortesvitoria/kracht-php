@@ -111,7 +111,7 @@
                     </div>
 
                     <div class="btn-login">
-                        <button type="submit" name="enviar" class="btn-ativo btn">Cadastrar</button>
+                        <button type="submit" name="enviar" class="btn-ativo btn">Cadastrar produto</button>
                     </div>
                 </form>
                 <!-- FIM FORMULARIO -->

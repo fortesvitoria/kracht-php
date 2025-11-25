@@ -79,8 +79,8 @@
                 </div>
 
                 <div class="btn-login">
+                    <button type="submit" name="enviar" class="btn-ativo btn">Entrar</button>
                     <a href="cadastro_usuario.php" class="btn-secundario btn">Cadastrar</a>
-                    <button type="submit" name="enviar" class="btn-ativo btn">Enviar</button>
                 </div>
             </form>
             <!-- FIM FORMULARIO -->
