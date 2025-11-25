@@ -36,9 +36,9 @@ function uploadImagens($caminho)
                 $destino = $caminho . $novoNome;
 
                 if (move_uploaded_file($tempName, $destino)) {
-                    echo "<p>Upload feito com sucesso!</p>";
+                    return $novoNome;
                 } else {
-                    echo "<p>Erro ao enviar o arquivo.</p>";
+                   return FALSE;
                 }
             }
         }

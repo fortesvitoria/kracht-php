@@ -1,6 +1,7 @@
 <?php 
 include("../../controller/conexao.php");
 include("../../controller/inserir_usuarios.php");
+include("../../controller/upload.php");
 inserirUsuarios($connect);
 ?>
 
@@ -71,8 +72,7 @@ inserirUsuarios($connect);
             </nav>
         </header>
         <!-- FIM CABECALHO -->
-
-        <!-- INICIO SECAO PRINCIPAL -->
+    
         <!-- INICIO SECAO PRINCIPAL -->
         <main class="login">
             <!-- INICIO FORMULARIO -->
@@ -100,8 +100,8 @@ inserirUsuarios($connect);
                     <label for="dt-nascimento">Data de nascimento:</label>
                     <input type="date" id="dt-nascimento" name="dt-nascimento" class="input-entrada" required>
 
-                    <label for="imagem-perfil">Imagem de perfil:</label>
-                    <input type="file" name="imagem-perfil" id="imagem-perfil" class="input-entrada">
+                    <label for="arquivo">Imagem de perfil:</label>
+                    <input type="file" name="arquivo" id="arquivo" class="input-entrada">
                 </div>
 
                 <div class="btn-login">

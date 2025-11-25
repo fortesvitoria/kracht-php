@@ -10,9 +10,13 @@ function inserirUsuarios($connect) {
         $sobrenome = mysqli_real_escape_string($connect, $_POST['sobrenome']);
         $senha = sha1($_POST['senha']);
         $dt_nascimento = $_POST['dt-nascimento'];
-        $imagem = null;
+        $imagem = !empty($_FILES['arquivo']['name']) ? $_FILES['arquivo']['name'] : NULL;
+        if(!empty($imagem)) {
+            $caminho = "../../db/uploads/";
+            $imagem = uploadImagens($caminho);
+        }
         $is_admin = 0;
-        
+    
         if ($_POST['senha'] != $_POST['repita-senha']) {
             $erros[] = "Senhas não conferem!";
         }
@@ -30,7 +34,7 @@ function inserirUsuarios($connect) {
         if (empty($erros)){
             //iserir usuario no banco
             $query = "INSERT INTO usuarios(nome, sobrenome, email, senha, dt_nascimento, imagem, is_admin) 
-            VALUES ('$nome', '$sobrenome', '$email', '$senha', '$dt_nascimento', NULL, '$is_admin')";
+            VALUES ('$nome', '$sobrenome', '$email', '$senha', '$dt_nascimento', '$imagem', '$is_admin')";
             if (mysqli_query($connect, $query)) {
                 header("Location: /kracht-php/view/paginas/login_usuario.php");
                 exit;
