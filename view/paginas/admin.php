@@ -1,8 +1,9 @@
-<?php 
+<?php
 session_start();
 include("../../controller/conexao.php");
 include("../../controller/inserir_produtos.php");
 include("../../controller/upload.php");
+include("../../controller/buscar_dados.php");
 
 inserirProdutos($connect);
 ?>
@@ -78,60 +79,92 @@ inserirProdutos($connect);
         <!-- INICIO SECAO PRINCIPAL -->
         <main class="usuario">
             <?php if (isset($_SESSION['ativa'])) { ?>
-<div>
-                <div class="bloco">
-                    <div>
-                        <img class="img-perfil" src="../../db/uploads/<?php echo $_SESSION['usuario']['imagem']; ?>" alt="">
-                        <h3>Bem vindo(a) à página administrativa, <?php echo $_SESSION['usuario']['nome']; ?>!</h3>
-                    </div>
-                </div>
-                <div class="bloco dados">
-                    <h3>Seus dados:</h3>
-                    <p>Nome: <?php echo $_SESSION['usuario']['nome']; ?></p>
-                    <p>Sobrenome: <?php echo $_SESSION['usuario']['sobrenome']; ?></p>
-                    <p>E-mail: <?php echo $_SESSION['usuario']['email']; ?></p>
-                    <p>Data de nascimento: <?php echo $_SESSION['usuario']['dt_nascimento']; ?></p>
-                    <div class="btn-login">
-                        <button type="submit" name="enviar" class="btn-ativo btn">Alterar dados</button>
-                    </div>
-                </div>
-                </div>
-
-                    <!-- INICIO FORMULARIO -->
-                    <form method="POST" enctype="multipart/form-data">
+                <div>
+                    <div class="bloco">
                         <div>
-                            <h3>Cadastrar produto</h3>
+                            <img class="img-perfil" src="../../db/uploads/<?php echo $_SESSION['usuario']['imagem']; ?>" alt="">
+                            <h3>Bem vindo(a) à página administrativa, <?php echo $_SESSION['usuario']['nome']; ?>!</h3>
                         </div>
-
-                        <div class="links-login">
-                            <label for="nome">Nome do produto:</label>
-                            <input type="text" id="nome" name="nome" class="input-entrada" required autofocus>
-
-                            <label for="marca">Marca do produto:</label>
-                            <input type="text" id="marca" name="marca" class="input-entrada" required>
-
-
-                            <label for="tipo">Tipo de produto:</label>
-                            <select name="tipo" id="tipo" required>
-                                <option value="bicicleta">Bicicleta</option>
-                                <option value="roupas">Roupas</option>
-                                <option value="calcados">Calçados</option>
-                                <option value="acessorios">Acessorios</option>
-                            </select>
-
-                            <label for="valor">Valor do produto:</label>
-                            <input type="number" id="valor" name="valor" class="input-entrada" required>
-
-                            <label for="valor">Imagem do produto:</label>
-                            <input type="file" name="arquivo" id="arquivo" class="input-entrada upload" required>
-                        </div>
-
+                    </div>
+                    <div class="bloco dados">
+                        <h3>Seus dados:</h3>
+                        <p>Nome: <?php echo $_SESSION['usuario']['nome']; ?></p>
+                        <p>Sobrenome: <?php echo $_SESSION['usuario']['sobrenome']; ?></p>
+                        <p>E-mail: <?php echo $_SESSION['usuario']['email']; ?></p>
+                        <p>Data de nascimento: <?php echo $_SESSION['usuario']['dt_nascimento']; ?></p>
                         <div class="btn-login">
-                            <button type="submit" name="cadastrar" class="btn-ativo btn">Cadastrar produto</button>
+                            <button type="submit" name="enviar" class="btn-ativo btn">Alterar dados</button>
                         </div>
-                    </form>
-                    <!-- FIM FORMULARIO -->
-                <?php } ?>
+                    </div>
+                </div>
+
+                <div class="bloco">
+                    <?php
+                    $tabela = "usuarios";
+                    $order = "nome";
+                    $usuarios = buscaTodosDados($connect, $tabela, 1, $order);
+                    ?>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nome:</th>
+                                <th>Sobrenome:</th>
+                                <th>E-mail:</th>
+                                <th>Nascimento:</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            foreach ($usuarios as $usuario) : ?>
+                            <tr>
+                                <td><?php echo $usuario['nome']; ?></td>
+                                <td><?php echo $usuario['sobrenome']; ?></td>
+                                <td><?php echo $usuario['email']; ?></td>
+                                <td><?php echo $usuario['dt_nascimento']; ?></td>
+                            </tr>
+                            <?php
+                            endforeach;
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- INICIO FORMULARIO -->
+                <form method="POST" enctype="multipart/form-data">
+                    <div>
+                        <h3>Cadastrar produto</h3>
+                    </div>
+
+                    <div class="links-login">
+                        <label for="nome">Nome do produto:</label>
+                        <input type="text" id="nome" name="nome" class="input-entrada" required autofocus>
+
+                        <label for="marca">Marca do produto:</label>
+                        <input type="text" id="marca" name="marca" class="input-entrada" required>
+
+
+                        <label for="tipo">Tipo de produto:</label>
+                        <select name="tipo" id="tipo" required>
+                            <option value="bicicleta">Bicicleta</option>
+                            <option value="roupas">Roupas</option>
+                            <option value="calcados">Calçados</option>
+                            <option value="acessorios">Acessorios</option>
+                        </select>
+
+                        <label for="valor">Valor do produto:</label>
+                        <input type="number" id="valor" name="valor" class="input-entrada" required>
+
+                        <label for="valor">Imagem do produto:</label>
+                        <input type="file" name="arquivo" id="arquivo" class="input-entrada upload" required>
+                    </div>
+
+                    <div class="btn-login">
+                        <button type="submit" name="cadastrar" class="btn-ativo btn">Cadastrar produto</button>
+                    </div>
+                </form>
+                <!-- FIM FORMULARIO -->
+            <?php } ?>
         </main>
         <!-- INICIO RODAPÉ -->
         <footer>
