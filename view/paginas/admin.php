@@ -1,4 +1,11 @@
-<?php session_start() ?>
+<?php 
+session_start();
+include("../../controller/conexao.php");
+include("../../controller/inserir_produtos.php");
+include("../../controller/upload.php");
+
+inserirProdutos($connect);
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -24,7 +31,7 @@
                 <!-- MENU DROPDOWN TELAS MENORES -->
                 <div class="dropdown">
                     <button id="meuBotao" class="botao-dropdown"><img class="icone" src="../src/img/icone-menu.svg"
-                            alt="icone com tres bbarras laranja representando um menu"></button>
+                            alt="icone com tres barras laranja representando um menu"></button>
                     <div id="meuDropdown" class="conteudo-dropdown">
                         <!-- LINKS -->
                         <ul class="links-nav-mobile">
@@ -59,7 +66,7 @@
                 </ul>
                 <!-- LOGO -->
                 <div class="">
-                    <a href="index.html" class="logo"><img src="../src/img/kracht-icone.png"
+                    <a href="../index.php" class="logo"><img src="../src/img/kracht-icone.png"
                             alt="icone de um homem pedalando com o fundo laranja" class="icone-logo">
                         <h1>Kracht</h1>
                     </a>
@@ -91,21 +98,21 @@
                 </div>
 
                     <!-- INICIO FORMULARIO -->
-                    <form action="../../controller/login.php" method="POST" enctype="multipart/form-data">
+                    <form method="POST" enctype="multipart/form-data">
                         <div>
                             <h3>Cadastrar produto</h3>
                         </div>
 
                         <div class="links-login">
-                            <label for="nome-produto">Nome do produto:</label>
-                            <input type="text" id="nome-produto" name="nome-produto" class="input-entrada" required autofocus>
+                            <label for="nome">Nome do produto:</label>
+                            <input type="text" id="nome" name="nome" class="input-entrada" required autofocus>
 
-                            <label for="marca-produto">Marca do produto:</label>
-                            <input type="text" id="marca-produto" name="marca-produto" class="input-entrada" required>
+                            <label for="marca">Marca do produto:</label>
+                            <input type="text" id="marca" name="marca" class="input-entrada" required>
 
 
-                            <label for="tipo-produto">Tipo de produto:</label>
-                            <select name="tipo-produto" id="tipo-produto" required>
+                            <label for="tipo">Tipo de produto:</label>
+                            <select name="tipo" id="tipo" required>
                                 <option value="bicicleta">Bicicleta</option>
                                 <option value="roupas">Roupas</option>
                                 <option value="calcados">Calçados</option>
@@ -120,7 +127,7 @@
                         </div>
 
                         <div class="btn-login">
-                            <button type="submit" name="enviar" class="btn-ativo btn">Cadastrar produto</button>
+                            <button type="submit" name="cadastrar" class="btn-ativo btn">Cadastrar produto</button>
                         </div>
                     </form>
                     <!-- FIM FORMULARIO -->

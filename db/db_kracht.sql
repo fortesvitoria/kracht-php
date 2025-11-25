@@ -6,7 +6,8 @@ CREATE TABLE `usuarios` (
   `senha` varchar(255) NOT NULL,
   `dt_nascimento` date NOT NULL,
   `is_admin` tinyint(1) NOT NULL COMMENT '0 - false: usuario, 1 - true : admin',
-  `imagem` varchar(50) NULL
+  `imagem` varchar(50) NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- ADMIN - senha admin123
@@ -21,3 +22,12 @@ INSERT INTO `usuarios` (`id`, `nome`, `sobrenome`, `email`, `senha`, `dt_nascime
 
 
 
+CREATE TABLE `produtos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) NOT NULL,
+  `marca` varchar(100) NOT NULL,
+  `tipo` varchar(100) NOT NULL,
+  `valor` float NOT NULL,
+  `imagem` varchar(50) NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;

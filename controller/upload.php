@@ -1,7 +1,7 @@
 <?php
 function uploadImagens($caminho)
 {
-    if (isset($_POST['cadastrar-usuario'])) {
+    if (isset($_POST['cadastrar'])) {
         if (!empty($_FILES['arquivo']['name'])) {
             $nomeArquivo = $_FILES['arquivo']['name'];
             $tipo = $_FILES['arquivo']['type'];

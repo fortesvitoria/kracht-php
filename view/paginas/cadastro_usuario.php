@@ -64,7 +64,7 @@ inserirUsuarios($connect);
                 </ul>
                 <!-- LOGO -->
                 <div class="">
-                    <a href="index.html" class="logo"><img src="../src/img/kracht-icone.png"
+                    <a href="../index.php" class="logo"><img src="../src/img/kracht-icone.png"
                             alt="icone de um homem pedalando com o fundo laranja" class="icone-logo">
                         <h1>Kracht</h1>
                     </a>
@@ -105,7 +105,7 @@ inserirUsuarios($connect);
                 </div>
 
                 <div class="btn-login">
-                    <button type="submit" name="cadastrar-usuario" class="btn-ativo btn">Cadastrar Usuário</button>
+                    <button type="submit" name="cadastrar" class="btn-ativo btn">Cadastrar Usuário</button>
                 </div>
             </form>
             <!-- FIM FORMULARIO -->

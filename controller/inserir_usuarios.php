@@ -1,7 +1,7 @@
 <?php 
 
 function inserirUsuarios($connect) {
-    if (isset($_POST['cadastrar-usuario'])) {
+    if (isset($_POST['cadastrar'])) {
 
         $erros = [];
 
