@@ -69,13 +69,12 @@
         <!-- FIM CABECALHO -->
 
         <!-- INICIO SECAO PRINCIPAL -->
-        <!-- INICIO SECAO PRINCIPAL -->
         <main class="usuario">
             <?php if (isset($_SESSION['ativa'])) { ?>
 
                 <div class="bloco">
                     <div>
-                        <img class="img-perfil" src="../src/img/ftperfil.jpg" alt="">
+                        <img class="img-perfil" src="../../db/uploads/<?php echo $_SESSION['usuario']['imagem'];?>" alt="">
                         <h3>Bem vindo(a) à página administrativa, <?php echo $_SESSION['usuario']['nome']; ?>!</h3>
                     </div>
 
@@ -107,7 +106,7 @@
                         <input type="number" id="valor" name="valor" class="input-entrada" required>
 
                         <label for="valor">Imagem do produto:</label>
-                        <input type="file" name="arquivo" id="arquivo" class="input-entrada" required>
+                        <input type="file" name="arquivo" id="arquivo" class="input-entrada upload" required>
                     </div>
 
                     <div class="btn-login">

@@ -217,6 +217,10 @@ footer h2 {
         margin: 5px 15px;
     }
 
+.upload {
+        color: var(--preto);
+    }
+
 
  /* INPUTS */
     .input-entrada,

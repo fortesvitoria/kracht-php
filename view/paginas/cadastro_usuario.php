@@ -41,8 +41,8 @@ inserirUsuarios($connect);
                         </ul>
 
                         <div class="logo-link">
-                            <a class="logo" href="#">
-                                <ion-icon class="icone-link" name="log-out-outline"></ion-icon>Sair
+                            <a class="logo" href="../paginas/login_usuario.php">
+                                <ion-icon class="icone-link" name="log-in-outline"></ion-icon>Entrar
                             </a>
                         </div>
                     </div>
@@ -50,8 +50,8 @@ inserirUsuarios($connect);
 
                 <!-- MENU TELAS GRANDES -->
                 <div class="links-nav-desktop logo-link">
-                    <a class="logo" href="#">
-                        <ion-icon class="icone-link" name="log-out-outline"></ion-icon>Sair
+                    <a class="logo" href="../paginas/login_usuario.php">
+                        <ion-icon class="icone-link" name="log-in-outline"></ion-icon>Entrar
                     </a>
                 </div>
 
@@ -101,7 +101,7 @@ inserirUsuarios($connect);
                     <input type="date" id="dt-nascimento" name="dt-nascimento" class="input-entrada" required>
 
                     <label for="arquivo">Imagem de perfil:</label>
-                    <input type="file" name="arquivo" id="arquivo" class="input-entrada">
+                    <input type="file" name="arquivo" id="arquivo" class="input-entrada upload">
                 </div>
 
                 <div class="btn-login">

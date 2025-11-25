@@ -36,7 +36,7 @@
                         </ul>
 
                         <div class="logo-link">
-                            <a class="logo" href="#">
+                            <a class="logo" href="../../controller/logout.php">
                                 <ion-icon class="icone-link" name="log-out-outline"></ion-icon>Sair
                             </a>
                         </div>
@@ -45,7 +45,7 @@
 
                 <!-- MENU TELAS GRANDES -->
                 <div class="links-nav-desktop logo-link">
-                    <a class="logo" href="#">
+                    <a class="logo" href="../../controller/logout.php">
                         <ion-icon class="icone-link" name="log-out-outline"></ion-icon>Sair
                     </a>
                 </div>
@@ -68,7 +68,6 @@
         </header>
         <!-- FIM CABECALHO -->
 
-        <!-- INICIO SECAO PRINCIPAL -->
         <!-- INICIO SECAO PRINCIPAL -->
         <main class="login">
             <!-- INICIO FORMULARIO -->
