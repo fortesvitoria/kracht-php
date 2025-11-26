@@ -112,15 +112,15 @@ inserirProdutos($connect);
                             $tabela = "usuarios";
                             $order = "nome";
                             $usuarios = buscaTodosDados($connect, $tabela, 1, $order);
-                            if (isset($_GET['nome'])) {
+                            if (isset($_GET['nome']) && isset($_GET['tipo']) && $_GET['tipo'] == 'usuario') {
                                 echo "<form method='POST'>";
                                 echo "Deseja mesmo deletar o usuario " . $_GET['nome'] . "?";
                                 echo "<input type='hidden' name='id' value=" . $_GET['id'] . ">";
-                                echo "<input class='btn btn-ativo' type='submit' value='Deletar' name='deletar'>";
+                                echo "<input class='btn btn-ativo' type='submit' value='Deletar' name='deletar-usuario'>";
                                 echo "</form>";
                                 
                             }
-                            if (isset($_POST['deletar'])) {
+                            if (isset($_POST['deletar-usuario'])) {
                                 deletar($connect, "usuarios", $_POST['id']);
                                 echo "<meta http-equiv='refresh' content='0;url=admin.php'>"; // Recarrega a página
                             }
@@ -148,7 +148,7 @@ inserirProdutos($connect);
                                                 <td><?php echo $usuario['email']; ?></td>
                                                 <td><?php echo $usuario['dt_nascimento']; ?></td>
                                                 <td>
-                                                    <a href="admin.php?id=<?php echo $usuario['id']; ?>&nome=<?php echo $usuario['nome']; ?>">Excluir</a>
+                                                    <a class="btn-acoes" href="admin.php?id=<?php echo $usuario['id']; ?>&nome=<?php echo $usuario['nome']; ?>&tipo=usuario">Excluir</a>
                                                 </td>
                                             </tr>
                                     <?php
@@ -168,6 +168,18 @@ inserirProdutos($connect);
                             $tabela = "produtos";
                             $order = "nome";
                             $produtos = buscaTodosDados($connect, $tabela, 1, $order);
+                             if (isset($_GET['nome']) && isset($_GET['tipo']) && $_GET['tipo'] == 'produto') {
+                                echo "<form method='POST'>";
+                                echo "Deseja mesmo deletar o produto " . $_GET['nome'] . "?";
+                                echo "<input type='hidden' name='id' value=" . $_GET['id'] . ">";
+                                echo "<input class='btn btn-ativo' type='submit' value='Deletar' name='deletar'>";
+                                echo "</form>";
+                                
+                            }
+                            if (isset($_POST['deletar'])) {
+                                deletar($connect, "produtos", $_POST['id']);
+                                echo "<meta http-equiv='refresh' content='0;url=admin.php'>"; // Recarrega a página
+                            }
                             ?>
                             <table>
                                 <thead>
@@ -178,6 +190,7 @@ inserirProdutos($connect);
                                         <th>Tipo:</th>
                                         <th>Valor:</th>
                                         <th>Imagem:</th>
+                                        <th>Ações</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -191,6 +204,9 @@ inserirProdutos($connect);
                                             <td><?php echo $produto['tipo']; ?></td>
                                             <td><?php echo $produto['valor']; ?></td>
                                             <td><?php echo $produto['imagem']; ?></td>
+                                            <td>
+                                                    <a class="btn-acoes" href="admin.php?id=<?php echo $produto['id']; ?>&nome=<?php echo $produto['nome']; ?>&tipo=produto">Excluir</a>
+                                                </td>
                                         </tr>
                                     <?php
                                     };

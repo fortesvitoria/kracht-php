@@ -195,6 +195,10 @@ table {
     padding: 15px;
 }
 
+th, td {
+    white-space: nowrap
+}
+
 th {
     background-color: var(--laranja);
     padding: 5px;
@@ -203,6 +207,16 @@ th {
 td {
     border-bottom: solid 1.5px var(--laranja-escuro);
     padding: 5px;
+}
+
+.btn-acoes{
+    background-color: var(--laranja);
+    padding: 2px;
+    border-radius: 5px;
+}
+
+.btn-acoes:hover{
+    background-color: var(--laranja-escuro);
 }
 
 
