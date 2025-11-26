@@ -185,131 +185,136 @@ footer h2 {
 
 /* TABELA */
 .tabela {
-    display: flex;
-    overflow: auto; /*scrollbox*/
+    display: block;
+    overflow: auto;
+    max-height: 450px;
 
 }
 
-table{
+table {
     padding: 15px;
 }
 
-th{
+th {
     background-color: var(--laranja);
 }
 
-td{
-        border-bottom: solid 1.5px var(--laranja-escuro);
+td {
+    border-bottom: solid 1.5px var(--laranja-escuro);
 }
 
 
- /* FORMULÁRIOS e BLOCO */
+/* FORMULÁRIOS e BLOCO */
 
- .img-perfil{
+.img-perfil {
     border-radius: 100px;
     margin-bottom: 25px;
     width: 150px;
     box-shadow: 0px 4px 6px var(--shadow);
- }
+}
 
-    form, 
-    .bloco {
-        color: var(--branco);
-        width: 90%;
-        background-color: var(--grafite-diluido);
-        border-radius: 15px;
-        box-shadow: 0px 4px 6px var(--shadow);
-        text-align: center;
-        padding: 25px 0;
-    }
+.bloco-externo {
+    width: 100%;
+}
 
-    .dados p{
-        text-align: left;
-        padding: 5px 0 0 15px;
-    }
+form,
+.bloco {
+    color: var(--branco);
+    width: 90%;
+    background-color: var(--grafite-diluido);
+    border-radius: 15px;
+    box-shadow: 0px 4px 6px var(--shadow);
+    text-align: center;
+    padding: 25px 0;
+}
 
-    form h2 {
-        font-size: 28px;
-        text-transform: uppercase;
-    }
+.dados p {
+    text-align: left;
+    padding: 5px 0 0 15px;
+}
 
-    label,
-    .input-entrada,
-    form p,
-    select {
-        display: block;
-        text-align: start;
-        margin: 5px 15px;
-    }
+form h2 {
+    font-size: 28px;
+    text-transform: uppercase;
+}
+
+label,
+.input-entrada,
+form p,
+select {
+    display: block;
+    text-align: start;
+    margin: 5px 15px;
+}
 
 .upload {
-        color: var(--preto);
-    }
+    color: var(--preto);
+}
 
 
- /* INPUTS */
-    .input-entrada,
-    select {
-        font-family: var(--fonte-secundaria);
-        padding: 8px 8px;
-        border-radius: 10px;
-    }
+/* INPUTS */
+.input-entrada,
+select {
+    font-family: var(--fonte-secundaria);
+    padding: 8px 8px;
+    border-radius: 10px;
+}
 
-    input,
-    select {
-        width: 90%;
-        border: 2px solid var(--laranja);
-        box-shadow: 0px 4px 8px var(--shadow);
-    }
-    
-    select {
-        text-align: start;
-        /* width: 400px; */
-    }
+input,
+select {
+    width: 90%;
+    border: 2px solid var(--laranja);
+    box-shadow: 0px 4px 8px var(--shadow);
+}
 
-    input:focus {
-        outline: 2px solid var(--off-white);
-        outline-offset: 2px;
-    }
+select {
+    text-align: start;
+    /* width: 400px; */
+}
 
-    /* BOTOES */
-    .btn {
-        cursor: pointer;
-        font-family: var(--fonte-secundaria);
-        font-size: 16px;
-        font-weight: 500;
-        padding: 6px 0;
-        border-radius: 10px;
-        box-shadow: 0px 4px 8px var(--shadow);
-    }
+input:focus {
+    outline: 2px solid var(--off-white);
+    outline-offset: 2px;
+}
 
-    .btn-ativo {
-        background-color: var(--laranja);
-        color: var(--branco);
-        border: 2px solid var(--laranja-escuro);
-    }
+/* BOTOES */
+.btn {
+    cursor: pointer;
+    font-family: var(--fonte-secundaria);
+    font-size: 16px;
+    font-weight: 500;
+    padding: 6px 0;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px var(--shadow);
+}
 
-    .btn-ativo:hover {
-        background-color: var(--laranja-escuro);
-    }
+.btn-ativo {
+    background-color: var(--laranja);
+    color: var(--branco);
+    border: 2px solid var(--laranja-escuro);
+}
 
-    .btn-secundario {
-        display: inline-block;
-        background-color: var(--grafite-diluido);
-        color: var(--laranja);
-        border: 2px solid var(--laranja);
-        text-align: center;
-    }
+.btn-ativo:hover {
+    background-color: var(--laranja-escuro);
+}
 
-    .btn-secundario {
-        background-color: var(--grafite);
-        color: var(--laranja);
-        border: 2px solid var(--laranja);
-    }
+.btn-secundario {
+    display: inline-block;
+    background-color: var(--grafite-diluido);
+    color: var(--laranja);
+    border: 2px solid var(--laranja);
+    text-align: center;
+}
 
-    .btn-secundario:hover {
-        background-color: var(--grafite-escuro);
-    }
+.btn-secundario {
+    background-color: var(--grafite);
+    color: var(--laranja);
+    border: 2px solid var(--laranja);
+}
+
+.btn-secundario:hover {
+    background-color: var(--grafite-escuro);
+}
 
 
 /* RODAPÉ */
@@ -453,6 +458,11 @@ li .link-footer {
         padding: 15px 20px;
     }
 
+    /* BLOCOS */
+    .bloco-externo{
+        width: auto;
+        max-height: 100%;
+    }
 
     /* FOOTER */
     .secao-superior-footer {

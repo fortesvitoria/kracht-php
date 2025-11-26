@@ -79,6 +79,7 @@ inserirProdutos($connect);
         <!-- INICIO SECAO PRINCIPAL -->
         <main class="usuario">
             <?php if (isset($_SESSION['ativa'])) { ?>
+                <!-- BLOCO 1 -->
                 <div>
                     <div class="bloco">
                         <div>
@@ -98,44 +99,91 @@ inserirProdutos($connect);
                     </div>
                 </div>
 
-                <div class="bloco">
-                    <h3>Usuários cadastrados: </h3>
-                    <div class="tabela">
-                        
-                        <?php
-                        $tabela = "usuarios";
-                        $order = "nome";
-                        $usuarios = buscaTodosDados($connect, $tabela, 1, $order);
-                        ?>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Nome:</th>
-                                    <th>Sobrenome:</th>
-                                    <th>E-mail:</th>
-                                    <th>Nascimento:</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                #mostra tabela somente de usuarios que não são admins
-                                foreach ($usuarios as $usuario) {
-                                    if ($usuario['is_admin'] != 1) { ?>
-                                        <tr>
-                                            <td><?php echo $usuario['nome']; ?></td>
-                                            <td><?php echo $usuario['sobrenome']; ?></td>
-                                            <td><?php echo $usuario['email']; ?></td>
-                                            <td><?php echo $usuario['dt_nascimento']; ?></td>
-                                        </tr>
-                                <?php
-                                    };
-                                }
-                                ?>
-                            </tbody>
-                        </table>
+                <!-- BLOCO 2 -->
+                <div class="bloco-externo ">
+
+                    <!-- BLOCO USUARIOS CADASTRADOS -->
+                    <div class="bloco">
+                        <h3>Usuários cadastrados: </h3>
+                        <div class="tabela ">
+
+                            <?php
+                            $tabela = "usuarios";
+                            $order = "nome";
+                            $usuarios = buscaTodosDados($connect, $tabela, 1, $order);
+                            ?>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Nome:</th>
+                                        <th>Sobrenome:</th>
+                                        <th>E-mail:</th>
+                                        <th>Nascimento:</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    #mostra tabela somente de usuarios que não são admins
+                                    foreach ($usuarios as $usuario) {
+                                        if ($usuario['is_admin'] != 1) { ?>
+                                            <tr>
+                                                <td><?php echo $usuario['nome']; ?></td>
+                                                <td><?php echo $usuario['sobrenome']; ?></td>
+                                                <td><?php echo $usuario['email']; ?></td>
+                                                <td><?php echo $usuario['dt_nascimento']; ?></td>
+                                            </tr>
+                                    <?php
+                                        };
+                                    }
+                                    ?>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
+
+                    <!-- BLOCO PRODUTOS CADASTRADOS -->
+                    <div class="bloco">
+                        <h3>Produtos cadastrados: </h3>
+                        <div class="tabela">
+                            <?php
+                            $tabela = "produtos";
+                            $order = "nome";
+                            $produtos = buscaTodosDados($connect, $tabela, 1, $order);
+                            ?>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>ID:</th>
+                                        <th>Nome:</th>
+                                        <th>Marca:</th>
+                                        <th>Tipo:</th>
+                                        <th>Valor:</th>
+                                        <th>Imagem:</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    foreach ($produtos as $produto) {
+                                    ?>
+                                        <tr>
+                                            <td><?php echo $produto['id']; ?></td>
+                                            <td><?php echo $produto['nome']; ?></td>
+                                            <td><?php echo $produto['marca']; ?></td>
+                                            <td><?php echo $produto['tipo']; ?></td>
+                                            <td><?php echo $produto['valor']; ?></td>
+                                            <td><?php echo $produto['imagem']; ?></td>
+                                        </tr>
+                                    <?php
+                                    };
+                                    ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
                 </div>
 
+                <!-- BLOCO 3 -->
                 <!-- INICIO FORMULARIO -->
                 <form method="POST" enctype="multipart/form-data">
                     <div>
