@@ -183,6 +183,26 @@ footer h2 {
     display: none;
 }
 
+/* TABELA */
+.tabela {
+    display: flex;
+    overflow: auto; /*scrollbox*/
+
+}
+
+table{
+    padding: 15px;
+}
+
+th{
+    background-color: var(--laranja);
+}
+
+td{
+        border-bottom: solid 1.5px var(--laranja-escuro);
+}
+
+
  /* FORMULÁRIOS e BLOCO */
 
  .img-perfil{
