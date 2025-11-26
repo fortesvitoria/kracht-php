@@ -4,6 +4,7 @@ include("../../controller/conexao.php");
 include("../../controller/inserir_produtos.php");
 include("../../controller/upload.php");
 include("../../controller/buscar_dados.php");
+include("../../controller/deletar_dados.php");
 
 inserirProdutos($connect);
 ?>
@@ -111,14 +112,28 @@ inserirProdutos($connect);
                             $tabela = "usuarios";
                             $order = "nome";
                             $usuarios = buscaTodosDados($connect, $tabela, 1, $order);
+                            if (isset($_GET['nome'])) {
+                                echo "<form method='POST'>";
+                                echo "Deseja mesmo deletar o usuario " . $_GET['nome'] . "?";
+                                echo "<input type='hidden' name='id' value=" . $_GET['id'] . ">";
+                                echo "<input class='btn btn-ativo' type='submit' value='Deletar' name='deletar'>";
+                                echo "</form>";
+                                
+                            }
+                            if (isset($_POST['deletar'])) {
+                                deletar($connect, "usuarios", $_POST['id']);
+                                echo "<meta http-equiv='refresh' content='0;url=admin.php'>"; // Recarrega a página
+                            }
                             ?>
                             <table>
                                 <thead>
                                     <tr>
+                                        <th>ID: </th>
                                         <th>Nome:</th>
                                         <th>Sobrenome:</th>
                                         <th>E-mail:</th>
                                         <th>Nascimento:</th>
+                                        <th>Ações</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -127,10 +142,14 @@ inserirProdutos($connect);
                                     foreach ($usuarios as $usuario) {
                                         if ($usuario['is_admin'] != 1) { ?>
                                             <tr>
+                                                <td><?php echo $usuario['id']; ?></td>
                                                 <td><?php echo $usuario['nome']; ?></td>
                                                 <td><?php echo $usuario['sobrenome']; ?></td>
                                                 <td><?php echo $usuario['email']; ?></td>
                                                 <td><?php echo $usuario['dt_nascimento']; ?></td>
+                                                <td>
+                                                    <a href="admin.php?id=<?php echo $usuario['id']; ?>&nome=<?php echo $usuario['nome']; ?>">Excluir</a>
+                                                </td>
                                             </tr>
                                     <?php
                                         };
@@ -185,7 +204,7 @@ inserirProdutos($connect);
 
                 <!-- BLOCO 3 -->
                 <!-- INICIO FORMULARIO -->
-                <form method="POST" enctype="multipart/form-data">
+                <form class="form" method="POST" enctype="multipart/form-data">
                     <div>
                         <h3>Cadastrar produto</h3>
                     </div>

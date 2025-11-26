@@ -76,7 +76,7 @@ inserirUsuarios($connect);
         <!-- INICIO SECAO PRINCIPAL -->
         <main class="login">
             <!-- INICIO FORMULARIO -->
-            <form method="POST" enctype="multipart/form-data">
+            <form class="form" method="POST" enctype="multipart/form-data">
                 <div>
                     <h3>Cadastre-se</h3>
                 </div>

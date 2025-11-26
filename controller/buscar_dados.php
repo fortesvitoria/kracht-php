@@ -1,5 +1,4 @@
 <?php
-
 require_once "conexao.php";
 
 # busca no bd apenas todos com base no id

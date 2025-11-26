@@ -60,7 +60,7 @@
         <!-- INICIO SECAO PRINCIPAL -->
         <main class="login">
             <!-- INICIO FORMULARIO -->
-            <form action="../../controller/login.php" method="POST">
+            <form class="form" action="../../controller/login.php" method="POST">
                 <div>
                     <h2>Fazer Login</h2>
                 </div>

@@ -187,7 +187,7 @@ footer h2 {
 .tabela {
     display: block;
     overflow: auto;
-    max-height: 450px;
+    max-height: 400px;
 
 }
 
@@ -197,10 +197,12 @@ table {
 
 th {
     background-color: var(--laranja);
+    padding: 5px;
 }
 
 td {
     border-bottom: solid 1.5px var(--laranja-escuro);
+    padding: 5px;
 }
 
 
