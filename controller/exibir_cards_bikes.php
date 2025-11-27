@@ -21,29 +21,27 @@ function exibirCardsBikes()
         return;
     }
 
-    // Usa glob() para encontrar todos os arquivos de imagem permitidos
     $imagens = glob($caminho . "*.{jpg,jpeg,png}", GLOB_BRACE);
 
     if (empty($imagens)) {
         echo "<p>Nenhuma imagem encontrada na galeria.</p>";
     } else {
-        // Adiciona um estilo simples para a galeria
-
         foreach ($produtos as $produto) {
-            $link_produto = "#";
-            $caminho_imagem_completo = $caminho_base_uploads . htmlspecialchars($produto['imagem']);
-            $valor_formatado = 'R$ ' . number_format((float)$produto['valor'], 2, ',', '.');
+            if ($produto['tipo'] == "bicicleta") {
+                $link_produto = "#";
+                $caminho_imagem_completo = $caminho_base_uploads . htmlspecialchars($produto['imagem']);
+                $valor_formatado = 'R$ ' . number_format((float)$produto['valor'], 2, ',', '.');
 
-            echo '<a href="' . $link_produto . '">';
-            echo '<figure class="div-img-bike">';
-            // $imagem já contém o caminho "uploads/nomearquivo.jpg"
-            echo "<img class='img-bike' src='{$caminho_imagem_completo}' alt='Imagem do produto: " . htmlspecialchars($produto['nome']) . "'>";
-            echo '<h3>' . htmlspecialchars($produto['nome']) . '</h3>';
-            echo '<span class="secao-valor">';
-            echo '<span>' . $valor_formatado . '</span>';
-            echo '</span>';
-            echo '</figure>';
-            echo '</a>';
+                echo '<a href="' . $link_produto . '">';
+                echo '<figure class="div-img-bike">';
+                echo "<img class='img-bike' src='{$caminho_imagem_completo}' alt='Imagem do produto: " . htmlspecialchars($produto['nome']) . "'>";
+                echo '<h3>' . htmlspecialchars($produto['nome']) . '</h3>';
+                echo '<span class="secao-valor">';
+                echo '<span>' . $valor_formatado . '</span>';
+                echo '</span>';
+                echo '</figure>';
+                echo '</a>';
+            }
         }
     }
 }

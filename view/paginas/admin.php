@@ -5,6 +5,7 @@ include("../../controller/inserir_produtos.php");
 include("../../controller/upload.php");
 include("../../controller/buscar_dados.php");
 include("../../controller/deletar_dados.php");
+include("../../controller/update_usuario.php");
 
 inserirProdutos($connect);
 ?>
@@ -112,13 +113,46 @@ inserirProdutos($connect);
                             $tabela = "usuarios";
                             $order = "nome";
                             $usuarios = buscaTodosDados($connect, $tabela, 1, $order);
-                            if (isset($_GET['nome']) && isset($_GET['tipo']) && $_GET['tipo'] == 'usuario') {
+
+                            #ATUALIZAR USUARIO
+                            if (isset($_GET['id']) && isset($_GET['acao']) && $_GET['acao'] == 'atualizar' && $_GET['tipo'] == 'usuario') {
+                                $id = $_GET['id'];
+                                $usuario = buscaUnica($connect, "usuarios", $id);
+                                updateUsuario($connect);
+
+                                echo "<form method='POST' enctype='multipart/form-data' class='form' style='margin-bottom: 20px;'>";
+                                echo "<div><h3>Editar usuário: " . $usuario['nome'] . "</h3></div>";
+
+                                echo "<div class='links-login'>";
+
+                                echo "<input type='hidden' name='id' value='" . $usuario['id'] . "'>";
+                                echo "<input class='input-entrada' value='" . $usuario['nome'] . "' type='text' name='nome' placeholder='Nome' required>";
+                                echo "<input class='input-entrada' value='" . $usuario['sobrenome'] . "' type='text' name='sobrenome' placeholder='Sobrenome' required>";
+                                echo "<input class='input-entrada' value='" . $usuario['email'] . "' type='email' name='email' placeholder='E-mail' required>";
+                                echo "<input class='input-entrada' type='password' name='senha' placeholder='Digite para alterar a senha'>";
+                                echo "<input class='input-entrada' type='password' name='repita-senha' placeholder='Confirme a senha'>";
+                                echo "<input class='input-entrada' value='" . $usuario['dt_nascimento'] . "' type='date' name='dt-nascimento'>";
+                                echo "<input class='input-entrada upload' type='file' name='arquivo'>";
+
+                                echo "</div>"; 
+
+                                echo "<div class='btn-login'>";
+                                echo "<input class='btn btn-ativo' type='submit' value='Salvar Alterações' name='atualizar'>";
+                                echo "</div>";
+                                echo "</form>";
+                            }
+                             if (isset($_POST['atualizar'])) {
+                                echo "<meta http-equiv='refresh' content='0;url=admin.php'>"; // Recarrega a página
+                                
+                            }
+
+                            #DELETAR USUARIO
+                            if (isset($_GET['nome']) && isset($_GET['acao']) && $_GET['acao'] == 'deletar' && $_GET['tipo'] == 'usuario') {
                                 echo "<form method='POST'>";
                                 echo "Deseja mesmo deletar o usuario " . $_GET['nome'] . "?";
                                 echo "<input type='hidden' name='id' value=" . $_GET['id'] . ">";
                                 echo "<input class='btn btn-ativo' type='submit' value='Deletar' name='deletar-usuario'>";
                                 echo "</form>";
-                                
                             }
                             if (isset($_POST['deletar-usuario'])) {
                                 deletar($connect, "usuarios", $_POST['id']);
@@ -148,7 +182,9 @@ inserirProdutos($connect);
                                                 <td><?php echo $usuario['email']; ?></td>
                                                 <td><?php echo $usuario['dt_nascimento']; ?></td>
                                                 <td>
-                                                    <a class="btn-acoes" href="admin.php?id=<?php echo $usuario['id']; ?>&nome=<?php echo $usuario['nome']; ?>&tipo=usuario">Excluir</a>
+                                                    <a class="btn-acoes" href="admin.php?id=<?php echo $usuario['id']; ?>&nome=<?php echo $usuario['nome']; ?>&tipo=usuario&acao=deletar">Excluir</a>
+
+                                                    <a class="btn-acoes" href="admin.php?id=<?php echo $usuario['id']; ?>&nome=<?php echo $usuario['nome']; ?>&tipo=usuario&acao=atualizar">Atualizar</a>
                                                 </td>
                                             </tr>
                                     <?php
@@ -168,13 +204,12 @@ inserirProdutos($connect);
                             $tabela = "produtos";
                             $order = "nome";
                             $produtos = buscaTodosDados($connect, $tabela, 1, $order);
-                             if (isset($_GET['nome']) && isset($_GET['tipo']) && $_GET['tipo'] == 'produto') {
+                            if (isset($_GET['nome']) && isset($_GET['tipo']) && $_GET['tipo'] == 'produto') {
                                 echo "<form method='POST'>";
                                 echo "Deseja mesmo deletar o produto " . $_GET['nome'] . "?";
                                 echo "<input type='hidden' name='id' value=" . $_GET['id'] . ">";
                                 echo "<input class='btn btn-ativo' type='submit' value='Deletar' name='deletar'>";
                                 echo "</form>";
-                                
                             }
                             if (isset($_POST['deletar'])) {
                                 deletar($connect, "produtos", $_POST['id']);
@@ -205,8 +240,8 @@ inserirProdutos($connect);
                                             <td><?php echo $produto['valor']; ?></td>
                                             <td><?php echo $produto['imagem']; ?></td>
                                             <td>
-                                                    <a class="btn-acoes" href="admin.php?id=<?php echo $produto['id']; ?>&nome=<?php echo $produto['nome']; ?>&tipo=produto">Excluir</a>
-                                                </td>
+                                                <a class="btn-acoes" href="admin.php?id=<?php echo $produto['id']; ?>&nome=<?php echo $produto['nome']; ?>&tipo=produto">Excluir</a>
+                                            </td>
                                         </tr>
                                     <?php
                                     };
