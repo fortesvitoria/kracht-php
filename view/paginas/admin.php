@@ -6,6 +6,7 @@ include("../../controller/upload.php");
 include("../../controller/buscar_dados.php");
 include("../../controller/deletar_dados.php");
 include("../../controller/update_usuario.php");
+include("../../controller/update_produto.php");
 
 inserirProdutos($connect);
 ?>
@@ -120,7 +121,7 @@ inserirProdutos($connect);
                                 $usuario = buscaUnica($connect, "usuarios", $id);
                                 updateUsuario($connect);
 
-                                echo "<form method='POST' enctype='multipart/form-data' class='form' style='margin-bottom: 20px;'>";
+                                echo "<form method='POST' enctype='multipart/form-data' class='form'>";
                                 echo "<div><h3>Editar usuário: " . $usuario['nome'] . "</h3></div>";
 
                                 echo "<div class='links-login'>";
@@ -129,21 +130,21 @@ inserirProdutos($connect);
                                 echo "<input class='input-entrada' value='" . $usuario['nome'] . "' type='text' name='nome' placeholder='Nome' required>";
                                 echo "<input class='input-entrada' value='" . $usuario['sobrenome'] . "' type='text' name='sobrenome' placeholder='Sobrenome' required>";
                                 echo "<input class='input-entrada' value='" . $usuario['email'] . "' type='email' name='email' placeholder='E-mail' required>";
-                                echo "<input class='input-entrada' type='password' name='senha' placeholder='Digite para alterar a senha'>";
+                                echo "<input class='input-entrada' type='password' name='senha' placeholder='Senha'>";
                                 echo "<input class='input-entrada' type='password' name='repita-senha' placeholder='Confirme a senha'>";
                                 echo "<input class='input-entrada' value='" . $usuario['dt_nascimento'] . "' type='date' name='dt-nascimento'>";
                                 echo "<input class='input-entrada upload' type='file' name='arquivo'>";
 
-                                echo "</div>"; 
+                                echo "</div>";
 
                                 echo "<div class='btn-login'>";
                                 echo "<input class='btn btn-ativo' type='submit' value='Salvar Alterações' name='atualizar'>";
                                 echo "</div>";
                                 echo "</form>";
                             }
-                             if (isset($_POST['atualizar'])) {
+                            if (isset($_POST['atualizar'])) {
                                 echo "<meta http-equiv='refresh' content='0;url=admin.php'>"; // Recarrega a página
-                                
+
                             }
 
                             #DELETAR USUARIO
@@ -167,6 +168,7 @@ inserirProdutos($connect);
                                         <th>Sobrenome:</th>
                                         <th>E-mail:</th>
                                         <th>Nascimento:</th>
+                                        <th>Imagem:</th>
                                         <th>Ações</th>
                                     </tr>
                                 </thead>
@@ -181,6 +183,7 @@ inserirProdutos($connect);
                                                 <td><?php echo $usuario['sobrenome']; ?></td>
                                                 <td><?php echo $usuario['email']; ?></td>
                                                 <td><?php echo $usuario['dt_nascimento']; ?></td>
+                                                <td><?php echo $usuario['imagem']; ?></td>
                                                 <td>
                                                     <a class="btn-acoes" href="admin.php?id=<?php echo $usuario['id']; ?>&nome=<?php echo $usuario['nome']; ?>&tipo=usuario&acao=deletar">Excluir</a>
 
@@ -204,7 +207,39 @@ inserirProdutos($connect);
                             $tabela = "produtos";
                             $order = "nome";
                             $produtos = buscaTodosDados($connect, $tabela, 1, $order);
-                            if (isset($_GET['nome']) && isset($_GET['tipo']) && $_GET['tipo'] == 'produto') {
+
+                            #ATUALIZA PRODUTOS
+                            if (isset($_GET['id']) && isset($_GET['acao']) && $_GET['acao'] == 'atualizar' && $_GET['tipo'] == 'produto') {
+                                $id = $_GET['id'];
+                                $produto = buscaUnica($connect, "produtos", $id);
+                                updateProduto($connect);
+
+                                echo "<form method='POST' enctype='multipart/form-data' class='form'>";
+                                echo "<div><h3>Editar produto: " . $produto['nome'] . "</h3></div>";
+
+                                echo "<div class='links-login'>";
+
+                                echo "<input type='hidden' name='id' value='" . $produto['id'] . "'>";
+                                echo "<input class='input-entrada' value='" . $produto['nome'] . "' type='text' name='nome' placeholder='Nome' required>";
+                                echo "<input class='input-entrada' value='" . $produto['marca'] . "' type='text' name='marca' placeholder='Marca' required>";
+                                echo "<input class='input-entrada' value='" . $produto['tipo'] . "' type='tipo' name='tipo' placeholder='Tipo' required>";
+                                echo "<input class='input-entrada' type='number' name='valor' placeholder='Valor'>";
+                                echo "<input class='input-entrada upload' type='file' name='arquivo'>";
+
+                                echo "</div>";
+
+                                echo "<div class='btn-login'>";
+                                echo "<input class='btn btn-ativo' type='submit' value='Salvar Alterações' name='atualizar'>";
+                                echo "</div>";
+                                echo "</form>";
+                            }
+                            if (isset($_POST['atualizar'])) {
+                                echo "<meta http-equiv='refresh' content='0;url=admin.php'>"; // Recarrega a página
+
+                            }
+
+                            #DELETA PRODUTOS
+                            if (isset($_GET['nome']) && isset($_GET['acao']) && $_GET['acao'] == 'deletar' && $_GET['tipo'] == 'produto') {
                                 echo "<form method='POST'>";
                                 echo "Deseja mesmo deletar o produto " . $_GET['nome'] . "?";
                                 echo "<input type='hidden' name='id' value=" . $_GET['id'] . ">";
@@ -240,7 +275,9 @@ inserirProdutos($connect);
                                             <td><?php echo $produto['valor']; ?></td>
                                             <td><?php echo $produto['imagem']; ?></td>
                                             <td>
-                                                <a class="btn-acoes" href="admin.php?id=<?php echo $produto['id']; ?>&nome=<?php echo $produto['nome']; ?>&tipo=produto">Excluir</a>
+                                                <a class="btn-acoes" href="admin.php?id=<?php echo $produto['id']; ?>&nome=<?php echo $produto['nome']; ?>&tipo=produto&acao=deletar">Excluir</a>
+
+                                                    <a class="btn-acoes" href="admin.php?id=<?php echo $produto['id']; ?>&nome=<?php echo $produto['nome']; ?>&tipo=produto&acao=atualizar">Atualizar</a>
                                             </td>
                                         </tr>
                                     <?php
