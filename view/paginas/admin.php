@@ -102,7 +102,7 @@ inserirProdutos($connect);
                             $usuario = buscaUnica($connect, "usuarios", $id);
                             updateUsuario($connect);
 
-                            echo "<form method='POST' enctype='multipart/form-data' class='form'>";
+                            echo "<form method='POST' enctype='multipart/form-data' class='form form-center'>";
                             echo "<div><h3>Editar usuário: " . $adminDados['nome'] . "</h3></div>";
 
                             echo "<div class='links-login'>";
@@ -163,7 +163,7 @@ inserirProdutos($connect);
                                 $usuario = buscaUnica($connect, "usuarios", $id);
                                 updateUsuario($connect);
 
-                                echo "<form method='POST' enctype='multipart/form-data' class='form'>";
+                                echo "<form method='POST' enctype='multipart/form-data' class='form form-center'>";
                                 echo "<div><h3>Editar usuário: " . $usuario['nome'] . "</h3></div>";
 
                                 echo "<div class='links-login'>";
@@ -191,7 +191,7 @@ inserirProdutos($connect);
 
                             #DELETAR USUARIO
                             if (isset($_GET['nome']) && isset($_GET['acao']) && $_GET['acao'] == 'deletar' && $_GET['tipo'] == 'usuario') {
-                                echo "<form method='POST' class='form'>";
+                                echo "<form method='POST' class='form form-center'>";
                                 echo "Deseja mesmo deletar o usuario " . $_GET['nome'] . "?";
                                 echo "<input type='hidden' name='id' value=" . $_GET['id'] . ">";
                                 echo "<input class='btn btn-ativo' type='submit' value='Deletar' name='deletar-usuario'>";
@@ -282,7 +282,7 @@ inserirProdutos($connect);
 
                             #DELETA PRODUTOS
                             if (isset($_GET['nome']) && isset($_GET['acao']) && $_GET['acao'] == 'deletar' && $_GET['tipo'] == 'produto') {
-                                echo "<form method='POST'  class='form'>";
+                                echo "<form method='POST'  class='form form-center'>";
                                 echo "Deseja mesmo deletar o produto " . $_GET['nome'] . "?";
                                 echo "<input type='hidden' name='id' value=" . $_GET['id'] . ">";
                                 echo "<input class='btn btn-ativo' type='submit' value='Deletar' name='deletar'>";

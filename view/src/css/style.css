@@ -224,8 +224,11 @@ td {
 /* FORMULÁRIOS e BLOCO */
 
 .form {
+    width: 300px;
+}
+.form-center {
+    margin: 15px auto;
     width: 260px;
-    margin:15px auto;
 }
 
 .img-perfil {
@@ -487,6 +490,10 @@ li .link-footer {
     }
 
     .form {
+        width: 450px;
+    }
+
+     .form-center {
         width: 400px;
     }
 
