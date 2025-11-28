@@ -8,7 +8,7 @@ function deletar($connect, $tabela, $id)
         $query = "DELETE FROM $tabela WHERE id =" . (int)$id;
         $execute = mysqli_query($connect, $query);
         if ($execute) {
-            echo "Dado deletado com sucesso!";
+            echo "<script>alert(Dado deletado com sucesso!)</script>";
         } else {
             echo "Erro ao deletar.";
         }

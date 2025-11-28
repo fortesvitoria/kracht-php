@@ -28,8 +28,9 @@ function updateUsuario($connect)
         $imagemFinal = $dadosAtuais['imagem'];
 
         if (!empty($_FILES['arquivo']['name'])) {
-            $caminho = "../../db/uploads/";
+            $caminho = "../db/uploads/";
             $novaImagem = uploadImagens($caminho);
+            var_dump($novaImagem);
 
             if ($novaImagem) {
                 $imagemFinal = $novaImagem;

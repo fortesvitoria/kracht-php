@@ -17,7 +17,7 @@ include("../../controller/update_usuario.php");
     <!-- css geral - header, footer, estilos e cores base -->
     <link rel="stylesheet" href="../src/css/style.css">
     <!-- css especifico da página login.html -->
-     <link rel="stylesheet" href="../src/CSS/admin.css">
+    <link rel="stylesheet" href="../src/CSS/admin.css">
     <!-- icone da aba -->
     <link rel="shortcut icon" href="../src/img/kracht-icone.png" type="image/x-icon">
 </head>
@@ -79,68 +79,94 @@ include("../../controller/update_usuario.php");
         <main class="login">
             <?php if (isset($_SESSION['ativa'])) { ?>
                 <div>
-                <div class="bloco">
-                    <div>
-                        <img class="img-perfil" src="../../db/uploads/<?php echo $_SESSION['usuario']['imagem']; ?>" alt="">
-                        <h3>Bem vindo(a) à página do usuário, <?php echo $_SESSION['usuario']['nome']; ?>!</h3>
+                    <div class="bloco">
+                        <div>
+                            <img class="img-perfil" src="../../db/uploads/<?php echo $_SESSION['usuario']['imagem']; ?>" alt="">
+                            <h3>Bem vindo(a) à página do usuário, <?php echo $_SESSION['usuario']['nome']; ?>!</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="bloco dados texto-dados">
+
+                        <?php
+                        #DELETAR USUARIO
+                        if (isset($_GET['id']) && isset($_GET['acao']) && $_GET['acao'] == 'deletar' && $_GET['tipo'] == 'usuario') {
+                            $usuario = buscaUnica($connect, "usuarios", $_GET['id']);
+
+                            echo "<form method='POST' class='form form-center'>";
+                            echo "Deseja mesmo deletar sua conta " . $usuario['nome'] . "?";
+                            echo "<input type='hidden' name='id' value=" . $usuario['id'] . ">";
+                            echo "<input class='btn btn-ativo' type='submit' value='Deletar' name='deletar-usuario'>";
+                            echo "</form>";
+                        }
+                        if (isset($_POST['deletar-usuario'])) {
+                            deletar($connect, "usuarios", $_POST['id']);
+                            session_destroy();
+                            unset($_SESSION);
+                            echo "<meta http-equiv='refresh' content='0;url=../index.php'>";
+                        }
+                        ?>
+
+                        <h3>Seus dados:</h3>
+                        <p>Nome: <?php echo $_SESSION['usuario']['nome']; ?></p>
+                        <p>Sobrenome: <?php echo $_SESSION['usuario']['sobrenome']; ?></p>
+                        <p>E-mail: <?php echo $_SESSION['usuario']['email']; ?></p>
+                        <p>Data de nascimento: <?php echo $_SESSION['usuario']['dt_nascimento']; ?></p>
+                        <div class="btn-login btn-admin">
+                            <a class="btn btn-ativo" href="usuario.php?id=<?php echo $_SESSION['usuario']['id']; ?>&tipo=usuario&acao=atualizar">Atualizar</a>
+
+                            <a class="btn btn-ativo" href="usuario.php?id=<?php echo $_SESSION['usuario']['id']; ?>&tipo=usuario&acao=deletar">Excluir conta</a>
+                        </div>
+
                     </div>
                 </div>
-                <div class="bloco dados texto-dados">
-
-                    <h3>Seus dados:</h3>
-                    <p>Nome: <?php echo $_SESSION['usuario']['nome']; ?></p>
-                    <p>Sobrenome: <?php echo $_SESSION['usuario']['sobrenome']; ?></p>
-                    <p>E-mail: <?php echo $_SESSION['usuario']['email']; ?></p>
-                    <p>Data de nascimento: <?php echo $_SESSION['usuario']['dt_nascimento']; ?></p>
-                    <div class="btn-login btn-admin">
-                        <a class="btn btn-ativo" href="usuario.php?id=<?php echo $_SESSION['usuario']['id']; ?>&tipo=usuario&acao=atualizar">Atualizar</a>
-
-                        <button type="submit" name="enviar" class="btn-secundario btn">Excluir conta</button>
-                    </div>
-                </div>
-            </div>
 
 
-                <?php } ?>
-                <?php
-                $tabela = "usuarios";
-                $order = "nome";
-                $usuarios = buscaTodosDados($connect, $tabela, 1, $order);
+            <?php } ?>
+            <?php
+            $tabela = "usuarios";
+            $order = "nome";
+            $usuarios = buscaTodosDados($connect, $tabela, 1, $order);
 
-                #ATUALIZAR USUARIO
-                if (isset($_GET['id']) && isset($_GET['acao']) && $_GET['acao'] == 'atualizar' && $_GET['tipo'] == 'usuario') {
-                    $id = $_GET['id'];
-                    $usuario = buscaUnica($connect, "usuarios", $id);
+            #ATUALIZAR USUARIO
+            if (isset($_GET['id']) && isset($_GET['acao']) && $_GET['acao'] == 'atualizar' && $_GET['tipo'] == 'usuario') {
+                $id = $_GET['id'];
+                $usuario = buscaUnica($connect, "usuarios", $id);
 
-                    echo "<form method='POST' enctype='multipart/form-data' class='form'>";
+                echo "<form method='POST' enctype='multipart/form-data' class='form'>";
 
-                    echo "<div>
+                echo "<div>
                     <h3>Editar usuário: " . $usuario['nome'] . "</h3>
                     </div>";
 
-                    echo "<div class='links-login'>";
+                echo "<div class='links-login'>";
 
-                    echo "<input type='hidden' name='id' value='" . $usuario['id'] . "'>";
-                    echo "<input class='input-entrada' value='" . $usuario['nome'] . "' type='text' name='nome' placeholder='Nome' required>";
-                    echo "<input class='input-entrada' value='" . $usuario['sobrenome'] . "' type='text' name='sobrenome' placeholder='Sobrenome' required>";
-                    echo "<input class='input-entrada' value='" . $usuario['email'] . "' type='email' name='email' placeholder='E-mail' required>";
-                    echo "<input class='input-entrada' type='password' name='senha' placeholder='Senha'>";
-                    echo "<input class='input-entrada' type='password' name='repita-senha' placeholder='Confirme a senha'>";
-                    echo "<input class='input-entrada' value='" . $usuario['dt_nascimento'] . "' type='date' name='dt-nascimento'>";
-                    echo "<input class='input-entrada upload' type='file' name='arquivo'>";
+                echo "<input type='hidden' name='id' value='" . $usuario['id'] . "'>";
+                echo "<input class='input-entrada' value='" . $usuario['nome'] . "' type='text' name='nome' placeholder='Nome' required>";
+                echo "<input class='input-entrada' value='" . $usuario['sobrenome'] . "' type='text' name='sobrenome' placeholder='Sobrenome' required>";
+                echo "<input class='input-entrada' value='" . $usuario['email'] . "' type='email' name='email' placeholder='E-mail' required>";
+                echo "<input class='input-entrada' type='password' name='senha' placeholder='Senha'>";
+                echo "<input class='input-entrada' type='password' name='repita-senha' placeholder='Confirme a senha'>";
+                echo "<input class='input-entrada' value='" . $usuario['dt_nascimento'] . "' type='date' name='dt-nascimento'>";
+                echo "<input class='input-entrada upload' type='file' name='arquivo'>";
 
-                    echo "</div>";
+                echo "</div>";
 
-                    echo "<div class='btn-login'>";
-                    echo "<input class='btn btn-ativo' type='submit' value='Salvar Alterações' name='atualizar'>";
-                    echo "</div>";
-                    echo "</form>";
-                }
-                if (isset($_POST['atualizar'])) {
-                    updateUsuario($connect);
-                    echo "<meta http-equiv='refresh' content='0;url=usuario.php'>"; // Recarrega a página
+                echo "<div class='btn-login'>";
+                echo "<input class='btn btn-ativo' type='submit' value='Salvar Alterações' name='atualizar'>";
+                echo "</div>";
+                echo "</form>";
+            }
+            if (isset($_POST['atualizar'])) {
+                updateUsuario($connect);
+                echo "<meta http-equiv='refresh' content='0;url=usuario.php'>"; // Recarrega a página
 
-                } ?>
+            }
+
+            ?>
+
+
+
         </main>
         <!-- INICIO RODAPÉ -->
         <footer>
