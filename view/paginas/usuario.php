@@ -16,8 +16,8 @@ include("../../controller/update_usuario.php");
     <title>Kracht</title>
     <!-- css geral - header, footer, estilos e cores base -->
     <link rel="stylesheet" href="../src/css/style.css">
-    <!-- css especifico da página admin.html -->
-    <link rel="stylesheet" href="../src/CSS/admin.css">
+    <!-- css especifico da página login.html -->
+     <link rel="stylesheet" href="../src/CSS/admin.css">
     <!-- icone da aba -->
     <link rel="shortcut icon" href="../src/img/kracht-icone.png" type="image/x-icon">
 </head>
@@ -85,14 +85,14 @@ include("../../controller/update_usuario.php");
                         <h3>Bem vindo(a) à página do usuário, <?php echo $_SESSION['usuario']['nome']; ?>!</h3>
                     </div>
                 </div>
-                <div class="bloco dados">
+                <div class="bloco dados texto-dados">
 
                     <h3>Seus dados:</h3>
                     <p>Nome: <?php echo $_SESSION['usuario']['nome']; ?></p>
                     <p>Sobrenome: <?php echo $_SESSION['usuario']['sobrenome']; ?></p>
                     <p>E-mail: <?php echo $_SESSION['usuario']['email']; ?></p>
                     <p>Data de nascimento: <?php echo $_SESSION['usuario']['dt_nascimento']; ?></p>
-                    <div class="btn-login">
+                    <div class="btn-login btn-admin">
                         <a class="btn btn-ativo" href="usuario.php?id=<?php echo $_SESSION['usuario']['id']; ?>&tipo=usuario&acao=atualizar">Atualizar</a>
 
                         <button type="submit" name="enviar" class="btn-secundario btn">Excluir conta</button>
@@ -112,9 +112,11 @@ include("../../controller/update_usuario.php");
                     $id = $_GET['id'];
                     $usuario = buscaUnica($connect, "usuarios", $id);
 
+                    echo "<form method='POST' enctype='multipart/form-data' class='form'>";
 
-                    echo "<form method='POST' action='usuario.php?id=." . $usuario['id'] . "acao=atualizar&tipo=usuario' enctype='multipart/form-data'>";
-                    echo "<div><h3>Editar usuário: " . $usuario['nome'] . "</h3></div>";
+                    echo "<div>
+                    <h3>Editar usuário: " . $usuario['nome'] . "</h3>
+                    </div>";
 
                     echo "<div class='links-login'>";
 

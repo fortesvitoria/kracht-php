@@ -40,11 +40,12 @@ input {
 }
 
 .btn-admin{
-    margin: 25px;
+    margin-top: 25px;
     display: block;
 }
 
-.dados {
+.dados p,
+.dados h3{
     padding-left: 15px;
 }
 

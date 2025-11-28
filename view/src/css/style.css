@@ -308,9 +308,11 @@ input:focus {
     font-family: var(--fonte-secundaria);
     font-size: 16px;
     font-weight: 500;
-    padding: 6px 0;
+    padding: 6px;
     border-radius: 10px;
     box-shadow: 0px 4px 8px var(--shadow);
+    display: inline-block;
+    align-items: center;
 }
 
 .btn-ativo {

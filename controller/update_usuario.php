@@ -13,7 +13,7 @@ function updateUsuario($connect)
         $sobrenome = mysqli_real_escape_string($connect, $_POST['sobrenome']);
         $dt_nascimento = $_POST['dt-nascimento'];
 
-        $senhaSql = ""; 
+        $senhaSql = "";
         if (!empty($_POST['senha'])) {
             if ($_POST['senha'] == $_POST['repita-senha']) {
                 $novaSenha = sha1($_POST['senha']);
@@ -25,19 +25,12 @@ function updateUsuario($connect)
 
         $buscaAtual = mysqli_query($connect, "SELECT imagem FROM usuarios WHERE id = $id");
         $dadosAtuais = mysqli_fetch_assoc($buscaAtual);
-        $imagemFinal = $dadosAtuais['imagem']; 
+        $imagemFinal = $dadosAtuais['imagem'];
 
         if (!empty($_FILES['arquivo']['name'])) {
             $caminho = "../../db/uploads/";
-            $novaImagem = uploadImagens($caminho); 
-            if ($novaImagem) {
-                $imagemFinal = $novaImagem;
-            }
-        }
-        if (!empty($_POST['senha'])) {
-            if ($_POST['senha'] == $_POST['repita-senha']) {
-                $senha = sha1($_POST['senha']);
-            }
+            $novaImagem = uploadImagens($caminho);
+
             if ($novaImagem) {
                 $imagemFinal = $novaImagem;
             } else {
@@ -53,35 +46,23 @@ function updateUsuario($connect)
         }
 
         if (empty($erros)) {
-            if (!empty($senha)) {
-                $query = "UPDATE usuarios SET                     nome = '$nome', 
-                      sobrenome = '$sobrenome', 
-                      email = '$email', 
-                      dt_nascimento = '$dt_nascimento', 
-                      imagem = '$imagemFinal' 
-                      $senhaSql 
-                      WHERE id = $id";
+            $query = "UPDATE usuarios SET nome = '$nome', sobrenome = '$sobrenome', email = '$email', dt_nascimento = '$dt_nascimento', imagem = '$imagemFinal' $senhaSql WHERE id = $id";
 
-                $execute = mysqli_query($connect, $query);
-                
-                $_SESSION['usuario'] = buscaUnica($connect, "usuarios", $id);
+            $execute = mysqli_query($connect, $query);
 
-                if ($execute) {
-                    if (isset($_SESSION['usuario']['id']) && $_SESSION['usuario']['id'] == $id) {
-                        $_SESSION['usuario']['nome'] = $nome;
-                        $_SESSION['usuario']['sobrenome'] = $sobrenome;
-                        $_SESSION['usuario']['email'] = $email;
-                        $_SESSION['usuario']['dt_nascimento'] = $dt_nascimento;
-                        $_SESSION['usuario']['imagem'] = $imagemFinal;
-                    }
-                    echo "<script>alert('Usuário atualizado com sucesso!'); window.location.href='admin.php';</script>";
-                } else {
-                    echo "Erro ao atualizar usuário";
+            $_SESSION['usuario'] = buscaUnica($connect, "usuarios", $id);
+
+            if ($execute) {
+                if (isset($_SESSION['usuario']['id']) && $_SESSION['usuario']['id'] == $id) {
+                    $_SESSION['usuario']['nome'] = $nome;
+                    $_SESSION['usuario']['sobrenome'] = $sobrenome;
+                    $_SESSION['usuario']['email'] = $email;
+                    $_SESSION['usuario']['dt_nascimento'] = $dt_nascimento;
+                    $_SESSION['usuario']['imagem'] = $imagemFinal;
                 }
+                echo "<script>alert('Usuário atualizado com sucesso!');</script>";
             } else {
-                foreach ($erros as $erro) {
-                    echo "<p> $erro </p>";
-                }
+                echo "Erro ao atualizar usuário";
             }
         }
     }
