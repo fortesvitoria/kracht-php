@@ -39,6 +39,14 @@ input {
     margin: 15px 15px;
 }
 
+.btn-admin{
+    margin: 25px;
+    display: block;
+}
+
+.dados {
+    padding-left: 15px;
+}
 
 /* ----------------- MEDIA QUERY PARA TELAS MAIORES (Ex: > 768px) ----------------- */
 

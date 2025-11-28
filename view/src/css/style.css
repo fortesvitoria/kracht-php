@@ -195,7 +195,8 @@ table {
     padding: 15px;
 }
 
-th, td {
+th,
+td {
     white-space: nowrap
 }
 
@@ -209,18 +210,22 @@ td {
     padding: 5px;
 }
 
-.btn-acoes{
+.btn-acoes {
     background-color: var(--laranja);
     padding: 2px;
     border-radius: 5px;
 }
 
-.btn-acoes:hover{
+.btn-acoes:hover {
     background-color: var(--laranja-escuro);
 }
 
 
 /* FORMULÁRIOS e BLOCO */
+
+.form {
+    width: 280px;
+}
 
 .img-perfil {
     border-radius: 100px;
@@ -246,7 +251,7 @@ form,
 
 .dados p {
     text-align: left;
-    padding: 5px 0 0 15px;
+    /* padding: 5px 0 0 15px; */
 }
 
 form h2 {
@@ -475,9 +480,13 @@ li .link-footer {
     }
 
     /* BLOCOS */
-    .bloco-externo{
+    .bloco-externo {
         width: auto;
         max-height: 100%;
+    }
+
+    .form {
+        width: 450px;
     }
 
     /* FOOTER */

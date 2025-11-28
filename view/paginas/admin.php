@@ -91,14 +91,56 @@ inserirProdutos($connect);
                         </div>
                     </div>
                     <div class="bloco dados">
+
+                        <?php
+                        #ATUALIZAR ADMIN
+                        if (isset($_GET['id']) && isset($_GET['acao']) && $_GET['acao'] == 'atualizar' && $_GET['tipo'] == 'admin' && $_SESSION['usuario']['is_admin'] == 1) {
+                            $id = $_GET['id'];
+                            updateUsuario($connect);
+                            $adminDados = buscaUnica($connect, "usuarios", $id);
+
+                            $usuario = buscaUnica($connect, "usuarios", $id);
+                            updateUsuario($connect);
+
+                            echo "<form method='POST' enctype='multipart/form-data' class='form'>";
+                            echo "<div><h3>Editar usuário: " . $adminDados['nome'] . "</h3></div>";
+
+                            echo "<div class='links-login'>";
+
+                            echo "<input type='hidden' name='id' value='" . $adminDados['id'] . "'>";
+                            echo "<input class='input-entrada' value='" . $adminDados['nome'] . "' type='text' name='nome' placeholder='Nome' required>";
+                            echo "<input class='input-entrada' value='" . $adminDados['sobrenome'] . "' type='text' name='sobrenome' placeholder='Sobrenome' required>";
+                            echo "<input class='input-entrada' value='" . $adminDados['email'] . "' type='email' name='email' placeholder='E-mail' required>";
+                            echo "<input class='input-entrada' type='password' name='senha' placeholder='Senha'>";
+                            echo "<input class='input-entrada' type='password' name='repita-senha' placeholder='Confirme a senha'>";
+                            echo "<input class='input-entrada' value='" . $adminDados['dt_nascimento'] . "' type='date' name='dt-nascimento'>";
+                            echo "<input class='input-entrada upload' type='file' name='arquivo'>";
+
+                            echo "</div>";
+
+                            echo "<div class='btn-login'>";
+                            echo "<input class='btn btn-ativo' type='submit' value='Salvar Alterações' name='atualizar'>";
+                            
+                            echo "</div>";
+                            echo "</form>";
+
+                            if (isset($_POST['atualizar-admin'])) {
+                                echo "<meta http-equiv='refresh' content='0;url=admin.php'>"; // Recarrega a página
+
+                            }
+                        }
+                        ?>
+
                         <h3>Seus dados:</h3>
                         <p>Nome: <?php echo $_SESSION['usuario']['nome']; ?></p>
                         <p>Sobrenome: <?php echo $_SESSION['usuario']['sobrenome']; ?></p>
                         <p>E-mail: <?php echo $_SESSION['usuario']['email']; ?></p>
                         <p>Data de nascimento: <?php echo $_SESSION['usuario']['dt_nascimento']; ?></p>
-                        <div class="btn-login">
-                            <button type="submit" name="enviar" class="btn-ativo btn">Alterar dados</button>
+
+                        <div class="btn-admin">
+                            <a class="btn btn-ativo" href="admin.php?id=<?php echo $_SESSION['usuario']['id']; ?>&acao=atualizar&tipo=admin">Atualizar dados</a>
                         </div>
+
                     </div>
                 </div>
 
@@ -277,7 +319,7 @@ inserirProdutos($connect);
                                             <td>
                                                 <a class="btn-acoes" href="admin.php?id=<?php echo $produto['id']; ?>&nome=<?php echo $produto['nome']; ?>&tipo=produto&acao=deletar">Excluir</a>
 
-                                                    <a class="btn-acoes" href="admin.php?id=<?php echo $produto['id']; ?>&nome=<?php echo $produto['nome']; ?>&tipo=produto&acao=atualizar">Atualizar</a>
+                                                <a class="btn-acoes" href="admin.php?id=<?php echo $produto['id']; ?>&nome=<?php echo $produto['nome']; ?>&tipo=produto&acao=atualizar">Atualizar</a>
                                             </td>
                                         </tr>
                                     <?php
@@ -292,7 +334,7 @@ inserirProdutos($connect);
 
                 <!-- BLOCO 3 -->
                 <!-- INICIO FORMULARIO -->
-                <form class="form" method="POST" enctype="multipart/form-data">
+                <form class="" method="POST" enctype="multipart/form-data">
                     <div>
                         <h3>Cadastrar produto</h3>
                     </div>
