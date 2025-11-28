@@ -191,7 +191,7 @@ inserirProdutos($connect);
 
                             #DELETAR USUARIO
                             if (isset($_GET['nome']) && isset($_GET['acao']) && $_GET['acao'] == 'deletar' && $_GET['tipo'] == 'usuario') {
-                                echo "<form method='POST'>";
+                                echo "<form method='POST' class='form'>";
                                 echo "Deseja mesmo deletar o usuario " . $_GET['nome'] . "?";
                                 echo "<input type='hidden' name='id' value=" . $_GET['id'] . ">";
                                 echo "<input class='btn btn-ativo' type='submit' value='Deletar' name='deletar-usuario'>";
@@ -247,7 +247,7 @@ inserirProdutos($connect);
                         <div class="tabela">
                             <?php
                             $tabela = "produtos";
-                            $order = "nome";
+                            $order = "tipo, nome";
                             $produtos = buscaTodosDados($connect, $tabela, 1, $order);
 
                             #ATUALIZA PRODUTOS
@@ -282,7 +282,7 @@ inserirProdutos($connect);
 
                             #DELETA PRODUTOS
                             if (isset($_GET['nome']) && isset($_GET['acao']) && $_GET['acao'] == 'deletar' && $_GET['tipo'] == 'produto') {
-                                echo "<form method='POST'>";
+                                echo "<form method='POST'  class='form'>";
                                 echo "Deseja mesmo deletar o produto " . $_GET['nome'] . "?";
                                 echo "<input type='hidden' name='id' value=" . $_GET['id'] . ">";
                                 echo "<input class='btn btn-ativo' type='submit' value='Deletar' name='deletar'>";

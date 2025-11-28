@@ -63,6 +63,8 @@ function updateUsuario($connect)
                       WHERE id = $id";
 
                 $execute = mysqli_query($connect, $query);
+                
+                $_SESSION['usuario'] = buscaUnica($connect, "usuarios", $id);
 
                 if ($execute) {
                     if (isset($_SESSION['usuario']['id']) && $_SESSION['usuario']['id'] == $id) {

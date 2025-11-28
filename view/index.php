@@ -1,6 +1,6 @@
 <?php 
 session_start(); 
-require_once "../controller/exibir_cards_bikes.php";
+require_once "../controller/exibir_cards.php";
 
 ?>
 <!DOCTYPE html>
@@ -155,61 +155,9 @@ require_once "../controller/exibir_cards_bikes.php";
             <!-- CAROUSEL DE CARDS COM ROUPAS E ACESSÓRIOS -->
             <h2 class="titulo-cards">Roupas e acessórios</h2>
             <section class="carousel-roupas">
-                <!-- CARD 0 -->
-                <a href="http://">
-                    <figure class="div-img-roupas">
-                        <img src="src/img/img-produto-0.jpg" alt="imagem camiseta feminina ciclismo azul"
-                            class="img-roupas">
-                        <h3>Merida CX Women</h3>
-                        <span class="secao-valor">
-                            <span>R$ 350</span>
-                        </span>
-                    </figure>
-                </a>
-                <!-- CARD 1 -->
-                <a href="http://">
-                    <figure class="div-img-roupas">
-                        <img src="src/img/img-produto-1.jpg" alt="imagem camiseta masculina ciclismo vermelha"
-                            class="img-roupas">
-                        <h3>Merida STRIPE Racecut</h3>
-                        <span class="secao-valor">
-                            <span>R$ 450</span>
-                        </span>
-                    </figure>
-                </a>
-                <!-- CARD 2 -->
-                <a href="http://">
-                    <figure class="div-img-roupas">
-                        <img src="src/img/img-produto-2.jpg" alt="imagem capacete ciclismo preta e azul"
-                            class="img-roupas">
-                        <h3>Merida CHARGER Helmet</h3>
-                        <span class="secao-valor">
-                            <span>R$ 259</span>
-                        </span>
-                    </figure>
-                </a>
-                <!-- CARD 3 -->
-                <a href="http://">
-                    <figure class="div-img-roupas">
-                        <img src="src/img/img-produto-3.jpg" alt="imagem oculos ciclismo laranja e preto"
-                            class="img-roupas">
-                        <h3>Merida PRO RACE Sunglasses</h3>
-                        <span class="secao-valor">
-                            <span>R$ 1250</span>
-                        </span>
-                    </figure>
-                </a>
-                <!-- CARD 4 -->
-                <a href="http://">
-                    <figure class="div-img-roupas">
-                        <img src="src/img/img-produto-4.jpeg" alt="imagem tenis de cilcismo preto" class="img-roupas">
-                        <h3>Merida COMP Shoe MTB</h3>
-                        <span class="secao-valor">
-
-                            <span>R$ 500</span>
-                        </span>
-                    </figure>
-                </a>
+                <!-- CARDS -->
+                 <?php exibirCardsRoupas() ?>
+                
             </section>
 
             <!-- CARDS COM ESTILO DE BIKES -->
