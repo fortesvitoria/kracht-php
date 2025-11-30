@@ -1,10 +1,10 @@
 <?php 
 
 function inserirUsuarios($connect) {
+
+    $erros = [];
+    
     if (isset($_POST['cadastrar'])) {
-
-        $erros = [];
-
         $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
         $nome = mysqli_real_escape_string($connect, $_POST['nome']);
         $sobrenome = mysqli_real_escape_string($connect, $_POST['sobrenome']);
@@ -36,17 +36,14 @@ function inserirUsuarios($connect) {
             $query = "INSERT INTO usuarios(nome, sobrenome, email, senha, dt_nascimento, imagem, is_admin) 
             VALUES ('$nome', '$sobrenome', '$email', '$senha', '$dt_nascimento', '$imagem', '$is_admin')";
             if (mysqli_query($connect, $query)) {
-                header("Location: /kracht-php/view/paginas/login_usuario.php");
+                echo "<script>alert(Usuário cadastrado com sucesso!)</script>";
                 exit;
             } else {
-                echo "Erro ao cadastrar: " . mysqli_error($connect);
-            }
-        } else {
-            foreach($erros as $erro) {
-                echo "<p> $erro </p>";
+                 $erros[] =  "Erro ao cadastrar no banco: " . mysqli_error($connect);
             }
         }
     }
+    return $erros;
 }
 
 ?>

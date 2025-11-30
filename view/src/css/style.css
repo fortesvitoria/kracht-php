@@ -16,6 +16,7 @@
     --grafite-diluido: #2c2727d3;
     --branco: #FFF;
     --off-white: #F1F1F1;
+    --alert: #CF4B00;
     --laranja-escuro: #ff5100;
     --laranja: #FF6000;
     --laranja-diluido: #ff620058;
@@ -50,6 +51,17 @@ a {
     color: var(--branco);
     font-size: 16px;
     text-decoration: none;
+}
+
+/* ERROS */
+.dados .erro {
+    text-align: center;
+}
+.erro {
+ background-color: var(--alert);
+ padding: 25px;
+ font-weight: 600;
+ border-radius: 15px;
 }
 
 
