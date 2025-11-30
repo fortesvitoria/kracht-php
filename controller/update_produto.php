@@ -32,7 +32,7 @@ function updateProduto($connect)
         $execute = mysqli_query($connect, $query);
 
         if ($execute) {
-            echo "Produto atualizado com sucesso!";
+            header("Location: admin.php?msg=sucesso-atualiza-produto");
         } else {
             echo "Erro ao atualizar produto";
         }

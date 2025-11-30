@@ -30,7 +30,6 @@ function updateUsuario($connect)
         if (!empty($_FILES['arquivo']['name'])) {
             $caminho = "../db/uploads/";
             $novaImagem = uploadImagens($caminho);
-            var_dump($novaImagem);
 
             if ($novaImagem) {
                 $imagemFinal = $novaImagem;
@@ -46,25 +45,33 @@ function updateUsuario($connect)
             $erros[] = "Email já cadastrado por outro usuário!";
         }
 
-        if (empty($erros)) {
-            $query = "UPDATE usuarios SET nome = '$nome', sobrenome = '$sobrenome', email = '$email', dt_nascimento = '$dt_nascimento', imagem = '$imagemFinal' $senhaSql WHERE id = $id";
+        if (!empty($erros)) {
+            $_SESSION['msg_temp'] = "<div class='msg-erro'>" . implode("<br>", $erros) . "</div>";
+            header("Location: " . $_SERVER['REQUEST_URI']);
+            exit;
+        }
+        $query = "UPDATE usuarios SET nome = '$nome', sobrenome = '$sobrenome', email = '$email', dt_nascimento = '$dt_nascimento', imagem = '$imagemFinal' $senhaSql WHERE id = $id";
 
-            $execute = mysqli_query($connect, $query);
+        $execute = mysqli_query($connect, $query);
 
-            $_SESSION['usuario'] = buscaUnica($connect, "usuarios", $id);
-
-            if ($execute) {
-                if (isset($_SESSION['usuario']['id']) && $_SESSION['usuario']['id'] == $id) {
-                    $_SESSION['usuario']['nome'] = $nome;
-                    $_SESSION['usuario']['sobrenome'] = $sobrenome;
-                    $_SESSION['usuario']['email'] = $email;
-                    $_SESSION['usuario']['dt_nascimento'] = $dt_nascimento;
-                    $_SESSION['usuario']['imagem'] = $imagemFinal;
-                }
-                echo "<script>alert('Usuário atualizado com sucesso!');</script>";
-            } else {
-                echo "Erro ao atualizar usuário";
+        if ($execute) {
+            if (isset($_SESSION['usuario']['id']) && $_SESSION['usuario']['id'] == $id) {
+                $_SESSION['usuario']['nome'] = $nome;
+                $_SESSION['usuario']['sobrenome'] = $sobrenome;
+                $_SESSION['usuario']['email'] = $email;
+                $_SESSION['usuario']['dt_nascimento'] = $dt_nascimento;
+                $_SESSION['usuario']['imagem'] = $imagemFinal;
             }
+
+            $_SESSION['msg_temp'] = "<div class='msg-sucesso'>Dados atualizados com sucesso!</div>";
+            header("Location: " . $_SERVER['REQUEST_URI']);
+            exit;
+            
+        } else {
+            $_SESSION['msg_temp'] = "<div class='msg-erro'>Erro no banco de dados.</div>";
+            header("Location: " . $_SERVER['REQUEST_URI']);
+            exit;
         }
     }
 }
+?>

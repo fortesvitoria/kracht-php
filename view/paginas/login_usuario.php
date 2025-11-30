@@ -57,7 +57,6 @@
         <!-- FIM CABECALHO -->
 
         <!-- INICIO SECAO PRINCIPAL -->
-        <!-- INICIO SECAO PRINCIPAL -->
         <main class="login">
             <!-- INICIO FORMULARIO -->
             <form class="form" action="../../controller/login.php" method="POST">
