@@ -1,9 +1,10 @@
 <?php 
 
 function inserirProdutos($connect) {
+    $erros = [];
     if (isset($_POST['cadastrar'])) {
 
-        $erros = [];
+        
 
         $nome = mysqli_real_escape_string($connect, $_POST['nome']);
         $marca = mysqli_real_escape_string($connect,$_POST['marca']);
@@ -20,17 +21,14 @@ function inserirProdutos($connect) {
             $query = "INSERT INTO produtos(nome, marca, tipo, valor, imagem) 
             VALUES ('$nome', '$marca', '$tipo', '$valor', '$imagem')";
             if (mysqli_query($connect, $query)) {
-                header("Location: /kracht-php/view/paginas/admin.php"); 
+                header("Location: /kracht-php/view/paginas/admin.php?msg=sucesso"); 
                 exit;
             } else {
-                echo "Erro ao cadastrar: " . mysqli_error($connect);
+                $erros[] = "Erro ao cadastrar: " . mysqli_error($connect);
             }
-        } else {
-            foreach($erros as $erro) {
-                echo "<p> $erro </p>";
-            }
-        }
+        } 
     }
+    return $erros;
 }
 
 ?>

@@ -365,6 +365,15 @@ inserirProdutos($connect);
                     <div class="btn-login">
                         <button type="submit" name="cadastrar" class="btn-ativo btn">Cadastrar produto</button>
                     </div>
+                     <?php
+
+                    if (isset($_GET['msg']) && $_GET['msg'] == 'sucesso') {
+                        echo "<div class='dados'><p class='sucesso'>
+                                Produto cadastrado com sucesso!
+                            </p></div>";
+                    }
+
+            ?>
                 </form>
                 <!-- FIM FORMULARIO -->
             <?php } ?>
