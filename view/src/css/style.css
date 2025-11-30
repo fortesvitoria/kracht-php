@@ -56,10 +56,11 @@ a {
 /* ERROS */
 .dados .erro {
     text-align: center;
+    margin-bottom: 15px;
 }
 .erro {
  background-color: var(--alert);
- padding: 25px;
+ padding: 15px;
  font-weight: 600;
  border-radius: 15px;
 }
