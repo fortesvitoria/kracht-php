@@ -3,6 +3,7 @@ include("../../controller/conexao.php");
 include("../../controller/inserir_usuarios.php");
 include("../../controller/upload.php");
 $listaErros = inserirUsuarios($connect);
+
 ?>
 
 <!DOCTYPE html>

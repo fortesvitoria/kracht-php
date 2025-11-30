@@ -3,7 +3,7 @@
 function inserirUsuarios($connect) {
 
     $erros = [];
-    
+
     if (isset($_POST['cadastrar'])) {
         $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
         $nome = mysqli_real_escape_string($connect, $_POST['nome']);
@@ -36,7 +36,7 @@ function inserirUsuarios($connect) {
             $query = "INSERT INTO usuarios(nome, sobrenome, email, senha, dt_nascimento, imagem, is_admin) 
             VALUES ('$nome', '$sobrenome', '$email', '$senha', '$dt_nascimento', '$imagem', '$is_admin')";
             if (mysqli_query($connect, $query)) {
-                echo "<script>alert(Usuário cadastrado com sucesso!)</script>";
+               header("Location: login_usuario.php?msg=sucesso");
                 exit;
             } else {
                  $erros[] =  "Erro ao cadastrar no banco: " . mysqli_error($connect);

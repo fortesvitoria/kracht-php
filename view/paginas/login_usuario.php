@@ -82,6 +82,15 @@
                     <button type="submit" name="enviar" class="btn-ativo btn">Entrar</button>
                     <a href="cadastro_usuario.php" class="btn-secundario btn">Cadastrar</a>
                 </div>
+                <?php
+
+                    if (isset($_GET['msg']) && $_GET['msg'] == 'sucesso') {
+                        echo "<div class='dados'><p class='sucesso'>
+                                Cadastro realizado com sucesso! Faça seu login.
+                            </p></div>";
+                    }
+
+            ?>
             </form>
             <!-- FIM FORMULARIO -->
         </main>
