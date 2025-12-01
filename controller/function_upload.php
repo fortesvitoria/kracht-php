@@ -73,10 +73,7 @@ function uploadImages()
             if (!empty($primeira_imagem_salva)) {
             global $connect; 
             
-            // Instancia o objeto Produto com o caminho da primeira imagem
             $produto = new Produto(null, $nome, $marca, $tipo, $valor, $primeira_imagem_salva);
-
-            // Chama a função de inserção
             $resultado = insertData($connect, $produto);
             
             if ($resultado === true) {
