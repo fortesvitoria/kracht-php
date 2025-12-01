@@ -1,10 +1,23 @@
 <?php
+
 session_start();
+
 include("../../controller/conexao.php");
 include("../../controller/upload.php");
 include("../../controller/buscar_dados.php");
 include("../../controller/deletar_dados.php");
 include("../../controller/update_usuario.php");
+
+if (isset($_POST['deletar-usuario'])) {
+    deletar($connect, "usuarios", $_POST['id']);
+    session_destroy();
+    unset($_SESSION);
+    header("Location: ../index.php"); // Redirecionamento via PHP é melhor
+    exit;
+}
+
+updateUsuario($connect);
+
 ?>
 
 <!DOCTYPE html>
@@ -85,7 +98,7 @@ include("../../controller/update_usuario.php");
                             <h3>Bem vindo(a) à página do usuário, <?php echo $_SESSION['usuario']['nome']; ?>!</h3>
                         </div>
                     </div>
-                    
+
                     <div class="bloco dados texto-dados">
 
                         <?php
@@ -98,12 +111,6 @@ include("../../controller/update_usuario.php");
                             echo "<input type='hidden' name='id' value=" . $usuario['id'] . ">";
                             echo "<input class='btn btn-ativo' type='submit' value='Deletar' name='deletar-usuario'>";
                             echo "</form>";
-                        }
-                        if (isset($_POST['deletar-usuario'])) {
-                            deletar($connect, "usuarios", $_POST['id']);
-                            session_destroy();
-                            unset($_SESSION);
-                            echo "<meta http-equiv='refresh' content='0;url=../index.php'>";
                         }
                         ?>
 
@@ -139,6 +146,15 @@ include("../../controller/update_usuario.php");
                     <h3>Editar usuário: " . $usuario['nome'] . "</h3>
                     </div>";
 
+                echo "<div class='mensagens'>";
+
+                if (isset($_SESSION['msg_temp'])) {
+                    echo $_SESSION['msg_temp'];
+                    unset($_SESSION['msg_temp']);
+                }
+
+                echo "</div>";
+
                 echo "<div class='links-login'>";
 
                 echo "<input type='hidden' name='id' value='" . $usuario['id'] . "'>";
@@ -157,12 +173,6 @@ include("../../controller/update_usuario.php");
                 echo "</div>";
                 echo "</form>";
             }
-            if (isset($_POST['atualizar'])) {
-                updateUsuario($connect);
-                echo "<meta http-equiv='refresh' content='0;url=usuario.php'>"; // Recarrega a página
-
-            }
-
             ?>
 
 
