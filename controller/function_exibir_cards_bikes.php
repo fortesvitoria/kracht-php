@@ -6,8 +6,8 @@ require_once '../../models/produto.php';
 
 function exibirCardsBikes() {
 
-    $conexao = new Conexao(); // Cria uma instância da conexão
-    $produtoModel = new Produto($conexao); // Cria uma instância do modelo, passando a conexão
+    global $connect; // Cria uma instância da conexão
+    $produtoModel = new Produto($connect); // Cria uma instância do modelo, passando a conexão
 
     $caminho_base_uploads = "../db/uploads/";
     // Chama o método para listar todos os produtos
