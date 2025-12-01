@@ -1,6 +1,8 @@
 // carousel info-bike
 $(document).ready(function () {
-  $('.carousel-info-bike').slick();
+  $('.carousel-info-bike').slick({
+    autoplay: true,
+  });
 
 });
 
