@@ -16,7 +16,7 @@
     --grafite-diluido: #2c2727d3;
     --branco: #FFF;
     --off-white: #F1F1F1;
-    --alert: #CF4B00;
+    --alert: #cf0000;
     --sucesso: #427e4e;
     --laranja-escuro: #ff5100;
     --laranja: #FF6000;
@@ -84,18 +84,27 @@ a {
     justify-content: center;
 }
 
-.msg-sucesso {
-    background-color: var(--sucesso);
+.msg-sucesso,
+.msg-erro {
     padding: 15px;
     margin: 15px;
     font-weight: 600;
     border-radius: 15px;
     width: 60%;
     text-align: center;
-    
+
 }
 
-.atualiza{
+.msg-sucesso {
+    background-color: var(--sucesso);
+
+}
+
+.msg-erro {
+    background-color: var(--alert);
+}
+
+.atualiza {
     width: 250px;
 }
 
@@ -278,7 +287,7 @@ td {
     margin-right: 15px;
 }
 
-.icone-fechar{
+.icone-fechar {
     background: var(--grafite);
     border-radius: 100%;
     border: 2px solid var(--branco);
@@ -286,9 +295,10 @@ td {
     height: 20px;
 }
 
-.icone-fechar:hover{
+.icone-fechar:hover {
     background: var(--laranja-escuro);
 }
+
 /* FORMULÁRIOS e BLOCO */
 
 .form {
@@ -573,6 +583,7 @@ li .link-footer {
         display: flex;
         justify-content: space-between;
     }
+
     /* FOOTER */
     .secao-superior-footer {
         display: flex;

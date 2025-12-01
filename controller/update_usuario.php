@@ -5,7 +5,7 @@ function updateUsuario($connect)
 {
     if (isset($_POST['atualizar'])) {
 
-        $erros = [];
+        // $erros = [];
 
         $id = filter_input(INPUT_POST, "id", FILTER_VALIDATE_INT);
         $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
@@ -19,7 +19,9 @@ function updateUsuario($connect)
                 $novaSenha = sha1($_POST['senha']);
                 $senhaSql = ", senha = '$novaSenha'";
             } else {
-                $erros[] = "Senhas não conferem!";
+                $_SESSION['msg_temp'] = "<div class='msg-erro'>Senhas não conferem!</div>";
+                header("Location: " . $_SERVER['REQUEST_URI']);
+                exit;
             }
         }
 
@@ -28,13 +30,15 @@ function updateUsuario($connect)
         $imagemFinal = $dadosAtuais['imagem'];
 
         if (!empty($_FILES['arquivo']['name'])) {
-            $caminho = "../db/uploads/";
+            $caminho = "../../db/uploads/";
             $novaImagem = uploadImagens($caminho);
 
             if ($novaImagem) {
                 $imagemFinal = $novaImagem;
             } else {
-                $erros[] = "Erro ao fazer upload da imagem.";
+                $_SESSION['msg_temp'] = "<div class='msg-erro'>Erro ao fazer upload da imagem!</div>";
+                header("Location: " . $_SERVER['REQUEST_URI']);
+                exit;
             }
         }
 
@@ -42,7 +46,9 @@ function updateUsuario($connect)
         $buscaEmail = mysqli_query($connect, $queryEmail);
 
         if (mysqli_num_rows($buscaEmail) > 0) {
-            $erros[] = "Email já cadastrado por outro usuário!";
+            $_SESSION['msg_temp'] = "<div class='msg-erro'>Email já cadastrado por outro usuário!</div>";
+            header("Location: " . $_SERVER['REQUEST_URI']);
+            exit;
         }
 
         if (!empty($erros)) {
@@ -66,7 +72,6 @@ function updateUsuario($connect)
             $_SESSION['msg_temp'] = "<div class='msg-sucesso'>Dados atualizados com sucesso!</div>";
             header("Location: " . $_SERVER['REQUEST_URI']);
             exit;
-            
         } else {
             $_SESSION['msg_temp'] = "<div class='msg-erro'>Erro no banco de dados.</div>";
             header("Location: " . $_SERVER['REQUEST_URI']);
@@ -74,4 +79,3 @@ function updateUsuario($connect)
         }
     }
 }
-?>

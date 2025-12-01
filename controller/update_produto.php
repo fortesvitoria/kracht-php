@@ -3,7 +3,7 @@ require_once "conexao.php";
 
 function updateProduto($connect)
 {
-    if (isset($_POST['atualizar'])) {
+    if (isset($_POST['atualizar-produto'])) {
 
         $id = filter_input(INPUT_POST, "id", FILTER_VALIDATE_INT);
         $nome = mysqli_real_escape_string($connect, $_POST['nome']);
@@ -32,9 +32,13 @@ function updateProduto($connect)
         $execute = mysqli_query($connect, $query);
 
         if ($execute) {
-            header("Location: admin.php?msg=sucesso-atualiza-produto");
+            $_SESSION['msg_produto'] = "<div class='msg-sucesso'>Produto atualizado com sucesso!</div>";
+            header("Location: admin.php");
+            exit;
         } else {
-            echo "Erro ao atualizar produto";
+            $_SESSION['msg_produto'] = "<div class='msg-erro'>Erro ao atualizar produto!</div>";
+            header("Location: admin.php");
+            exit;
         }
     }
 }

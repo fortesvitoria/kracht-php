@@ -8,9 +8,18 @@ include("../../controller/deletar_dados.php");
 include("../../controller/update_usuario.php");
 include("../../controller/update_produto.php");
 
+if (isset($_POST['deletar-usuario'])) {
+    deletar($connect, "usuarios", $_POST['id']);
+}
+
+if (isset($_POST['deletar'])) {
+    deletar($connect, "produtos", $_POST['id']);
+}
 
 updateUsuario($connect);
 inserirProdutos($connect);
+updateProduto($connect);
+
 ?>
 
 <!DOCTYPE html>
@@ -88,7 +97,8 @@ inserirProdutos($connect);
                 <div>
                     <div class="bloco">
                         <div>
-                            <img class="img-perfil" src="../../db/uploads/<?php echo $_SESSION['usuario']['imagem']; ?>" alt="">
+                            <img class="img-perfil" src="../../db/uploads/<?php echo $_SESSION['usuario']['imagem']; ?>"
+                                alt="">
                             <h3>Bem vindo(a) à página administrativa, <?php echo $_SESSION['usuario']['nome']; ?>!</h3>
                         </div>
                     </div>
@@ -99,12 +109,10 @@ inserirProdutos($connect);
                         if (isset($_GET['id']) && isset($_GET['acao']) && $_GET['acao'] == 'atualizar' && $_GET['tipo'] == 'admin' && $_SESSION['usuario']['is_admin'] == 1) {
                             $id = $_GET['id'];
 
-
-
                             echo "<div class='mensagens'>";
                             if (isset($_SESSION['msg_temp'])) {
                                 echo $_SESSION['msg_temp'];
-                                unset($_SESSION['msg_temp']); 
+                                unset($_SESSION['msg_temp']);
                             }
                             echo "</div>";
 
@@ -113,7 +121,7 @@ inserirProdutos($connect);
                             echo "<form method='POST' enctype='multipart/form-data' class='form form-center'>";
                             echo "<div class='div-fechar'><a class='' href='admin.php'><ion-icon name='close-outline' class='icone-link icone-fechar'></ion-icon></a></div>";
 
-                            echo "<div><h3>Editar usuário: " . $adminDados['nome'] . " </h3></div>";
+                            echo "<div><h3>Editar administrador(a): " . $adminDados['nome'] . " </h3></div>";
 
                             echo "<div class='links-login'>";
 
@@ -148,7 +156,9 @@ inserirProdutos($connect);
                         <p>Data de nascimento: <?php echo $_SESSION['usuario']['dt_nascimento']; ?></p>
 
                         <div class="btn-admin">
-                            <a class="btn btn-ativo" href="admin.php?id=<?php echo $_SESSION['usuario']['id']; ?>&acao=atualizar&tipo=admin">Atualizar dados</a>
+                            <a class="btn btn-ativo"
+                                href="admin.php?id=<?php echo $_SESSION['usuario']['id']; ?>&acao=atualizar&tipo=admin">Atualizar
+                                dados</a>
                         </div>
 
                     </div>
@@ -161,12 +171,20 @@ inserirProdutos($connect);
                     <div class="bloco">
                         <h3>Usuários cadastrados: </h3>
                         <div class="mensagens">
-                        <?php
-                        if (isset($_SESSION['msg_temp'])) {
-                            echo $_SESSION['msg_temp'];
-                            unset($_SESSION['msg_temp']);
-                        }
-                        ?>
+                            <?php
+                            if (isset($_SESSION['msg_temp'])) {
+                                echo $_SESSION['msg_temp'];
+                                unset($_SESSION['msg_temp']);
+                            }
+                            ?>
+                        </div>
+                        <div class="mensagens">
+                            <?php
+                            if (isset($_SESSION['msg_temp'])) {
+                                echo $_SESSION['msg_temp'];
+                                unset($_SESSION['msg_temp']);
+                            }
+                            ?>
                         </div>
                         <div class="tabela ">
 
@@ -191,8 +209,6 @@ inserirProdutos($connect);
                                 echo "<input class='input-entrada' value='" . $usuario['nome'] . "' type='text' name='nome' placeholder='Nome' required>";
                                 echo "<input class='input-entrada' value='" . $usuario['sobrenome'] . "' type='text' name='sobrenome' placeholder='Sobrenome' required>";
                                 echo "<input class='input-entrada' value='" . $usuario['email'] . "' type='email' name='email' placeholder='E-mail' required>";
-                                echo "<input class='input-entrada' type='password' name='senha' placeholder='Senha'>";
-                                echo "<input class='input-entrada' type='password' name='repita-senha' placeholder='Confirme a senha'>";
                                 echo "<input class='input-entrada' value='" . $usuario['dt_nascimento'] . "' type='date' name='dt-nascimento'>";
                                 echo "<input class='input-entrada upload' type='file' name='arquivo'>";
 
@@ -211,14 +227,11 @@ inserirProdutos($connect);
                             #DELETAR USUARIO
                             if (isset($_GET['nome']) && isset($_GET['acao']) && $_GET['acao'] == 'deletar' && $_GET['tipo'] == 'usuario') {
                                 echo "<form method='POST' class='form form-center'>";
+                                echo "<div class='div-fechar'><a class='' href='admin.php'><ion-icon name='close-outline' class='icone-link icone-fechar'></ion-icon></a></div>";
                                 echo "Deseja mesmo deletar o usuario " . $_GET['nome'] . "?";
                                 echo "<input type='hidden' name='id' value=" . $_GET['id'] . ">";
                                 echo "<input class='btn btn-ativo' type='submit' value='Deletar' name='deletar-usuario'>";
                                 echo "</form>";
-                            }
-                            if (isset($_POST['deletar-usuario'])) {
-                                deletar($connect, "usuarios", $_POST['id']);
-                                echo "<meta http-equiv='refresh' content='0;url=admin.php'>"; // Recarrega a página
                             }
                             ?>
                             <table>
@@ -246,9 +259,11 @@ inserirProdutos($connect);
                                                 <td><?php echo $usuario['dt_nascimento']; ?></td>
                                                 <td><?php echo $usuario['imagem']; ?></td>
                                                 <td>
-                                                    <a class="btn-acoes" href="admin.php?id=<?php echo $usuario['id']; ?>&nome=<?php echo $usuario['nome']; ?>&tipo=usuario&acao=deletar">Excluir</a>
+                                                    <a class="btn-acoes"
+                                                        href="admin.php?id=<?php echo $usuario['id']; ?>&nome=<?php echo $usuario['nome']; ?>&tipo=usuario&acao=deletar">Excluir</a>
 
-                                                    <a class="btn-acoes" href="admin.php?id=<?php echo $usuario['id']; ?>&nome=<?php echo $usuario['nome']; ?>&tipo=usuario&acao=atualizar">Atualizar</a>
+                                                    <a class="btn-acoes"
+                                                        href="admin.php?id=<?php echo $usuario['id']; ?>&nome=<?php echo $usuario['nome']; ?>&tipo=usuario&acao=atualizar">Atualizar</a>
                                                 </td>
                                             </tr>
                                     <?php
@@ -263,6 +278,16 @@ inserirProdutos($connect);
                     <!-- BLOCO PRODUTOS CADASTRADOS -->
                     <div class="bloco">
                         <h3>Produtos cadastrados: </h3>
+
+                        <div class="mensagens">
+                            <?php
+                            if (isset($_SESSION['msg_produto'])) {
+                                echo $_SESSION['msg_produto'];
+                                unset($_SESSION['msg_produto']);
+                            }
+                            ?>
+                        </div>
+
                         <div class="tabela">
                             <?php
                             $tabela = "produtos";
@@ -273,7 +298,6 @@ inserirProdutos($connect);
                             if (isset($_GET['id']) && isset($_GET['acao']) && $_GET['acao'] == 'atualizar' && $_GET['tipo'] == 'produto') {
                                 $id = $_GET['id'];
                                 $produto = buscaUnica($connect, "produtos", $id);
-                                updateProduto($connect);
 
                                 echo "<form method='POST' enctype='multipart/form-data' class='form'>";
                                 echo "<div class='div-fechar'><a class='' href='admin.php'><ion-icon name='close-outline' class='icone-link icone-fechar'></ion-icon></a></div>";
@@ -291,14 +315,10 @@ inserirProdutos($connect);
                                 echo "</div>";
 
                                 echo "<div class='btn-login'>";
-                                echo "<input class='btn btn-ativo' type='submit' value='Salvar Alterações' name='atualizar'>";
+                                echo "<input class='btn btn-ativo' type='submit' value='Salvar Alterações' name='atualizar-produto'>";
                                 echo "</div>";
                                 echo "</form>";
                             }
-                            // if (isset($_POST['atualizar'])) {
-                            //     echo "<meta http-equiv='refresh' content='0;url=admin.php'>"; // Recarrega a página
-
-                            // }
 
                             #DELETA PRODUTOS
                             if (isset($_GET['nome']) && isset($_GET['acao']) && $_GET['acao'] == 'deletar' && $_GET['tipo'] == 'produto') {
@@ -307,10 +327,6 @@ inserirProdutos($connect);
                                 echo "<input type='hidden' name='id' value=" . $_GET['id'] . ">";
                                 echo "<input class='btn btn-ativo' type='submit' value='Deletar' name='deletar'>";
                                 echo "</form>";
-                            }
-                            if (isset($_POST['deletar'])) {
-                                deletar($connect, "produtos", $_POST['id']);
-                                echo "<meta http-equiv='refresh' content='0;url=admin.php'>"; // Recarrega a página
                             }
                             ?>
                             <table>
@@ -337,9 +353,11 @@ inserirProdutos($connect);
                                             <td><?php echo $produto['valor']; ?></td>
                                             <td><?php echo $produto['imagem']; ?></td>
                                             <td>
-                                                <a class="btn-acoes" href="admin.php?id=<?php echo $produto['id']; ?>&nome=<?php echo $produto['nome']; ?>&tipo=produto&acao=deletar">Excluir</a>
+                                                <a class="btn-acoes"
+                                                    href="admin.php?id=<?php echo $produto['id']; ?>&nome=<?php echo $produto['nome']; ?>&tipo=produto&acao=deletar">Excluir</a>
 
-                                                <a class="btn-acoes" href="admin.php?id=<?php echo $produto['id']; ?>&nome=<?php echo $produto['nome']; ?>&tipo=produto&acao=atualizar">Atualizar</a>
+                                                <a class="btn-acoes"
+                                                    href="admin.php?id=<?php echo $produto['id']; ?>&nome=<?php echo $produto['nome']; ?>&tipo=produto&acao=atualizar">Atualizar</a>
                                             </td>
                                         </tr>
                                     <?php
@@ -389,7 +407,7 @@ inserirProdutos($connect);
 
                     if (isset($_GET['msg']) && $_GET['msg'] == 'sucesso') {
                         echo "<div class='dados'><p class='sucesso'>
-                                Produto cadastrado com sucesso! Faça seu login.
+                                Produto cadastrado com sucesso!
                             </p></div>";
                     }
 
