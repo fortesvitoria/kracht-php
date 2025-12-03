@@ -83,13 +83,6 @@ a {
     display: flex;
     justify-content: center;
 }
-.msg-small {
-    width: 60%;
-}
-
-.msg-padrao {
-    width: 90%;
-}
 
 .msg-sucesso,
 .msg-erro {
@@ -98,6 +91,7 @@ a {
     font-weight: 600;
     border-radius: 15px;
     text-align: center;
+    width: 90%;
 
 }
 
