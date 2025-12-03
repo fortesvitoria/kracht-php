@@ -27,14 +27,16 @@ function login($connect)
                 }
                 exit;
             } else {
-                echo "Usuário ou senha inválidos";
-                echo "<a href='login.php'>Voltar</a>";
+                $_SESSION['msg_login'] = "<p class='erro'>Usuário ou senha inválidos.</p>";
+                header("Location: ../view/paginas/login_usuario.php");
+                exit;
             }
         }
     }
 }
 
-function logout() {
+function logout()
+{
     session_start();
     session_unset();
     session_destroy();

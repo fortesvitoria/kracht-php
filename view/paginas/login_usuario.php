@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -83,13 +87,25 @@
                 </div>
                 <?php
 
-                    if (isset($_GET['msg']) && $_GET['msg'] == 'sucesso') {
-                        echo "<div class='dados'><p class='sucesso'>
+                if (isset($_GET['msg']) && $_GET['msg'] == 'sucesso') {
+                    echo "<div class='dados'><p class='sucesso'>
                                 Cadastro realizado com sucesso! Faça seu login.
                             </p></div>";
-                    }
+                }
+                echo "<div class='mensagens-login'>";
+                if (isset($_SESSION['msg_login'])) {
+                    echo "<div class='dados'>" . $_SESSION['msg_login'] . "</div>";
+                    unset($_SESSION['msg_login']);
+                }
 
-            ?>
+                if (isset($_GET['msg']) && $_GET['msg'] == 'sucesso') {
+                    echo "<div class='dados'><p class='sucesso'>
+                        Cadastro realizado com sucesso! Faça seu login.
+                        </p></div>";
+                }
+                echo "</div>";
+
+                ?>
             </form>
             <!-- FIM FORMULARIO -->
         </main>
