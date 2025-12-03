@@ -10,9 +10,6 @@ include("../../controller/update_usuario.php");
 
 if (isset($_POST['deletar-usuario'])) {
     deletar($connect, "usuarios", $_POST['id']);
-    session_destroy();
-    unset($_SESSION);
-    header("Location: ../index.php"); // Redirecionamento via PHP é melhor
     exit;
 }
 

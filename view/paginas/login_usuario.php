@@ -86,12 +86,6 @@ session_start();
                     <a href="cadastro_usuario.php" class="btn-secundario btn">Cadastrar</a>
                 </div>
                 <?php
-
-                if (isset($_GET['msg']) && $_GET['msg'] == 'sucesso') {
-                    echo "<div class='dados'><p class='sucesso'>
-                                Cadastro realizado com sucesso! Faça seu login.
-                            </p></div>";
-                }
                 echo "<div class='mensagens-login'>";
                 if (isset($_SESSION['msg_login'])) {
                     echo "<div class='dados'>" . $_SESSION['msg_login'] . "</div>";
