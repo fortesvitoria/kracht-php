@@ -4,8 +4,6 @@ function inserirProdutos($connect) {
     $erros = [];
     if (isset($_POST['cadastrar'])) {
 
-        
-
         $nome = mysqli_real_escape_string($connect, $_POST['nome']);
         $marca = mysqli_real_escape_string($connect,$_POST['marca']);
         $tipo = mysqli_real_escape_string($connect,$_POST['tipo']);

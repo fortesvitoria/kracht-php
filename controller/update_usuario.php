@@ -19,7 +19,7 @@ function updateUsuario($connect)
                 $novaSenha = sha1($_POST['senha']);
                 $senhaSql = ", senha = '$novaSenha'";
             } else {
-                $_SESSION['msg_temp'] = "<div class='msg-erro'>Senhas não conferem!</div>";
+                $_SESSION['msg_temp'] = "<div class='msg-padrao msg-erro'>Senhas não conferem!</div>";
                 header("Location: " . $_SERVER['REQUEST_URI']);
                 exit;
             }
@@ -36,7 +36,7 @@ function updateUsuario($connect)
             if ($novaImagem) {
                 $imagemFinal = $novaImagem;
             } else {
-                $_SESSION['msg_temp'] = "<div class='msg-erro'>Erro ao fazer upload da imagem!</div>";
+                $_SESSION['msg_temp'] = "<div class='msg-padrao msg-erro'>Erro ao fazer upload da imagem!</div>";
                 header("Location: " . $_SERVER['REQUEST_URI']);
                 exit;
             }
@@ -46,13 +46,13 @@ function updateUsuario($connect)
         $buscaEmail = mysqli_query($connect, $queryEmail);
 
         if (mysqli_num_rows($buscaEmail) > 0) {
-            $_SESSION['msg_temp'] = "<div class='msg-erro'>Email já cadastrado por outro usuário!</div>";
+            $_SESSION['msg_temp'] = "<div class='msg-padrao msg-erro'>Email já cadastrado por outro usuário!</div>";
             header("Location: " . $_SERVER['REQUEST_URI']);
             exit;
         }
 
         if (!empty($erros)) {
-            $_SESSION['msg_temp'] = "<div class='msg-erro'>" . implode("<br>", $erros) . "</div>";
+            $_SESSION['msg_temp'] = "<div class='msg-padrao msg-erro'>" . implode("<br>", $erros) . "</div>";
             header("Location: " . $_SERVER['REQUEST_URI']);
             exit;
         }
@@ -69,11 +69,11 @@ function updateUsuario($connect)
                 $_SESSION['usuario']['imagem'] = $imagemFinal;
             }
 
-            $_SESSION['msg_temp'] = "<div class='msg-sucesso'>Dados atualizados com sucesso!</div>";
+            $_SESSION['msg_temp'] = "<div class='msg-padrao msg-sucesso'>Dados atualizados com sucesso!</div>";
             header("Location: " . $_SERVER['REQUEST_URI']);
             exit;
         } else {
-            $_SESSION['msg_temp'] = "<div class='msg-erro'>Erro no banco de dados.</div>";
+            $_SESSION['msg_temp'] = "<div class='msg-padrao msg-erro'>Erro no banco de dados.</div>";
             header("Location: " . $_SERVER['REQUEST_URI']);
             exit;
         }

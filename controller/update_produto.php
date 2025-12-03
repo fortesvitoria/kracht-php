@@ -32,11 +32,11 @@ function updateProduto($connect)
         $execute = mysqli_query($connect, $query);
 
         if ($execute) {
-            $_SESSION['msg_produto'] = "<div class='msg-sucesso'>Produto atualizado com sucesso!</div>";
+            $_SESSION['msg_temp'] = "<div class='msg-sucesso'>Produto atualizado com sucesso!</div>";
             header("Location: admin.php");
             exit;
         } else {
-            $_SESSION['msg_produto'] = "<div class='msg-erro'>Erro ao atualizar produto!</div>";
+            $_SESSION['msg_temp'] = "<div class='msg-erro'>Erro ao atualizar produto!</div>";
             header("Location: admin.php");
             exit;
         }
