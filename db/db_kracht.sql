@@ -17,7 +17,7 @@ INSERT INTO `usuarios` (`id`, `nome`, `sobrenome`, `email`, `senha`, `dt_nascime
 (3, 'Eduardo', 'Riguera', 'eduardo@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', '1984-08-25', 0, '2148563418.jpg'),
 (8, 'Michelle', 'Viscardi', 'michelle@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', '1990-02-10', 0, '6925b2a3b4a53.jpg');
 
-
+ 
 -- PRODUTOS
 
 CREATE TABLE `produtos` (

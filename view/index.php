@@ -147,7 +147,6 @@ require_once "../controller/exibir_cards.php";
             <!-- CAROUSEL DE CARDS COM BICICLETAS -->
             <h2 class="titulo-cards">Bicicletas</h2>
             <section class="carousel-bikes">
-
                 <!-- CARDS -->
                  <?php exibirCardsBikes() ?>
             </section>

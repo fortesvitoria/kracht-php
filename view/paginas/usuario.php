@@ -104,6 +104,7 @@ updateUsuario($connect);
                             $usuario = buscaUnica($connect, "usuarios", $_GET['id']);
 
                             echo "<form method='POST' class='form form-center'>";
+                            echo "<div class='div-fechar'><a class='' href='usuario.php'><ion-icon name='close-outline' class='icone-link icone-fechar'></ion-icon></a></div>";
                             echo "Deseja mesmo deletar sua conta " . $usuario['nome'] . "?";
                             echo "<input type='hidden' name='id' value=" . $usuario['id'] . ">";
                             echo "<input class='btn btn-ativo' type='submit' value='Deletar' name='deletar-usuario'>";

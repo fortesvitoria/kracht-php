@@ -309,7 +309,7 @@ updateProduto($connect);
                                 echo "<input class='input-entrada' value='" . $produto['nome'] . "' type='text' name='nome' placeholder='Nome' required>";
                                 echo "<input class='input-entrada' value='" . $produto['marca'] . "' type='text' name='marca' placeholder='Marca' required>";
                                 echo "<input class='input-entrada' value='" . $produto['tipo'] . "' type='tipo' name='tipo' placeholder='Tipo' required>";
-                                echo "<input class='input-entrada' type='number' name='valor' placeholder='Valor'>";
+                                echo "<input class='input-entrada' value='" . $produto['valor'] . "'type='number' name='valor' placeholder='Valor'>";
                                 echo "<input class='input-entrada upload' type='file' name='arquivo'>";
 
                                 echo "</div>";
@@ -323,6 +323,7 @@ updateProduto($connect);
                             #DELETA PRODUTOS
                             if (isset($_GET['nome']) && isset($_GET['acao']) && $_GET['acao'] == 'deletar' && $_GET['tipo'] == 'produto') {
                                 echo "<form method='POST'  class='form form-center'>";
+                                echo "<div class='div-fechar'><a class='' href='admin.php'><ion-icon name='close-outline' class='icone-link icone-fechar'></ion-icon></a></div>";
                                 echo "Deseja mesmo deletar o produto " . $_GET['nome'] . "?";
                                 echo "<input type='hidden' name='id' value=" . $_GET['id'] . ">";
                                 echo "<input class='btn btn-ativo' type='submit' value='Deletar' name='deletar'>";
